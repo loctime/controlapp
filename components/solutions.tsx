@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { FileText, Shield, FolderOpen, Receipt, Truck, Briefcase, TrendingUp, ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { memo } from "react"
 
 const apps = [
   {
@@ -65,7 +66,7 @@ const apps = [
   },
 ]
 
-export function Solutions() {
+export const Solutions = memo(() => {
   return (
     <section id="soluciones" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decoration */}
@@ -121,7 +122,9 @@ export function Solutions() {
                   src={app.image || "/placeholder.svg"}
                   alt={app.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -181,4 +184,6 @@ export function Solutions() {
       </div>
     </section>
   )
-}
+})
+
+Solutions.displayName = 'Solutions'

@@ -3,8 +3,9 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Play } from "lucide-react"
 import Image from "next/image"
+import { memo } from "react"
 
-export function Hero() {
+export const Hero = memo(() => {
   return (
     <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background effects */}
@@ -121,6 +122,7 @@ export function Hero() {
                 alt="ControlApp Dashboard"
                 width={600}
                 height={400}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto"
                 priority
               />
@@ -177,4 +179,6 @@ export function Hero() {
       </div>
     </section>
   )
-}
+})
+
+Hero.displayName = 'Hero'

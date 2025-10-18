@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { memo } from "react"
 
 const stats = [
   { value: "10,000+", label: "Empresas activas" },
@@ -9,7 +10,7 @@ const stats = [
   { value: "24/7", label: "Soporte técnico" },
 ]
 
-export function Clients() {
+export const Clients = memo(() => {
   return (
     <section id="clientes" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
       {/* Decorative background */}
@@ -111,4 +112,6 @@ export function Clients() {
       </div>
     </section>
   )
-}
+})
+
+Clients.displayName = 'Clients'
