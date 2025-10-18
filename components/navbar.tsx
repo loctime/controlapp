@@ -72,18 +72,39 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleMegaMenuEnter = (menuType: 'empresas' | 'personas') => {
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout)
-      setMegaMenuTimeout(null)
+  // Cerrar mega menú al hacer click fuera
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (showMegaMenu) {
+        const target = event.target as HTMLElement
+        if (!target.closest('[data-mega-menu]') && !target.closest('button')) {
+          setShowMegaMenu(false)
+          setActiveMenu(null)
+        }
+      }
     }
-    setActiveMenu(menuType)
-    setShowMegaMenu(true)
-    // Actualizar la solución seleccionada según el menú
-    if (menuType === 'empresas') {
-      setSelectedSolution(solutionsEmpresas[0])
+
+    if (showMegaMenu) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showMegaMenu])
+
+  const handleMegaMenuClick = (menuType: 'empresas' | 'personas') => {
+    if (activeMenu === menuType) {
+      // Si ya está abierto el mismo menú, cerrarlo
+      setShowMegaMenu(false)
+      setActiveMenu(null)
     } else {
-      setSelectedSolution(solutionsPersonas[0])
+      // Abrir el nuevo menú
+      setActiveMenu(menuType)
+      setShowMegaMenu(true)
+      // Actualizar la solución seleccionada según el menú
+      if (menuType === 'empresas') {
+        setSelectedSolution(solutionsEmpresas[0])
+      } else {
+        setSelectedSolution(solutionsPersonas[0])
+      }
     }
   }
 
@@ -132,14 +153,11 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {/* Soluciones para Empresas */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleMegaMenuEnter('empresas')}
-              onMouseLeave={handleMegaMenuLeave}
-            >
+            <div className="relative">
               <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
+                onClick={() => handleMegaMenuClick('empresas')}
                 className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
               >
                 Para Empresas
@@ -149,15 +167,12 @@ export function Navbar() {
             </div>
 
             {/* Soluciones para Personas */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleMegaMenuEnter('personas')}
-              onMouseLeave={handleMegaMenuLeave}
-            >
+            <div className="relative">
               <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
+                onClick={() => handleMegaMenuClick('personas')}
                 className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
               >
                 Para Personas
@@ -323,7 +338,7 @@ export function Navbar() {
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2 }}
           className="fixed top-20 left-0 right-0 z-40 glass-effect shadow-2xl border-2 border-white/50 overflow-hidden"
-          onMouseEnter={() => handleMegaMenuEnter(activeMenu)}
+          data-mega-menu
           onMouseLeave={handleMegaMenuLeave}
         >
           <div className="flex w-full max-w-6xl mx-auto">
