@@ -108,11 +108,29 @@ export function Navbar() {
     }
   }
 
+  const handleMegaMenuHover = (menuType: 'empresas' | 'personas') => {
+    // Solo cambiar si ya hay un menú abierto
+    if (showMegaMenu && activeMenu !== menuType) {
+      // Cancelar cualquier timeout pendiente
+      if (megaMenuTimeout) {
+        clearTimeout(megaMenuTimeout)
+        setMegaMenuTimeout(null)
+      }
+      setActiveMenu(menuType)
+      // Actualizar la solución seleccionada según el menú
+      if (menuType === 'empresas') {
+        setSelectedSolution(solutionsEmpresas[0])
+      } else {
+        setSelectedSolution(solutionsPersonas[0])
+      }
+    }
+  }
+
   const handleMegaMenuLeave = () => {
     const timeout = setTimeout(() => {
       setShowMegaMenu(false)
       setActiveMenu(null)
-    }, 150) // 150ms delay
+    }, 300) // 300ms delay para dar más tiempo
     setMegaMenuTimeout(timeout)
   }
 
@@ -152,33 +170,41 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Soluciones para Empresas */}
-            <div className="relative">
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                onClick={() => handleMegaMenuClick('empresas')}
-                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
-              >
-                Para Empresas
-                <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'empresas' ? 'rotate-180' : ''}`} />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </motion.button>
-            </div>
+            {/* Contenedor de Mega Menús */}
+            <div 
+              className="flex items-center gap-8"
+              onMouseLeave={handleMegaMenuLeave}
+            >
+              {/* Soluciones para Empresas */}
+              <div className="relative">
+                <motion.button
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  onClick={() => handleMegaMenuClick('empresas')}
+                  onMouseEnter={() => handleMegaMenuHover('empresas')}
+                  className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
+                >
+                  Para Empresas
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'empresas' ? 'rotate-180' : ''}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </motion.button>
+              </div>
 
-            {/* Soluciones para Personas */}
-            <div className="relative">
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                onClick={() => handleMegaMenuClick('personas')}
-                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
-              >
-                Para Personas
-                <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'personas' ? 'rotate-180' : ''}`} />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </motion.button>
+              {/* Soluciones para Personas */}
+              <div className="relative">
+                <motion.button
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  onClick={() => handleMegaMenuClick('personas')}
+                  onMouseEnter={() => handleMegaMenuHover('personas')}
+                  className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
+                >
+                  Para Personas
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'personas' ? 'rotate-180' : ''}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </motion.button>
+              </div>
             </div>
 
             {/* Otros links */}
@@ -329,6 +355,21 @@ export function Navbar() {
       </AnimatePresence>
     </nav>
     
+    {/* Zona de puente invisible */}
+    <AnimatePresence>
+      {showMegaMenu && activeMenu && (
+        <div 
+          className="fixed top-16 left-0 right-0 h-4 z-30"
+          onMouseEnter={() => {
+            if (megaMenuTimeout) {
+              clearTimeout(megaMenuTimeout)
+              setMegaMenuTimeout(null)
+            }
+          }}
+        />
+      )}
+    </AnimatePresence>
+
     {/* Mega Menu - Fuera del navbar para ancho completo */}
     <AnimatePresence>
       {showMegaMenu && activeMenu && (
@@ -339,6 +380,13 @@ export function Navbar() {
           transition={{ duration: 0.2 }}
           className="fixed top-20 left-0 right-0 z-40 glass-effect shadow-2xl border-2 border-white/50 overflow-hidden"
           data-mega-menu
+          onMouseEnter={() => {
+            // Cancelar cualquier timeout cuando el mouse entra al mega menú
+            if (megaMenuTimeout) {
+              clearTimeout(megaMenuTimeout)
+              setMegaMenuTimeout(null)
+            }
+          }}
           onMouseLeave={handleMegaMenuLeave}
         >
           <div className="flex w-full max-w-6xl mx-auto">
