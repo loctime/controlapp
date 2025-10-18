@@ -5,7 +5,7 @@ import { Menu, X, FileText, Shield, FolderOpen, Receipt, Truck, Briefcase, Trend
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
-const solutions = [
+const solutionsEmpresas = [
   {
     name: "ControlDoc",
     description: "Gestión documental multi-tenant con aprobación, versionado y control de vencimientos",
@@ -22,33 +22,6 @@ const solutions = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
     features: ["Modo offline completo", "Formularios personalizados", "Reportes en PDF"],
     color: "from-emerald-500 to-teal-500",
-    href: "#"
-  },
-  {
-    name: "ControlFile",
-    description: "Almacenamiento en la nube profesional con integración Backblaze B2",
-    icon: FolderOpen,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
-    features: ["75% más económico", "Enlaces compartidos", "App móvil nativa"],
-    color: "from-violet-500 to-blue-500",
-    href: "#"
-  },
-  {
-    name: "ControlGastos",
-    description: "Gestión inteligente de gastos fijos mensuales con notificaciones automáticas",
-    icon: Receipt,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file3-vmbmN61v5atqI637XpFupjQa80OunU.png",
-    features: ["Gastos recurrentes", "Notificaciones push", "Integración con ControlFile"],
-    color: "from-amber-500 to-orange-500",
-    href: "#"
-  },
-  {
-    name: "ControlD",
-    description: "Control de remitos y pedidos con firmas digitales y seguimiento completo",
-    icon: Truck,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file2-Hj2gQECrLMut1a2DcX0a4THgtzQinE.png",
-    features: ["Firmas digitales", "Seguimiento en tiempo real", "Remitos en PDF"],
-    color: "from-rose-500 to-cyan-500",
     href: "#"
   },
   {
@@ -71,11 +44,25 @@ const solutions = [
   },
 ]
 
+const solutionsPersonas = [
+  {
+    name: "ControlGastos",
+    description: "Gestión inteligente de gastos fijos mensuales con notificaciones automáticas",
+    icon: Receipt,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file3-vmbmN61v5atqI637XpFupjQa80OunU.png",
+    features: ["Gastos recurrentes", "Notificaciones push", "Integración con ControlFile"],
+    color: "from-amber-500 to-orange-500",
+    href: "#"
+  },
+]
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [showMegaMenu, setShowMegaMenu] = useState(false)
-  const [selectedSolution, setSelectedSolution] = useState(solutions[0])
+  const [activeMenu, setActiveMenu] = useState<'empresas' | 'personas' | null>(null)
+  const [selectedSolution, setSelectedSolution] = useState(solutionsEmpresas[0])
+  const [megaMenuTimeout, setMegaMenuTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,6 +71,29 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleMegaMenuEnter = (menuType: 'empresas' | 'personas') => {
+    if (megaMenuTimeout) {
+      clearTimeout(megaMenuTimeout)
+      setMegaMenuTimeout(null)
+    }
+    setActiveMenu(menuType)
+    setShowMegaMenu(true)
+    // Actualizar la solución seleccionada según el menú
+    if (menuType === 'empresas') {
+      setSelectedSolution(solutionsEmpresas[0])
+    } else {
+      setSelectedSolution(solutionsPersonas[0])
+    }
+  }
+
+  const handleMegaMenuLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowMegaMenu(false)
+      setActiveMenu(null)
+    }, 150) // 150ms delay
+    setMegaMenuTimeout(timeout)
+  }
 
   const navLinks = [
     { name: "Integración", href: "#integracion" },
@@ -121,22 +131,39 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Soluciones con Mega Menu */}
+            {/* Soluciones para Empresas */}
             <div 
               className="relative"
-              onMouseEnter={() => setShowMegaMenu(true)}
-              onMouseLeave={() => setShowMegaMenu(false)}
+              onMouseEnter={() => handleMegaMenuEnter('empresas')}
+              onMouseLeave={handleMegaMenuLeave}
             >
               <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
               >
-                Soluciones para Empresas
-                <ChevronDown size={16} className={`transition-transform duration-300 ${showMegaMenu ? 'rotate-180' : ''}`} />
+                Para Empresas
+                <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'empresas' ? 'rotate-180' : ''}`} />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </motion.button>
+            </div>
 
+            {/* Soluciones para Personas */}
+            <div 
+              className="relative"
+              onMouseEnter={() => handleMegaMenuEnter('personas')}
+              onMouseLeave={handleMegaMenuLeave}
+            >
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
+              >
+                Para Personas
+                <ChevronDown size={16} className={`transition-transform duration-300 ${activeMenu === 'personas' ? 'rotate-180' : ''}`} />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+              </motion.button>
             </div>
 
             {/* Otros links */}
@@ -197,18 +224,44 @@ export function Navbar() {
             className="md:hidden glass-effect border-t border-blue-200 max-h-[80vh] overflow-y-auto"
           >
             <div className="px-4 py-6 space-y-4">
-              {/* Soluciones en móvil */}
+              {/* Soluciones Empresariales en móvil */}
               <div className="space-y-2">
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-wider px-4 mb-3">
-                  Nuestras Soluciones
+                  Soluciones Empresariales
                 </div>
-                {solutions.map((solution, index) => (
+                {solutionsEmpresas.map((solution, index) => (
                   <motion.a
                     key={solution.name}
                     href={solution.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${solution.color} flex items-center justify-center flex-shrink-0`}>
+                      <solution.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-semibold text-sm text-gray-900">{solution.name}</div>
+                      <div className="text-xs text-gray-600 line-clamp-1">{solution.description}</div>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Soluciones para Personas en móvil */}
+              <div className="space-y-2">
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-wider px-4 mb-3">
+                  Para Personas
+                </div>
+                {solutionsPersonas.map((solution, index) => (
+                  <motion.a
+                    key={solution.name}
+                    href={solution.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (solutionsEmpresas.length + index) * 0.05 }}
                     className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200"
                     onClick={() => setIsOpen(false)}
                   >
@@ -233,7 +286,7 @@ export function Navbar() {
                   href={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (solutions.length + index) * 0.05 }}
+                  transition={{ delay: (solutionsEmpresas.length + solutionsPersonas.length + index) * 0.05 }}
                   className="block text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium py-2 px-4 rounded-lg hover:bg-blue-50"
                   onClick={() => setIsOpen(false)}
                 >
@@ -263,48 +316,57 @@ export function Navbar() {
     
     {/* Mega Menu - Fuera del navbar para ancho completo */}
     <AnimatePresence>
-      {showMegaMenu && (
+      {showMegaMenu && activeMenu && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2 }}
           className="fixed top-20 left-0 right-0 z-40 glass-effect shadow-2xl border-2 border-white/50 overflow-hidden"
+          onMouseEnter={() => handleMegaMenuEnter(activeMenu)}
+          onMouseLeave={handleMegaMenuLeave}
         >
-          <div className="flex w-full">
+          <div className="flex w-full max-w-6xl mx-auto">
             {/* Lista de Soluciones */}
-            <div className="w-2/5 p-8 border-r border-gray-200/50">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Nuestras Soluciones</h3>
-                <p className="text-base text-gray-600">Explora todas nuestras aplicaciones empresariales</p>
+            <div className="w-2/5 p-6 border-r border-gray-200/50">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {activeMenu === 'empresas' ? 'Soluciones Empresariales' : 'Para Personas'}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {activeMenu === 'empresas' 
+                    ? 'Explora todas nuestras aplicaciones empresariales' 
+                    : 'Herramientas para gestión personal'
+                  }
+                </p>
               </div>
-              <div className="space-y-2">
-                {solutions.map((solution) => (
+              <div className="space-y-1">
+                {(activeMenu === 'empresas' ? solutionsEmpresas : solutionsPersonas).map((solution) => (
                   <motion.button
                     key={solution.name}
                     onMouseEnter={() => setSelectedSolution(solution)}
                     whileHover={{ x: 4 }}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-200 text-left ${
+                    className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all duration-200 text-left ${
                       selectedSolution.name === solution.name
-                        ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200/50 shadow-lg'
-                        : 'hover:bg-gray-50 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200/50 shadow-md'
+                        : 'hover:bg-gray-50 hover:shadow-sm'
                     }`}
                   >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                      <solution.icon className="w-6 h-6 text-white" />
+                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${solution.color} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                      <solution.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-bold text-base text-gray-900">{solution.name}</div>
-                      <div className="text-sm text-gray-600 line-clamp-2">{solution.description}</div>
+                      <div className="font-semibold text-sm text-gray-900">{solution.name}</div>
+                      <div className="text-xs text-gray-600 line-clamp-1">{solution.description}</div>
                     </div>
-                    <ChevronDown className="w-5 h-5 text-gray-400 -rotate-90" />
+                    <ChevronDown className="w-4 h-4 text-gray-400 -rotate-90" />
                   </motion.button>
                 ))}
               </div>
             </div>
 
             {/* Vista Detallada */}
-            <div className="w-3/5 p-8 bg-gradient-to-br from-blue-50/50 to-cyan-50/30">
+            <div className="w-3/5 p-6 bg-gradient-to-br from-blue-50/50 to-cyan-50/30">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedSolution.name}
@@ -314,7 +376,7 @@ export function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   {/* Imagen */}
-                  <div className="relative h-48 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100 shadow-xl">
+                  <div className="relative h-32 mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100 shadow-lg">
                     <Image
                       src={selectedSolution.image || "/placeholder.svg"}
                       alt={selectedSolution.name}
@@ -325,25 +387,25 @@ export function Navbar() {
                   </div>
 
                   {/* Título y descripción */}
-                  <div className="mb-6">
-                    <h4 className="text-2xl font-bold text-gray-900 mb-3">{selectedSolution.name}</h4>
-                    <p className="text-base text-gray-600 leading-relaxed">{selectedSolution.description}</p>
+                  <div className="mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{selectedSolution.name}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{selectedSolution.description}</p>
                   </div>
 
                   {/* Features */}
-                  <div className="mb-6">
-                    <h5 className="text-lg font-semibold text-gray-900 mb-4">Características principales:</h5>
-                    <ul className="space-y-3">
+                  <div className="mb-4">
+                    <h5 className="text-sm font-semibold text-gray-900 mb-3">Características principales:</h5>
+                    <ul className="space-y-2">
                       {selectedSolution.features.map((feature, idx) => (
                         <motion.li
                           key={feature}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: idx * 0.05 }}
-                          className="flex items-center gap-3 text-base text-gray-700"
+                          className="flex items-center gap-2 text-sm text-gray-700"
                         >
-                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-sm">
+                            <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                               <path
                                 fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -351,7 +413,7 @@ export function Navbar() {
                               />
                             </svg>
                           </div>
-                          <span className="font-semibold">{feature}</span>
+                          <span className="font-medium">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -361,10 +423,10 @@ export function Navbar() {
                   <motion.a
                     href={selectedSolution.href}
                     whileHover={{ x: 5 }}
-                    className="inline-flex items-center gap-3 text-blue-600 font-bold text-lg hover:gap-4 transition-all bg-blue-50 px-6 py-3 rounded-xl hover:bg-blue-100 shadow-lg"
+                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all bg-blue-50 px-4 py-2 rounded-lg hover:bg-blue-100 shadow-md"
                   >
                     Más información
-                    <ArrowRight size={18} />
+                    <ArrowRight size={14} />
                   </motion.a>
                 </motion.div>
               </AnimatePresence>
