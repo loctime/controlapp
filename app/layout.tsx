@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#0EA5E9',
+  themeColor: '#9333EA',
 }
 
 export default function RootLayout({
@@ -31,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className="scroll-smooth">
       <head>
         <link rel="icon" type="image/png" href="/icon-192.jpg" />
         <link rel="apple-touch-icon" href="/icon-192.jpg" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   )
 }

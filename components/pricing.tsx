@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Check } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 
 const plans = [
   {
@@ -58,72 +58,127 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="precios" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50">
+    <section id="precios" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-pink-50/50 -z-10"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl -z-10 animate-float"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl -z-10 animate-float-delayed"></div>
+      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
-            Planes para cada tamaño de empresa
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-4 px-4 py-2 bg-purple-100 rounded-full"
+          >
+            💎 Precios Transparentes
+          </motion.span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+              Planes para cada tamaño
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              de empresa
+            </span>
           </h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Comienza gratis y escala según tus necesidades. Sin sorpresas, sin costos ocultos.
           </p>
         </motion.div>
 
         {/* Plans */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-white rounded-2xl p-8 ${
-                plan.popular ? "border-2 border-primary shadow-xl scale-105" : "border border-neutral-200"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              className={`relative rounded-3xl p-8 transition-all duration-500 ${
+                plan.popular 
+                  ? "glass-effect border-4 border-purple-300 shadow-2xl shadow-purple-500/40 scale-105 z-10" 
+                  : "glass-effect border-2 border-white/50 hover:border-purple-200 shadow-lg hover:shadow-xl"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Más popular
-                </div>
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 200, delay: 0.5 }}
+                  className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-purple-500/50"
+                >
+                  ⭐ Más popular
+                </motion.div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-2">{plan.name}</h3>
-                <p className="text-neutral-600 text-sm">{plan.description}</p>
+              <div className="mb-8 mt-2">
+                <h3 className={`text-3xl font-extrabold mb-3 ${
+                  plan.popular 
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" 
+                    : "text-gray-900"
+                }`}>
+                  {plan.name}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{plan.description}</p>
               </div>
 
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-neutral-900">{plan.price}</span>
-                <span className="text-neutral-600">{plan.period}</span>
+              <div className="mb-8">
+                <span className={`text-5xl font-extrabold ${
+                  plan.popular 
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" 
+                    : "text-gray-900"
+                }`}>
+                  {plan.price}
+                </span>
+                <span className="text-gray-600 text-lg ml-1">{plan.period}</span>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-600">{feature}</span>
-                  </li>
+              <ul className="space-y-4 mb-10">
+                {plan.features.map((feature, idx) => (
+                  <motion.li 
+                    key={feature} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + idx * 0.05 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                      plan.popular 
+                        ? "bg-gradient-to-br from-purple-500 to-pink-500" 
+                        : "bg-gradient-to-br from-green-400 to-emerald-600"
+                    }`}>
+                      <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                    </div>
+                    <span className="text-gray-700 font-medium">{feature}</span>
+                  </motion.li>
                 ))}
               </ul>
 
-              <a
+              <motion.a
                 href="#"
-                className={`block text-center py-3 px-6 rounded-lg font-medium transition-colors ${
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`block text-center py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg ${
                   plan.popular
-                    ? "bg-neutral-900 text-white hover:bg-neutral-800"
-                    : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200"
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-purple-500/50 shine-effect"
+                    : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                 }`}
               >
                 {plan.cta}
-              </a>
+              </motion.a>
             </motion.div>
           ))}
         </div>
@@ -133,13 +188,20 @@ export function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-16"
         >
-          <p className="text-neutral-600 mb-4">¿Necesitas más información sobre nuestros planes?</p>
-          <a href="#" className="text-primary font-medium hover:underline">
-            Comparar todos los planes →
-          </a>
+          <div className="glass-effect rounded-3xl p-8 max-w-2xl mx-auto border-2 border-white/50 shadow-xl">
+            <p className="text-gray-700 text-lg mb-4 font-medium">¿Necesitas más información sobre nuestros planes?</p>
+            <motion.a 
+              href="#" 
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 text-purple-600 font-bold text-lg hover:gap-4 transition-all"
+            >
+              Comparar todos los planes
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>

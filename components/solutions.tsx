@@ -67,82 +67,114 @@ const apps = [
 
 export function Solutions() {
   return (
-    <section id="soluciones" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50">
+    <section id="soluciones" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50/30 to-white -z-10"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-pink-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-purple-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
+      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
-            Soluciones para cada necesidad
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-4 px-4 py-2 bg-purple-100 rounded-full"
+          >
+            ✨ Nuestras Soluciones
+          </motion.span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+              Soluciones para cada necesidad
+            </span>
           </h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Suite completa de aplicaciones diseñadas para digitalizar y optimizar todos los procesos de tu empresa
           </p>
         </motion.div>
 
         {/* Apps Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app, index) => (
             <motion.div
               key={app.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 border border-neutral-200 hover:border-primary/20"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group glass-effect rounded-3xl p-7 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 border-2 border-white/50 hover:border-purple-300/50 relative overflow-hidden"
             >
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              
               {/* Image */}
-              <div className="relative h-48 mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-50">
+              <div className="relative h-52 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/50 to-pink-100/50 shadow-lg">
                 <Image
                   src={app.image || "/placeholder.svg"}
                   alt={app.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Icon and Title */}
-              <div className="flex items-start gap-4 mb-4">
+              <div className="flex items-start gap-4 mb-5 relative z-10">
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${app.color} flex items-center justify-center flex-shrink-0`}
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${app.color} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <app.icon className="w-6 h-6 text-white" />
+                  <app.icon className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2">{app.name}</h3>
-                  <p className="text-sm text-neutral-600 leading-relaxed">{app.description}</p>
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent mb-2 group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                    {app.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{app.description}</p>
                 </div>
               </div>
 
               {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {app.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-neutral-600">
-                    <svg className="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {feature}
-                  </li>
+              <ul className="space-y-3 mb-6 relative z-10">
+                {app.features.map((feature, idx) => (
+                  <motion.li 
+                    key={feature} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + idx * 0.05 }}
+                    className="flex items-center gap-3 text-sm text-gray-700"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <span className="font-medium">{feature}</span>
+                  </motion.li>
                 ))}
               </ul>
 
               {/* CTA */}
-              <a
+              <motion.a
                 href="#"
-                className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all"
+                whileHover={{ x: 5 }}
+                className="inline-flex items-center gap-2 text-purple-600 font-bold text-sm group-hover:gap-4 transition-all relative z-10"
               >
                 Más información
-                <ArrowRight size={16} />
-              </a>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </motion.a>
             </motion.div>
           ))}
         </div>
