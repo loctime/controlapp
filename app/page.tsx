@@ -7,7 +7,6 @@ import { Integration } from "@/components/integration"
 import { Clients } from "@/components/clients"
 import { Pricing } from "@/components/pricing"
 import { Footer } from "@/components/footer"
-import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 import { useEffect } from "react"
 
 export default function Home() {
@@ -38,7 +37,6 @@ export default function Home() {
       <Clients />
       <Pricing />
       <Footer />
-      <PWAInstallPrompt />
     </main>
   )
 }
