@@ -13,7 +13,7 @@ const solutionsEmpresas = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/documento-0W2O7GyQ89nJ0Kxpi6kB6aYM0TVYt1.png",
     features: ["Aprobación de documentos", "OCR inteligente", "Control de vencimientos"],
     color: "from-blue-500 to-cyan-500",
-    href: "#"
+    href: "/control-doc"
   },
   {
     name: "ControlAudit",
@@ -22,7 +22,7 @@ const solutionsEmpresas = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
     features: ["Modo offline completo", "Formularios personalizados", "Reportes en PDF"],
     color: "from-emerald-500 to-teal-500",
-    href: "#"
+    href: "/control-audit"
   },
   {
     name: "Bolsa de Trabajo",
@@ -31,7 +31,7 @@ const solutionsEmpresas = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file-2Kclv2QWxtrOdw7z6E3eP3Kj8ZK39M.png",
     features: ["Generador de CVs", "Dashboard admin", "Notificaciones por email"],
     color: "from-indigo-500 to-blue-500",
-    href: "#"
+    href: "/bolsa-trabajo"
   },
   {
     name: "Control Ventas",
@@ -40,7 +40,7 @@ const solutionsEmpresas = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lecturaAutomatica-10Zh7xNgq7oJmQdMNGaIVDKaJYIHWE.png",
     features: ["Cierre de caja", "Múltiples métodos de pago", "Historial completo"],
     color: "from-cyan-500 to-blue-500",
-    href: "#"
+    href: "/control-ventas"
   },
 ]
 
@@ -52,7 +52,7 @@ const solutionsPersonas = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file3-vmbmN61v5atqI637XpFupjQa80OunU.png",
     features: ["Gastos recurrentes", "Notificaciones push", "Integración con ControlFile"],
     color: "from-amber-500 to-orange-500",
-    href: "#"
+    href: "/control-gastos"
   },
 ]
 
