@@ -28,7 +28,7 @@ const apps = [
     icon: FolderOpen,
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
     features: ["75% más económico", "Enlaces compartidos", "App móvil nativa"],
-    color: "from-violet-500 to-purple-500",
+    color: "from-violet-500 to-blue-500",
   },
   {
     name: "ControlGastos",
@@ -44,7 +44,7 @@ const apps = [
     icon: Truck,
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file2-Hj2gQECrLMut1a2DcX0a4THgtzQinE.png",
     features: ["Firmas digitales", "Seguimiento en tiempo real", "Remitos en PDF"],
-    color: "from-rose-500 to-pink-500",
+    color: "from-rose-500 to-cyan-500",
   },
   {
     name: "Bolsa de Trabajo",
@@ -69,9 +69,9 @@ export function Solutions() {
   return (
     <section id="soluciones" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50/30 to-white -z-10"></div>
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-pink-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-purple-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white -z-10"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-cyan-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-200/30 to-transparent rounded-full blur-3xl -z-10"></div>
       
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -86,12 +86,12 @@ export function Solutions() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-4 px-4 py-2 bg-purple-100 rounded-full"
+            className="inline-block text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 px-4 py-2 bg-blue-100 rounded-full"
           >
             ✨ Nuestras Soluciones
           </motion.span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
               Soluciones para cada necesidad
             </span>
           </h2>
@@ -110,13 +110,13 @@ export function Solutions() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group glass-effect rounded-3xl p-7 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 border-2 border-white/50 hover:border-purple-300/50 relative overflow-hidden"
+              className="group glass-effect rounded-3xl p-7 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 border-2 border-white/50 hover:border-blue-300/50 relative overflow-hidden"
             >
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               
               {/* Image */}
-              <div className="relative h-52 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/50 to-pink-100/50 shadow-lg">
+              <div className="relative h-52 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100/50 to-cyan-100/50 shadow-lg">
                 <Image
                   src={app.image || "/placeholder.svg"}
                   alt={app.name}
@@ -134,7 +134,7 @@ export function Solutions() {
                   <app.icon className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent mb-2 group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 group-hover:from-blue-600 group-hover:to-cyan-600 transition-all duration-300">
                     {app.name}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">{app.description}</p>
@@ -170,7 +170,7 @@ export function Solutions() {
               <motion.a
                 href="#"
                 whileHover={{ x: 5 }}
-                className="inline-flex items-center gap-2 text-purple-600 font-bold text-sm group-hover:gap-4 transition-all relative z-10"
+                className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group-hover:gap-4 transition-all relative z-10"
               >
                 Más información
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
