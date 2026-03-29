@@ -6,23 +6,23 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ControlApp - Suite de Gestión Empresarial",
+  title: "ControlApp | Plataforma centralizada multi-app",
   description:
-    "Suite completa de aplicaciones para gestión empresarial: documentos, auditorías, archivos, gastos, ventas y más",
+    "Plataforma centralizada con autenticacion compartida, permisos por app y storage global visible desde ControlFile.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "ControlApp",
   },
-  generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#2563EB',
+  themeColor: "#2563EB",
 }
 
 export default function RootLayout({

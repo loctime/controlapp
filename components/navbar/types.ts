@@ -1,17 +1,13 @@
-import { LucideIcon } from "lucide-react"
-
-export interface Solution {
-  name: string
-  description: string
-  icon: LucideIcon
-  image: string
-  features: string[]
-  color: string
-  href: string
-}
+import type { PlatformApp } from "@/lib/platform-data"
 
 export interface NavLink {
   name: string
   href: string
+}
+
+export interface NavigationAppGroup {
+  title: string
+  description: string
+  apps: PlatformApp[]
 }
 

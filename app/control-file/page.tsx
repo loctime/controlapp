@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { AppLandingTemplate } from "@/components/app-landing-template"
 import { getPlatformAppBySlug } from "@/lib/platform-data"
 
-const app = getPlatformAppBySlug("control-audit")
+const app = getPlatformAppBySlug("control-file")
 
 export const metadata: Metadata = app
   ? {
@@ -12,10 +12,10 @@ export const metadata: Metadata = app
     }
   : {}
 
-export default function ControlAuditPage() {
+export default function ControlFilePage() {
   if (!app) {
     notFound()
   }
 
-  return <AppLandingTemplate appSlug="control-audit" />
+  return <AppLandingTemplate appSlug="control-file" />
 }
