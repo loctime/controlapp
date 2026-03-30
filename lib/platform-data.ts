@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react"
 import {
   Briefcase,
+  Calendar,
   FileText,
   FolderOpen,
   Lock,
@@ -478,6 +479,112 @@ export const platformApps: PlatformApp[] = [
           "Comparte autenticacion con todos los modulos habilitados",
           "Guarda evidencias dentro del storage global visible desde ControlFile",
           "Respeta permisos por app para limitar acceso a auditorias sensibles",
+        ],
+      },
+    },
+  },
+  {
+    id: "horarios-simple",
+    slug: "horarios",
+    name: "Horarios Simple",
+    shortDescription:
+      "Gestion de horarios semanales y mensuales conectada al ecosistema compartido de ControlApp.",
+    category: "operations",
+    status: "active",
+    icon: Calendar,
+    image: "/horarios-app.jpg",
+    color: "from-orange-500 to-amber-500",
+    href: "/horarios",
+    features: [
+      "Horarios semanales y vista mensual",
+      "Exportacion a imagen para compartir",
+      "Publicacion en PWA para empleados",
+    ],
+    platformCapabilities: {
+      sharedAuth: true,
+      sharedStorage: true,
+      visibleInControlFile: true,
+      requiresPermissions: true,
+    },
+    seo: {
+      title: "Horarios Simple | Gestion de horarios integrada",
+      description:
+        "Gestion de horarios semanales y mensuales sobre la plataforma centralizada de ControlApp, con autenticacion compartida y publicacion para equipos.",
+    },
+    landingContent: {
+      heroLabel: "Gestion de horarios",
+      heroTitle: "Horarios Simple",
+      heroDescription:
+        "Horarios Simple organiza turnos semanales y mensuales sobre la misma base de autenticacion, permisos y storage de ControlApp. Permite publicar cronogramas para el equipo, compartirlos como imagen y mantener todo dentro del ecosistema operativo.",
+      heroStats: {
+        value: "90%",
+        label: "menos conflictos de horarios en la operacion diaria",
+      },
+      benefits: [
+        "Reduce conflictos y superposiciones de horarios",
+        "Centraliza la planificacion del equipo en la misma plataforma",
+        "Permite compartir cronogramas sin salir del ecosistema",
+        "Mantiene permisos por modulo para equipos y supervisores",
+        "Escala con nuevas areas o sucursales sin cuentas separadas",
+        "Se integra con el resto de las apps activas de ControlApp",
+      ],
+      functionalities: [
+        {
+          title: "Horarios semanales",
+          description:
+            "Crea y ajusta cronogramas semanales con una operacion simple para supervisores y equipos.",
+          icon: Calendar,
+        },
+        {
+          title: "Vista mensual",
+          description:
+            "Visualiza el mes completo para detectar cobertura, huecos y cambios antes de publicarlos.",
+          icon: FileText,
+        },
+        {
+          title: "Exportacion a imagen",
+          description:
+            "Convierte horarios en imagen para compartirlos rapidamente por WhatsApp, email o imprimir.",
+          icon: FolderOpen,
+        },
+        {
+          title: "Publicacion en PWA",
+          description:
+            "Publica el horario para que los empleados lo consulten desde la app con acceso controlado.",
+          icon: Lock,
+        },
+      ],
+      useCases: [
+        {
+          title: "Restaurantes y bares",
+          description:
+            "Gestiona cambios de turnos, francos y cobertura en operaciones con horarios variables.",
+        },
+        {
+          title: "Tiendas y comercios",
+          description:
+            "Planifica el equipo por semana y por mes para sostener la operacion en todos los turnos.",
+        },
+        {
+          title: "Empresas de servicios",
+          description:
+            "Coordina equipos y disponibilidad sin depender de planillas separadas o mensajes sueltos.",
+        },
+      ],
+      finalCta: {
+        primaryLabel: "Ver Horarios Simple",
+        primaryHref: "/horarios",
+        secondaryLabel: "Explorar apps activas",
+        secondaryHref: "/#apps",
+      },
+      platformIntegration: {
+        title: "Integracion con la plataforma",
+        description:
+          "Horarios Simple se apoya en la base comun de ControlApp para enfocarse en planificacion y comunicacion operativa, no en rehacer autenticacion o acceso.",
+        bullets: [
+          "Comparte login y permisos con los demas modulos del ecosistema",
+          "Puede convivir con documentacion y archivos visibles desde ControlFile",
+          "Se suma al catalogo activo sin duplicar navegacion ni estructura comercial",
         ],
       },
     },
