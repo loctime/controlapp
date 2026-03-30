@@ -1,4 +1,4 @@
-import { FileText, Shield, Briefcase, TrendingUp, Receipt } from "lucide-react"
+import { FileText, Shield, Briefcase, TrendingUp, Receipt, Calendar } from "lucide-react"
 import { Solution } from "./types"
 
 export const solutionsEmpresas: Solution[] = [
@@ -19,6 +19,15 @@ export const solutionsEmpresas: Solution[] = [
     features: ["Modo offline completo", "Formularios personalizados", "Reportes en PDF"],
     color: "from-emerald-500 to-teal-500",
     href: "/control-audit"
+  },
+  {
+    name: "Horarios Simple",
+    description: "Gestión de horarios semanales y mensuales con exportación de imagen y PWA para empleados",
+    icon: Calendar,
+    image: "/horarios-app.jpg",
+    features: ["Horarios semanales", "Vista mensual", "Exportar a imagen", "Publicar en PWA"],
+    color: "from-orange-500 to-amber-500",
+    href: "/horarios"
   },
   {
     name: "Bolsa de Trabajo",

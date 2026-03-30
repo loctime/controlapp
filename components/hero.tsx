@@ -31,7 +31,7 @@ export const Hero = memo(() => {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-lg shadow-blue-200/50 border border-blue-200"
             >
               <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-              Nuevo: ControlApp Suite 2025
+              Nuevo: Horarios Simple + Suite 2025
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
@@ -46,7 +46,7 @@ export const Hero = memo(() => {
 
             <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Suite completa de aplicaciones profesionales para digitalizar y optimizar todos los procesos de tu
-              empresa. Desde documentos hasta ventas, todo en un solo lugar.
+              empresa. Gestión de horarios, documentos, ventas, auditorías y más, todo en un solo lugar.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FileText, Shield, FolderOpen, Receipt, Truck, Briefcase, TrendingUp, ArrowRight } from "lucide-react"
+import { FileText, Shield, FolderOpen, Receipt, Truck, Briefcase, TrendingUp, ArrowRight, Calendar } from "lucide-react"
 import Image from "next/image"
 import { memo } from "react"
 
@@ -30,6 +30,14 @@ const apps = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
     features: ["75% más económico", "Enlaces compartidos", "App móvil nativa"],
     color: "from-violet-500 to-blue-500",
+  },
+  {
+    name: "Horarios Simple",
+    description: "Gestión de horarios semanales y mensuales con exportación de imagen y PWA para empleados",
+    icon: Calendar,
+    image: "/horarios-app.jpg",
+    features: ["Horarios semanales", "Vista mensual", "Exportar a imagen", "Publicar en PWA"],
+    color: "from-orange-500 to-amber-500",
   },
   {
     name: "ControlGastos",
