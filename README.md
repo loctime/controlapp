@@ -1,261 +1,163 @@
-# 🎯 ControlApp - Suite de Gestión Empresarial
+# ControlApp Landing
 
-<div align="center">
+Landing de ControlApp orientada a comunicar la plataforma como un ecosistema centralizado multi-app.
 
-![ControlApp Logo](public/placeholder-logo.svg)
+## Enfoque actual
 
-**Una suite completa de aplicaciones para gestión empresarial moderna**
+La landing ya no presenta solo una "suite" de productos sueltos. Ahora comunica a ControlApp como una plataforma con:
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.0-blue?logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.18-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-Private-red.svg)]()
+- autenticacion compartida entre apps
+- permisos por modulo
+- storage global transversal
+- ControlFile como capa visible para navegar archivos por app y coleccion
 
-[Demo en Vivo](#) · [Documentación](./docs/) · [Reportar Bug](#) · [Solicitar Feature](#)
+## Que se refactorizo
 
-</div>
+### 1. Fuente unica de verdad
 
----
+Toda la informacion de plataforma y apps activas vive en [lib/platform-data.ts](./lib/platform-data.ts).
 
-## 📋 Tabla de Contenidos
+Desde ese archivo se resuelven:
 
-- [Características](#-características)
-- [Stack Tecnológico](#-stack-tecnológico)
-- [Inicio Rápido](#-inicio-rápido)
-- [Aplicaciones Incluidas](#-aplicaciones-incluidas)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Scripts Disponibles](#-scripts-disponibles)
-- [Deploy en Vercel](#-deploy-en-vercel)
-- [Documentación](#-documentación)
+- metadata editorial de la home
+- apps activas
+- capacidades compartidas
+- contenido de las landings individuales
+- links de navegacion
 
----
+### 2. Home orientada a plataforma
 
-## ✨ Características
+La home en [app/page.tsx](./app/page.tsx) ahora se compone de:
 
-- 🚀 **PWA (Progressive Web App)** - Instálala como app nativa en cualquier dispositivo
-- 📱 **100% Responsive** - Diseño optimizado para móvil, tablet y desktop
-- ⚡ **Super Rápida** - Next.js 15 con App Router y React Server Components
-- 🎨 **UI Moderna** - Componentes Shadcn/ui + Tailwind CSS
-- 🌐 **Multi-idioma** - Preparado para internacionalización
-- 🔒 **Segura** - Mejores prácticas de seguridad implementadas
-- 📊 **Analytics Ready** - Preparado para Google Analytics y tracking
-- 🎯 **SEO Optimizado** - Metadata y OpenGraph configurados
+- `Hero`: narrativa de cuenta unica, permisos y storage global
+- `PlatformArchitecture`: flujo real de login, acceso y archivos
+- `PlatformCapabilities`: capacidades heredadas por cada nueva app
+- `PlatformAppGrid`: catalogo de apps activas renderizado desde el registro central
 
----
+### 3. Navbar y catalogo escalables
 
-## 🛠️ Stack Tecnológico
+El navbar y los menus mobile/desktop consumen el mismo registro central. Para sumar una app activa no hay que duplicar listas en varios componentes.
 
-### Core
-- **Framework:** [Next.js 15.2.4](https://nextjs.org/)
-- **React:** 19.2.0 con hooks modernos
-- **TypeScript:** 5.9.3 para type safety
-- **Node.js:** >= 18.17.0 recomendado
+Archivos principales:
 
-### UI/UX
-- **Styling:** [Tailwind CSS 3.4](https://tailwindcss.com/)
-- **Components:** [Shadcn/ui](https://ui.shadcn.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- [components/navbar.tsx](./components/navbar.tsx)
+- [components/navbar/MegaMenu.tsx](./components/navbar/MegaMenu.tsx)
+- [components/navbar/NavbarMobile.tsx](./components/navbar/NavbarMobile.tsx)
 
-### Tooling
-- **Package Manager:** pnpm
-- **Linting:** ESLint + eslint-config-next
-- **Code Quality:** Prettier (configurar según necesidad)
+### 4. Plantilla reusable para apps
 
----
+Las landings individuales usan una plantilla comun en [components/app-landing-template.tsx](./components/app-landing-template.tsx).
 
-## 🚀 Inicio Rápido
+Cada pagina de app solo:
 
-### Prerrequisitos
+1. busca su configuracion por `slug`
+2. expone metadata SEO
+3. renderiza la plantilla
 
-```bash
-node >= 18.17.0
-pnpm >= 8.0.0
+Apps activas migradas:
+
+- [app/control-file/page.tsx](./app/control-file/page.tsx)
+- [app/control-doc/page.tsx](./app/control-doc/page.tsx)
+- [app/control-audit/page.tsx](./app/control-audit/page.tsx)
+- [app/control-gastos/page.tsx](./app/control-gastos/page.tsx)
+- [app/control-ventas/page.tsx](./app/control-ventas/page.tsx)
+- [app/bolsa-trabajo/page.tsx](./app/bolsa-trabajo/page.tsx)
+
+## Como agregar una nueva app
+
+Para publicar una nueva app activa en la landing:
+
+1. Agregar su configuracion a `platformApps` en [lib/platform-data.ts](./lib/platform-data.ts)
+2. Definir:
+   - `id`
+   - `slug`
+   - `name`
+   - `shortDescription`
+   - `category`
+   - `status`
+   - `icon`
+   - `image`
+   - `href`
+   - `features`
+   - `platformCapabilities`
+   - `landingContent`
+   - `seo`
+3. Crear una ruta minima en `app/<slug>/page.tsx` que use `AppLandingTemplate`
+4. Marcarla como `active`
+
+Con eso la app aparece automaticamente en:
+
+- navbar desktop
+- menu mobile
+- grilla principal de apps
+- footer
+- landing individual
+
+## Estructura relevante
+
+```text
+app/
+  layout.tsx
+  page.tsx
+  control-file/page.tsx
+  control-doc/page.tsx
+  control-audit/page.tsx
+  control-gastos/page.tsx
+  control-ventas/page.tsx
+  bolsa-trabajo/page.tsx
+
+components/
+  hero.tsx
+  navbar.tsx
+  footer.tsx
+  platform-architecture.tsx
+  platform-capabilities.tsx
+  platform-app-grid.tsx
+  app-landing-template.tsx
+
+lib/
+  platform-data.ts
 ```
 
-### Instalación
+## Estado y decisiones
+
+- Se muestran solo apps activas y coherentes con la narrativa actual
+- `ControlFile` se comunica como explorador transversal del storage global
+- La landing prioriza arquitectura de plataforma por encima del catalogo tradicional
+- Las apps documentadas pero no publicadas pueden quedar en estado `hidden` o `comingSoon`
+
+## Desarrollo
+
+### Requisitos
+
+- Node.js 18+
+- npm o pnpm
+
+### Comandos
 
 ```bash
-# Clonar el repositorio
-git clone [tu-repo-url]
-cd readmes-apps
+npm install
+npm run dev
+```
 
-# Instalar dependencias
+o
+
+```bash
 pnpm install
-
-# Iniciar servidor de desarrollo
 pnpm dev
 ```
 
-La aplicación estará disponible en `http://localhost:3000`
+## Verificacion
 
-### Variables de Entorno
+En este entorno de trabajo no estuvieron disponibles `node`, `npm` ni `pnpm`, asi que no pude ejecutar build o checks automaticos desde la terminal del agente.
 
-Crea un archivo `.env.local` en la raíz del proyecto:
+## Remanentes
 
-```env
-# Ver .env.example para todas las variables disponibles
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-```
+Todavia existen algunos componentes antiguos no usados por la nueva home, como:
 
----
+- `components/solutions.tsx`
+- `components/integration.tsx`
+- `components/clients.tsx`
+- `components/pricing.tsx`
 
-## 📦 Aplicaciones Incluidas
-
-La suite ControlApp incluye las siguientes aplicaciones de gestión:
-
-| Aplicación | Descripción | Documentación |
-|------------|-------------|---------------|
-| 📄 **ControlDoc** | Gestión de documentos empresariales | [Ver docs](./docs/controlDoc.md) |
-| 🔍 **ControlAudit** | Sistema de auditorías y control | [Ver docs](./docs/controlAudit.md) |
-| 📁 **ControlFile** | Gestión de archivos y documentos | [Ver docs](./docs/controlFileReadme.md) |
-| 💰 **ControlGastos** | Control de gastos y finanzas | [Ver docs](./docs/controlGastos.md) |
-| 📦 **ControlRemito** | Gestión de remitos y envíos | [Ver docs](./docs/controlRemito.md) |
-| 👷 **ControlTrabajo** | Control de trabajos y proyectos | [Ver docs](./docs/controlTrabajo.md) |
-| 💵 **ControlVentas** | Sistema de ventas y facturación | [Ver docs](./docs/controlVentas.md) |
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-readmes-apps/
-├── app/                      # Next.js App Router
-│   ├── layout.tsx           # Layout principal
-│   ├── page.tsx             # Página de inicio
-│   └── globals.css          # Estilos globales
-├── components/              # Componentes React
-│   ├── ui/                 # Componentes Shadcn/ui
-│   ├── navbar.tsx          # Navegación
-│   ├── hero.tsx            # Sección hero
-│   ├── solutions.tsx       # Sección soluciones
-│   ├── integration.tsx     # Sección integraciones
-│   ├── clients.tsx         # Sección clientes
-│   ├── pricing.tsx         # Sección precios
-│   └── footer.tsx          # Footer
-├── docs/                    # Documentación de apps
-├── hooks/                   # Custom React hooks
-├── lib/                     # Utilidades y helpers
-├── public/                  # Assets estáticos
-│   ├── icon-192.jpg        # PWA icon
-│   ├── icon-512.jpg        # PWA icon
-│   ├── manifest.json       # PWA manifest
-│   └── sw.js              # Service Worker
-└── styles/                  # Estilos adicionales
-```
-
----
-
-## 📜 Scripts Disponibles
-
-```bash
-# Desarrollo
-pnpm dev              # Iniciar servidor de desarrollo
-
-# Build
-pnpm build            # Crear build de producción
-pnpm start            # Iniciar servidor de producción
-
-# Calidad de código
-pnpm lint             # Ejecutar ESLint
-pnpm type-check       # Verificar tipos TypeScript (agregar script)
-
-# Utilidades
-pnpm clean            # Limpiar caché y node_modules (agregar script)
-```
-
----
-
-## 🌐 Deploy en Vercel
-
-### Deploy Automático
-
-1. **Push a GitHub**
-   ```bash
-   git add .
-   git commit -m "Ready for production"
-   git push origin main
-   ```
-
-2. **Conectar con Vercel**
-   - Ve a [vercel.com](https://vercel.com)
-   - Importa tu repositorio
-   - Vercel detectará Next.js automáticamente
-   - Click en "Deploy"
-
-### Deploy Manual
-
-```bash
-# Instalar Vercel CLI
-pnpm install -g vercel
-
-# Deploy
-vercel
-
-# Deploy a producción
-vercel --prod
-```
-
-### Configuración en Vercel
-
-```json
-{
-  "buildCommand": "pnpm build",
-  "devCommand": "pnpm dev",
-  "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "outputDirectory": ".next"
-}
-```
-
----
-
-## 📚 Documentación
-
-- **[Guía de Usuario](./docs/)** - Documentación para usuarios finales
-- **[API Reference](#)** - Documentación de APIs (próximamente)
-- **[Guía de Contribución](#)** - Cómo contribuir al proyecto
-- **[Changelog](#)** - Historial de cambios
-
----
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea tu Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push al Branch (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
----
-
-## 📝 License
-
-Copyright © 2025 ControlApp. Todos los derechos reservados.
-
-Este proyecto es privado y de uso exclusivo.
-
----
-
-## 👨‍💻 Soporte
-
-¿Necesitas ayuda? Contáctanos:
-
-- 📧 Email: support@controlapp.com
-- 💬 Discord: [Únete a nuestra comunidad](#)
-- 📖 Docs: [Documentación completa](./docs/)
-
----
-
-<div align="center">
-
-**Hecho con ❤️ usando Next.js y Shadcn/ui**
-
-⭐ Dale una estrella si te gusta el proyecto
-
-</div>
-
-
+No forman parte del flujo actual de la landing principal.
