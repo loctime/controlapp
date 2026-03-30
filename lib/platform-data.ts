@@ -167,7 +167,7 @@ export const platformApps: PlatformApp[] = [
     slug: "control-file",
     name: "ControlFile",
     shortDescription:
-      "Explorador transversal de archivos sobre el storage global de la plataforma.",
+      "Infraestructura centralizada de gestión de archivos para todo el ecosistema Control*.",
     category: "storage",
     status: "active",
     icon: FolderOpen,
@@ -176,9 +176,11 @@ export const platformApps: PlatformApp[] = [
     color: "from-violet-500 to-blue-500",
     href: "/control-file",
     features: [
-      "Storage global para todas las apps",
-      "SSO y permisos compartidos",
-      "Vista por app y colecciones",
+      "Backend compartido para todo el ecosistema",
+      "Centraliza seguridad, permisos y acceso",
+      "Un archivo pertenece al sistema, no a una app",
+      "IAM compartida con claims y identidades",
+      "Acceso seguro mediante mecanismos temporales",
     ],
     platformCapabilities: {
       sharedAuth: true,
@@ -187,68 +189,68 @@ export const platformApps: PlatformApp[] = [
       requiresPermissions: true,
     },
     seo: {
-      title: "ControlFile | Storage global y explorador transversal",
+      title: "ControlFile | Infraestructura centralizada de almacenamiento",
       description:
-        "ControlFile centraliza archivos de toda la plataforma con autenticacion compartida, permisos por app y estructura por modulos y colecciones.",
+        "ControlFile es la capa de almacenamiento central del ecosistema ControlApp. Unifica archivos de todas las apps con autenticación y permisos compartidos.",
     },
     landingContent: {
-      heroLabel: "Storage global y explorador transversal",
+      heroLabel: "Infraestructura centralizada de almacenamiento",
       heroTitle: "ControlFile",
       heroDescription:
-        "ControlFile concentra los archivos de toda la plataforma en un entorno unico. Comparte autenticacion con el resto de las apps, administra permisos y ordena la informacion por app y colecciones para que el storage no quede fragmentado.",
+        "ControlFile es la capa de almacenamiento central del ecosistema ControlApp. Unifica los archivos de todas las apps en un entorno único, con autenticación y permisos compartidos, para que la información esté organizada por app y colección, sin silos ni duplicación.",
       heroStats: {
-        value: "1 login",
-        label: "para acceder a todo el ecosistema habilitado",
+        value: "Centralización real",
+        label: "un solo storage transversal para todo el ecosistema",
       },
       benefits: [
-        "Centraliza archivos de multiples apps en un solo lugar",
-        "Reutiliza autenticacion y permisos compartidos",
-        "Ordena documentos por app y colecciones",
-        "Reduce silos de informacion entre modulos",
-        "Escala storage sin duplicar infraestructura",
-        "Facilita auditoria y trazabilidad transversal",
+        "Centralización real: un solo storage transversal para todo el ecosistema",
+        "Permisos consistentes: las mismas reglas y sesión para todas las apps",
+        "Trazabilidad transversal: orden por app/colecciones y visibilidad de extremo a extremo",
+        "Escalabilidad por diseño: nuevas apps heredan el storage común sin duplicar infraestructura",
+        "Menos complejidad: cada app se enfoca en su dominio, no en archivos",
+        "Un archivo no pertenece a una app; pertenece al sistema",
       ],
       functionalities: [
         {
-          title: "Explorador unificado",
+          title: "Backend compartido",
           description:
-            "Muestra todos los archivos de la cuenta en una estructura comun para navegar sin saltar entre sistemas.",
+            "ControlFile es la infraestructura centralizada que múltiples aplicaciones usan como capa de storage, no una app aislada.",
           icon: FolderOpen,
         },
         {
-          title: "Auth central",
+          title: "Seguridad centralizada",
           description:
-            "Usa la misma cuenta y la misma sesion que el resto de las apps de la plataforma.",
-          icon: Lock,
-        },
-        {
-          title: "Permisos por app",
-          description:
-            "Solo se muestran archivos y espacios de las apps donde el usuario tiene permisos efectivos.",
+            "Centraliza seguridad, permisos y acceso; las apps no gestionan directamente URLs presignadas, CORS ni acceso a storage.",
           icon: Shield,
         },
         {
-          title: "Storage compartido",
+          title: "IAM compartida",
           description:
-            "Actua como capa comun para documentos, evidencias, recibos y adjuntos generados por otros modulos.",
+            "ControlFile actúa como capa IAM compartida, creando identidades y claims para todo el ecosistema Control*.",
+          icon: Lock,
+        },
+        {
+          title: "Acceso controlado",
+          description:
+            "El acceso a archivos es seguro y controlado mediante mecanismos temporales/proxy, nunca público directo.",
           icon: FileText,
         },
       ],
       useCases: [
         {
-          title: "Documentacion corporativa",
+          title: "Multi-app ecosystem",
           description:
-            "Centraliza legajos, documentos aprobados y vencimientos provenientes de ControlDoc.",
+            "ControlAudit, ControlDoc, ControlGastos y otras apps referencian archivos y solicitan acceso sin gestionar storage directamente.",
         },
         {
-          title: "Evidencias de auditoria",
+          title: "Gestión documental empresarial",
           description:
-            "Ordena fotos, formularios y reportes cargados desde ControlAudit.",
+            "Centraliza legajos, documentos aprobados y vencimientos provenientes de ControlDoc con trazabilidad completa.",
         },
         {
-          title: "Adjuntos financieros",
+          title: "Evidencias de auditoría",
           description:
-            "Conecta recibos y comprobantes cargados desde ControlGastos o ControlVentas.",
+            "Ordena fotos, formularios y reportes cargados desde ControlAudit con acceso seguro y controlado.",
         },
       ],
       finalCta: {
@@ -258,13 +260,14 @@ export const platformApps: PlatformApp[] = [
         secondaryHref: "/#apps",
       },
       platformIntegration: {
-        title: "Como se integra con la plataforma",
+        title: "ControlFile se integra como backend común",
         description:
-          "ControlFile no es un modulo aislado: es la capa visible del storage global para todo el ecosistema.",
+          "Las apps mantienen su lógica propia, pero delegan en la plataforma la gestión de archivos, autenticación y permisos. Menos silos de información, control unificado, trazabilidad transversal y un time-to-market más rápido para nuevas apps.",
         bullets: [
-          "Comparte autenticacion y permisos con el resto de las apps",
-          "Organiza archivos por app y coleccion para mantener contexto",
-          "Sirve como punto de entrada transversal para navegar todo el storage de la cuenta",
+          "Las apps mantienen su lógica propia, pero delegan gestión de archivos",
+          "Centraliza seguridad, permisos y acceso para todo el ecosistema",
+          "Un archivo no pertenece a una app; pertenece al sistema",
+          "Define cómo se accede a los archivos y protege el storage real",
         ],
       },
     },
