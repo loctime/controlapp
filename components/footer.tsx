@@ -24,6 +24,9 @@ export function Footer() {
               <Link href="/#arquitectura" className="text-blue-200 hover:text-white transition-colors">
                 Como funciona
               </Link>
+              <Link href="/#empresas" className="text-blue-200 hover:text-white transition-colors">
+                Para que empresas sirve
+              </Link>
               <Link href="/#capacidades" className="text-blue-200 hover:text-white transition-colors">
                 Capacidades
               </Link>
@@ -67,10 +70,10 @@ export function Footer() {
         <div className="mb-12 glass-effect rounded-3xl p-8 md:p-10 border-2 border-white/10 shadow-2xl">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-              Disenada para sumar nuevos modulos sin rehacer la base
+              Disenada para crecer por modulos sin rehacer identidad, permisos ni archivos
             </h3>
             <p className="text-gray-300 mb-6">
-              La landing ahora puede crecer con nuevas apps activas desde un registro central, sin duplicar navegacion, cards ni paginas individuales.
+              ControlApp comunica cada producto como una landing indexable propia y al mismo tiempo sostiene una narrativa comun para Google, compradores y asistentes de IA.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
@@ -80,10 +83,10 @@ export function Footer() {
                 Ver apps activas
               </Link>
               <Link
-                href="/#arquitectura"
+                href="/#faq"
                 className="bg-white/10 border border-white/20 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/15 transition-all duration-300"
               >
-                Ver arquitectura
+                Ver preguntas frecuentes
               </Link>
             </div>
           </div>
@@ -99,6 +102,9 @@ export function Footer() {
             </Link>
             <Link href="/#capacidades" className="text-gray-300 hover:text-white transition-all duration-300 font-medium">
               Capacidad compartida
+            </Link>
+            <Link href="/#faq" className="text-gray-300 hover:text-white transition-all duration-300 font-medium">
+              FAQ
             </Link>
             <Link href="/demos" className="text-gray-300 hover:text-white transition-all duration-300 font-medium">
               Demos

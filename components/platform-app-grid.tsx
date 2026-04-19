@@ -92,7 +92,7 @@ export function PlatformAppGrid() {
                 href={app.href}
                 className="inline-flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all"
               >
-                Ver detalle
+                Explorar {app.seo.categoryLabel.toLowerCase()}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>

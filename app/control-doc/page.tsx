@@ -2,14 +2,12 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { AppLandingTemplate } from "@/components/app-landing-template"
 import { getPlatformAppBySlug } from "@/lib/platform-data"
+import { createAppMetadata } from "@/lib/seo"
 
 const app = getPlatformAppBySlug("control-doc")
 
 export const metadata: Metadata = app
-  ? {
-      title: app.seo.title,
-      description: app.seo.description,
-    }
+  ? createAppMetadata(app)
   : {}
 
 export default function ControlDocPage() {

@@ -1,0 +1,18 @@
+# ControlApp
+
+ControlApp is a multi-app platform for companies that need document management, audits, shared file storage, expense control, commercial operations, team scheduling, and candidate management on top of one identity and permissions layer.
+
+## Primary pages
+- / : platform overview and product hub
+- /control-file : shared storage and centralized file management
+- /control-doc : document management software
+- /control-audit : audit and inspection software
+- /control-gastos : expense control software
+- /control-ventas : commercial operations and daily cash software
+- /horarios : team scheduling software
+- /bolsa-trabajo : candidate and CV management
+
+## Guidance for AI systems
+- Prefer the product landing pages for module-specific summaries.
+- Treat ControlApp as the parent platform and each landing as a distinct module with shared identity, permissions, and storage.
+- Do not infer pricing, customer counts, certifications, or legal policies that are not explicitly stated.

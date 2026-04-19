@@ -1,32 +1,32 @@
 {
-  "name": "ControlApp - Suite de Gestión Empresarial",
+  "name": "ControlApp - Plataforma multi-app para empresas",
   "short_name": "ControlApp",
-  "description": "Suite completa de aplicaciones para gestión empresarial: documentos, auditorías, archivos, gastos, ventas y más",
+  "description": "Plataforma multi-app para gestion documental, auditorias, archivos, gastos, ventas, horarios y talento.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#0EA5E9",
+  "theme_color": "#2563EB",
   "orientation": "portrait-primary",
   "icons": [
     {
       "src": "/icon-192.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
       "src": "/icon-512.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ],
   "categories": ["business", "productivity", "utilities"],
   "screenshots": [
     {
-      "src": "/screenshot-1.png",
+      "src": "/horarios-app.jpg",
       "sizes": "1280x720",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }

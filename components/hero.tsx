@@ -102,7 +102,7 @@ export const Hero = memo(() => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 z-10 pointer-events-none"></div>
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png"
-                alt="ControlApp Platform"
+                alt="Vista de la plataforma ControlApp con modulos conectados, autenticacion compartida y trazabilidad documental"
                 width={600}
                 height={400}
                 sizes="(max-width: 768px) 100vw, 50vw"
