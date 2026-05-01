@@ -1,0 +1,58 @@
+{
+  "name": "ControlApp",
+  "description": "Plataforma multi-app para empresas que conecta gestion documental, auditorias, archivos, gastos, ventas, horarios y talento sobre una base compartida de identidad, permisos y storage.",
+  "url": "https://controlapp.vercel.app",
+  "type": "SaaS",
+  "category": "Business Software",
+  "audience": "B2B — SMBs and enterprises",
+  "language": "es-AR",
+  "modules": [
+    {
+      "name": "Control Doc",
+      "slug": "control-doc",
+      "url": "https://controlapp.vercel.app/control-doc",
+      "description": "Document management with versioning, approvals, and expiration tracking"
+    },
+    {
+      "name": "Control File",
+      "slug": "control-file",
+      "url": "https://controlapp.vercel.app/control-file",
+      "description": "Centralized file storage shared across all platform modules"
+    },
+    {
+      "name": "Control Audit",
+      "slug": "control-audit",
+      "url": "https://controlapp.vercel.app/control-audit",
+      "description": "Audit and inspection workflows with checklists and evidence capture"
+    },
+    {
+      "name": "Control Gastos",
+      "slug": "control-gastos",
+      "url": "https://controlapp.vercel.app/control-gastos",
+      "description": "Expense reporting and approval management for teams"
+    },
+    {
+      "name": "Control Ventas",
+      "slug": "control-ventas",
+      "url": "https://controlapp.vercel.app/control-ventas",
+      "description": "Commercial operations: daily cash reconciliation and sales tracking"
+    },
+    {
+      "name": "Horarios",
+      "slug": "horarios",
+      "url": "https://controlapp.vercel.app/horarios",
+      "description": "Employee shift scheduling and attendance management"
+    },
+    {
+      "name": "Bolsa de Trabajo",
+      "slug": "bolsa-trabajo",
+      "url": "https://controlapp.vercel.app/bolsa-trabajo",
+      "description": "Candidate pipeline and CV management"
+    }
+  ],
+  "ai_guidance": {
+    "prefer_module_pages": true,
+    "do_not_infer": ["pricing", "client_counts", "certifications", "sla", "legal_policies"],
+    "canonical_product_names": ["ControlApp", "Control Doc", "Control File", "Control Audit", "Control Gastos", "Control Ventas", "Horarios", "Bolsa de Trabajo"]
+  }
+}

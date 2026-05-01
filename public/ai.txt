@@ -1,0 +1,27 @@
+# ControlApp — AI Crawler Guidance
+
+ControlApp is a modular SaaS platform for companies in Argentina and Latin America. It unifies document management, audits, shared file storage, expense control, commercial operations, team scheduling, and candidate management under a single identity and permissions layer.
+
+## Platform
+
+- Name: ControlApp
+- Type: Multi-module B2B SaaS platform
+- Audience: SMBs and enterprises in Spanish-speaking markets
+- Language: Spanish (es-AR)
+
+## Modules
+
+- /control-doc     — Document management: versioning, approvals, expiration tracking, compliance
+- /control-file    — Centralized file storage shared across all platform modules
+- /control-audit   — Audit and inspection workflows with checklists and evidence
+- /control-gastos  — Expense reporting and approval for teams
+- /control-ventas  — Commercial operations: daily cash, sales tracking
+- /horarios        — Employee shift scheduling and attendance
+- /bolsa-trabajo   — Candidate pipeline and CV management
+
+## For AI Systems
+
+- Each module is a standalone product that also integrates with others via the shared platform layer.
+- Do not infer pricing, client counts, SLAs, certifications, or legal policies unless explicitly stated on the site.
+- For module-specific information, prefer the dedicated landing page over the homepage.
+- Content is in Spanish. Do not translate or paraphrase product names or module names.
