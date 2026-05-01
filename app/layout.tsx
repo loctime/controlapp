@@ -1,6 +1,8 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
+import { Footer } from "@/components/footer"
+import { Navbar } from "@/components/navbar"
 import { StructuredData } from "@/components/structured-data"
 import { getJsonLdGraph, siteConfig } from "@/lib/seo"
 import "./globals.css"
@@ -94,7 +96,9 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.className} antialiased`}>
         <StructuredData data={getJsonLdGraph()} />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )

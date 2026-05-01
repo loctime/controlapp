@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Check, ChevronRight, FolderOpen } from "lucide-react"
+import { Check, ChevronRight, FolderOpen } from "lucide-react"
 import { StructuredData } from "@/components/structured-data"
 import { activePlatformApps, getPlatformAppBySlug } from "@/lib/platform-data"
 import { getAppSchemas } from "@/lib/seo"
@@ -62,14 +62,6 @@ export function AppLandingTemplate({ appSlug }: AppLandingTemplateProps) {
               <li className="text-gray-900 font-semibold">{app.name}</li>
             </ol>
           </nav>
-
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold mb-8 transition-all hover:gap-3"
-          >
-            <ArrowLeft size={20} />
-            Volver a la plataforma
-          </Link>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <div>

@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 import { Hero } from "@/components/hero"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { PlatformAppGrid } from "@/components/platform-app-grid"
 import { PlatformArchitecture } from "@/components/platform-architecture"
 import { PlatformAudiences } from "@/components/platform-audiences"
@@ -30,7 +28,6 @@ export default function Home() {
           </div>
         </div>
 
-        <Navbar />
         <Hero />
         <PlatformArchitecture />
         <PlatformCapabilities />
@@ -38,7 +35,6 @@ export default function Home() {
         <PlatformAppGrid />
         <PlatformEntity />
         <PlatformFaq />
-        <Footer />
       </main>
     </>
   )
