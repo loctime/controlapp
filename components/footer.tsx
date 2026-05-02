@@ -33,6 +33,9 @@ export function Footer() {
               <Link href="/control-file" className="text-blue-200 hover:text-white transition-colors">
                 ControlFile
               </Link>
+              <Link href="/metodologia" className="text-blue-200 hover:text-white transition-colors">
+                Metodología
+              </Link>
             </div>
           </div>
 

@@ -178,6 +178,7 @@ export const navigationLinks = [
   { name: "Apps", href: "#apps" },
   { name: "FAQ", href: "#faq" },
   { name: "Demos", href: "/demos" },
+  { name: "Metodología", href: "/metodologia" },
 ]
 
 export const activePlatformApps = platformApps.filter((app) => app.status === "active")
