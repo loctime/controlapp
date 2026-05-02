@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0e1a;
+    color: #e8eaf0;
+    min-height: 100vh;
+  }
+
+  .hero {
+    padding: 96px 48px 80px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7eb8f7;
+    border: 1px solid rgba(126, 184, 247, 0.3);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.1;
+    color: #f0f2f8;
+    margin-bottom: 24px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #7eb8f7;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #8a9bb8;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(126, 184, 247, 0.4);
+    margin: 0 auto 80px;
+  }
+
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7eb8f7;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: #7eb8f7;
+    opacity: 0.6;
+    padding-top: 4px;
+    text-align: right;
+  }
+
+  .step-content h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #e8eaf0;
+    margin-bottom: 10px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6a7d9c;
+    font-weight: 300;
+  }
+
+  .callout {
+    border: 1px solid rgba(126, 184, 247, 0.2);
+    border-left: 3px solid #7eb8f7;
+    padding: 28px 32px;
+    border-radius: 4px;
+    margin: 0 0 80px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-bottom: 80px;
+  }
+
+  .callout p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+    color: #c8d4e8;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 80px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 48px;
+    margin-bottom: 80px;
+  }
+
+  .why-card {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.025);
+  }
+
+  .why-card .icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(126, 184, 247, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+
+  .why-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #d0d8ea;
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: 13px;
+    color: #5a6b84;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 64px 48px 96px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .cta-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #e8eaf0;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 15px;
+    color: #6a7d9c;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #7eb8f7;
+    color: #0a0e1a;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav {
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-brand {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e8eaf0;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    color: #6a7d9c;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">ControlApp</span>
+  <a href="#" class="nav-link">Volver al inicio</a>
+</nav>
+
+<section class="hero">
+  <span class="eyebrow">Metodología</span>
+  <h1>Primero entendemos<br><em>cómo trabajás.</em></h1>
+  <p class="hero-sub">Antes de escribir una línea de código, nos integramos a tu operación. Trabajamos junto a tu equipo para diseñar el sistema que realmente necesitás — no el que suponemos que necesitás.</p>
+  <div class="divider"></div>
+</section>
+
+<div class="callout">
+  <p>"La mayoría de los clientes no saben qué app necesitan. Nosotros tampoco lo sabemos hasta que vemos cómo trabajan."</p>
+</div>
+
+<section class="section">
+  <div class="section-label">Cómo trabajamos</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Nos integramos a tu equipo</h3>
+        <p>Pasamos tiempo real en tu empresa — aproximadamente dos semanas — trabajando junto a tus empleados. Observamos procesos, hacemos preguntas y entendemos cómo funciona tu operación desde adentro.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Identificamos lo que falta</h3>
+        <p>Con ese contexto, detectamos los puntos de fricción reales: tareas manuales que se repiten, información que se pierde, procesos que dependen de una sola persona. Cosas que desde afuera no se ven.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Diseñamos el sistema a medida</h3>
+        <p>Construimos el software específicamente para tu operación. Sin funciones que no usás, sin adaptaciones forzadas. Una herramienta que encaja en lo que ya hacés — y lo mejora.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Resultado: algo que nunca imaginaste tener</h3>
+        <p>Nuestros clientes terminan con sistemas simples, útiles y propios — que resuelven exactamente su problema. No una plataforma genérica adaptada, sino algo construido para ellos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:860px;margin:0 auto;padding:0 48px;margin-bottom:16px;">
+  <div class="section-label" style="margin-bottom:24px;">Por qué funciona</div>
+</div>
+
+<div class="why-grid">
+  <div class="why-card">
+    <div class="icon">◈</div>
+    <h4>El cliente no siempre sabe lo que necesita</h4>
+    <p>Los requerimientos escritos rara vez capturan la realidad del día a día. La presencia in-situ lo cambia todo.</p>
+  </div>
+  <div class="why-card">
+    <div class="icon">◉</div>
+    <h4>El software nace del proceso real</h4>
+    <p>No adaptamos tu operación al software. Adaptamos el software a tu operación.</p>
+  </div>
+  <div class="why-card">
+    <div class="icon">◇</div>
+    <h4>Menos funciones, más utilidad</h4>
+    <p>El resultado es siempre más simple de lo esperado — porque está diseñado para lo que realmente se usa.</p>
+  </div>
+  <div class="why-card">
+    <div class="icon">◎</div>
+    <h4>Remoto cuando corresponde</h4>
+    <p>El desarrollo continúa a distancia. La presencia inicial es para entender — el resto es ejecución.</p>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>¿Querés que entendamos tu operación?</h2>
+  <p>Contanos en qué trabaja tu empresa y coordinamos una primera conversación.</p>
+  <a href="mailto:contacto@controlapp.ar" class="btn">Hablar con el equipo</a>
+</div>
+
+</body>
+</html>
