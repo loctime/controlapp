@@ -70,31 +70,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mb-12 glass-effect rounded-3xl p-8 md:p-10 border-2 border-white/10 shadow-2xl">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-              Disenada para crecer por modulos sin rehacer identidad, permisos ni archivos
-            </h3>
-            <p className="text-gray-300 mb-6">
-              ControlApp comunica cada producto como una landing indexable propia y al mismo tiempo sostiene una narrativa comun para Google, compradores y asistentes de IA.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                href="/#apps"
-                className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg shadow-blue-500/50"
-              >
-                Ver apps activas
-              </Link>
-              <Link
-                href="/#faq"
-                className="bg-white/10 border border-white/20 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/15 transition-all duration-300"
-              >
-                Ver preguntas frecuentes
-              </Link>
-            </div>
-          </div>
-        </div>
-
+        
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-300 text-sm font-medium">
             © 2026 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold">ControlApp</span>. Plataforma centralizada multi-app.
