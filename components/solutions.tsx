@@ -25,7 +25,7 @@ const apps = [
   },
   {
     name: "ControlFile",
-    description: "Almacenamiento en la nube profesional con integración Backblaze B2",
+    description: "El drive de la plataforma. Explorá, organizá y compartí archivos de todas tus apps desde un solo lugar.",
     icon: FolderOpen,
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
     features: ["75% más económico", "Enlaces compartidos", "App móvil nativa"],

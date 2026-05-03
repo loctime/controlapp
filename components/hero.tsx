@@ -11,7 +11,7 @@ export const Hero = memo(() => {
   const highlights = [
     { icon: Lock, text: "Misma cuenta para todas las apps habilitadas" },
     { icon: Shield, text: "Permisos por modulo y acceso segun claims" },
-    { icon: FolderOpen, text: "Storage global visible desde ControlFile" },
+    { icon: FolderOpen, text: "Almacenamiento compartido, visible desde ControlFile" },
   ]
 
   return (
@@ -137,7 +137,7 @@ export const Hero = memo(() => {
                   <FolderOpen className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Storage global</p>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Drive empresarial</p>
                   <p className="text-2xl font-extrabold bg-gradient-to-r from-amber-600 to-cyan-600 bg-clip-text text-transparent">ControlFile</p>
                 </div>
               </div>

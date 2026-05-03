@@ -29,7 +29,7 @@ export const MegaMenu = memo(({ showMegaMenu, groups, onClose }: MegaMenuProps) 
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Apps activas de la plataforma</h3>
               <p className="text-gray-600">
-                Todos los modulos publicados comparten autenticacion, permisos y storage global.
+                Todos los modulos publicados comparten autenticacion, permisos y almacenamiento centralizado.
               </p>
             </div>
 
