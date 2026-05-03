@@ -14,12 +14,11 @@ export const controlGastos: PlatformApp = {
   color: "from-amber-500 to-orange-500",
   href: "/control-gastos",
   features: [
-    "Dashboard con resumen visual",
-    "Gastos recurrentes automáticos",
-    "Historial con gráficos interactivos",
-    "Comprobantes en ControlFile",
-    "PWA instalable con modo oscuro",
-    "Un login con el ecosistema",
+    "Registrá gastos en segundos",
+    "Adjuntá el comprobante",
+    "Los recurrentes se crean solos",
+    "Ves si tus gastos crecen",
+    "Todo en el celular, modo oscuro",
   ],
   cardBadges: ["Gastos recurrentes", "Comprobantes en ControlFile"],
   platformCapabilities: {

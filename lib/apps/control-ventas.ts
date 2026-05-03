@@ -14,12 +14,11 @@ export const controlVentas: PlatformApp = {
   color: "from-cyan-500 to-blue-500",
   href: "/control-ventas",
   features: [
-    "Cobros y pagos en segundos",
-    "3 métodos de pago (efectivo, tarjeta, transferencia)",
-    "Pagos recurrentes automáticos",
-    "Resumen financiero en tiempo real",
-    "Historial filtrable por período y tipo",
-    "Offline-first, instalable como app",
+    "Registrá cobros desde el mostrador",
+    "Efectivo, tarjeta o transferencia",
+    "Sin internet, igual funciona",
+    "Filtrá por día, semana o mes",
+    "Los recurrentes se generan solos",
   ],
   cardBadges: ["Caja diaria · Offline-first", "3 métodos de pago"],
   platformCapabilities: {

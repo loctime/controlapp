@@ -15,14 +15,12 @@ export const controlAudit: PlatformApp = {
   color: "from-emerald-500 to-teal-500",
   href: "/control-audit",
   features: [
-    "Formularios offline completos",
-    "Galería pública de formularios",
-    "Reportes automáticos al cerrar",
-    "Dashboard HSE con índices técnicos",
-    "Agenda de auditorías programadas",
-    "Gestión de empleados y accidentes",
-    "Capacitaciones y planes anuales",
-    "PWA instalable sin conexión",
+    "Diseñá formularios",
+    "Completá desde el celular",
+    "Adjuntá fotos en campo",
+    "Generá reportes al cerrar",
+    "Dashboard HSE automático",
+    "Controlá quién ve qué",
   ],
   cardBadges: ["Offline completo", "PWA instalable"],
   platformCapabilities: {
@@ -64,7 +62,7 @@ export const controlAudit: PlatformApp = {
       label: "con sincronización automática al recuperar conexión",
     },
     valueProposition:
-      "Si tus inspectores trabajan en campo sin WiFi, ControlAudit les da formularios digitales, captura de evidencias y reportes automáticos que no dependen de la señal.",
+      "Si tus inspectores trabajan en campo sin WiFi, ControlAudit les da formularios digitales, captura de evidencias y reportes automáticos que no dependen de la señal. Todo dentro de ControlApp — archivos, permisos y usuarios ya están resueltos.",
     audiences: [
       {
         title: "Empresas con obligaciones de Higiene y Seguridad",

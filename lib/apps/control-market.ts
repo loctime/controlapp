@@ -14,13 +14,11 @@ export const controlMarket: PlatformApp = {
   color: "from-rose-500 to-pink-500",
   href: "/control-market",
   features: [
-    "Punto de venta desde el celular",
-    "Escáner de códigos de barra con cámara",
-    "Stock en tiempo real por producto",
-    "Importación masiva desde Excel / CSV",
-    "Historial de ventas por vendedor",
-    "Roles admin y vendedor",
-    "Multi-tenant con datos aislados",
+    "Escaneá con la cámara del celular",
+    "El stock baja solo con cada venta",
+    "Importá productos desde Excel",
+    "Vendedores con su propio acceso",
+    "Datos de cada negocio por separado",
   ],
   cardBadges: ["Escáner de barras", "Multi-tenant"],
   platformCapabilities: {

@@ -14,11 +14,10 @@ export const bolsaTrabajo: PlatformApp = {
   color: "from-indigo-500 to-blue-500",
   href: "/bolsa-trabajo",
   features: [
-    "Formulario de carga de CV sin cuenta",
-    "Dashboard administrativo de candidatos",
-    "Fotos de perfil vía ControlFile",
-    "Notificaciones por email (EmailJS)",
-    "Permisos compartidos con el ecosistema",
+    "Recibí CVs sin que hagan cuenta",
+    "Revisá perfiles desde el dashboard",
+    "Te avisa cuando llega un CV",
+    "Fotos de perfil integradas",
   ],
   cardBadges: ["CVs + Dashboard admin", "Notificaciones email"],
   platformCapabilities: {

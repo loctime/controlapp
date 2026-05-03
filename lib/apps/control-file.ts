@@ -14,12 +14,11 @@ export const controlFile: PlatformApp = {
   color: "from-violet-500 to-blue-500",
   href: "/control-file",
   features: [
-    "Interfaz estilo Windows / OneDrive",
-    "Links de compartido con expiración",
-    "Planes desde 5 GB gratis",
-    "Un login para todas las apps",
-    "Acceso por roles y módulos",
-    "Storage económico Backblaze B2",
+    "Explorá como en Windows",
+    "Compartí con link que expira",
+    "Controlá quién accede a qué",
+    "Un login para todos tus archivos",
+    "5 GB gratis para empezar",
   ],
   cardBadges: ["Links con expiración", "Storage desde 5 GB gratis"],
   platformCapabilities: {
