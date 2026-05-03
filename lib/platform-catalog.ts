@@ -4,6 +4,7 @@ import { controlAudit } from "@/lib/apps/control-audit"
 import { controlDoc } from "@/lib/apps/control-doc"
 import { controlFile } from "@/lib/apps/control-file"
 import { controlGastos } from "@/lib/apps/control-gastos"
+import { controlMarket } from "@/lib/apps/control-market"
 import { controlVentas } from "@/lib/apps/control-ventas"
 import { horariosSimple } from "@/lib/apps/horarios"
 
@@ -11,7 +12,7 @@ export type { PlatformApp, PlatformAppStatus, PlatformAppCategory, PlatformCapab
 
 export const platformOverview = {
   eyebrow: "Plataforma centralizada",
-  heroBadge: "Software empresarial con autenticacion compartida y storage global",
+  heroBadge: "Una cuenta. Todas tus apps operativas.",
   heroTitle: "ControlApp centraliza software de gestion por modulos sobre una sola plataforma",
   heroDescription:
     "ControlApp es una plataforma multi-app para empresas que necesitan gestion documental, auditorias, archivos, gastos, ventas, horarios y talento sobre una misma base de identidad, permisos y archivos.",
@@ -147,12 +148,20 @@ export const platformOverview = {
       {
         question: "Que tipo de modulos incluye hoy?",
         answer:
-          "Hoy incluye modulos para gestion documental, auditorias, almacenamiento centralizado, gastos, ventas, horarios y gestion de candidatos.",
+          "Hoy incluye modulos para gestion documental, auditorias, almacenamiento centralizado, gastos, ventas, caja diaria, punto de venta, horarios y gestion de candidatos.",
       },
       {
         question: "Como funciona ControlFile dentro de la plataforma?",
         answer:
           "ControlFile es el explorador de archivos transversal del ecosistema. Los documentos, evidencias y adjuntos que generan las demas apps quedan accesibles desde ControlFile segun permisos.",
+      },
+      {
+        question: "¿Puedo usar solo una app sin contratar todo el paquete?",
+        answer: "Sí, cada módulo se habilita de forma independiente.",
+      },
+      {
+        question: "¿Las apps funcionan en el celular?",
+        answer: "Sí, la mayoría son PWA instalables en Android e iOS desde el navegador.",
       },
     ],
   },
@@ -170,6 +179,7 @@ export const platformApps = [
   controlGastos,
   controlVentas,
   bolsaTrabajo,
+  controlMarket,
 ]
 
 export const navigationLinks = [

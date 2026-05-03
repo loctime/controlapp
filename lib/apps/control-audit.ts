@@ -5,20 +5,26 @@ export const controlAudit: PlatformApp = {
   id: "control-audit",
   slug: "control-audit",
   name: "ControlAudit",
-  shortDescription: "Software de auditorias e inspecciones con formularios, evidencias y reportes conectados.",
+  shortDescription:
+    "PWA para inspectores de campo. Formularios offline, fotos adjuntas, reportes automáticos y dashboard HSE con índices técnicos reales.",
   category: "operations",
   status: "active",
   icon: Shield,
-  image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
+  image:
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
   color: "from-emerald-500 to-teal-500",
   href: "/control-audit",
   features: [
-    "Formularios de auditoria",
-    "Evidencias centralizadas",
-    "Reportes reutilizables",
-    "Permisos por claims",
-    "Integracion con ControlFile",
+    "Formularios offline completos",
+    "Galería pública de formularios",
+    "Reportes automáticos al cerrar",
+    "Dashboard HSE con índices técnicos",
+    "Agenda de auditorías programadas",
+    "Gestión de empleados y accidentes",
+    "Capacitaciones y planes anuales",
+    "PWA instalable sin conexión",
   ],
+  cardBadges: ["Offline completo", "PWA instalable"],
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
@@ -26,132 +32,176 @@ export const controlAudit: PlatformApp = {
     requiresPermissions: true,
   },
   seo: {
-    title: "ControlAudit | Software de auditorias e inspecciones",
+    title: "ControlAudit | Auditorías e inspecciones de campo offline",
     description:
-      "ControlAudit es el software de auditorias de ControlApp para formularios, evidencias y reportes con autenticacion compartida y storage global.",
+      "ControlAudit es una PWA para inspecciones de campo sin internet. Formularios personalizados, fotos adjuntas, reportes automáticos y dashboard de seguridad con índices HSE reales.",
     canonicalPath: "/control-audit",
-    socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
-    categoryLabel: "Software de auditorias e inspecciones",
+    socialImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
+    categoryLabel: "Software de auditorías e inspecciones",
     keywords: {
-      primary: "software de auditorias",
+      primary: "software de auditorias e inspecciones",
       secondary: [
-        "software de inspecciones",
-        "gestion de evidencias de auditoria",
-        "formularios de auditoria digital",
+        "app de inspecciones offline",
+        "formularios de auditoria sin internet",
+        "dashboard HSE indices tecnicos",
       ],
       problems: [
-        "evidencias desperdigadas",
-        "formularios fuera de sistema",
-        "auditorias sin trazabilidad documental",
+        "inspecciones en papel o Excel",
+        "evidencias sin conectividad",
+        "indices de seguridad calculados manualmente",
       ],
-      industries: ["seguridad", "calidad", "operaciones"],
+      industries: ["higiene y seguridad", "calidad", "operaciones de campo"],
     },
   },
   landingContent: {
-    heroLabel: "Software de auditorias e inspecciones",
+    heroLabel: "Auditorías e inspecciones de campo, con o sin internet.",
     heroTitle: "ControlAudit",
     heroDescription:
-      "ControlAudit centraliza auditorias, inspecciones y evidencias sobre la misma plataforma compartida de ControlApp para que formularios, reportes y archivos mantengan contexto operativo.",
+      "ControlAudit es una PWA que tus inspectores instalan en el celular y usan sin conexión. Formularios personalizados, fotos adjuntas, reportes automáticos y dashboard de seguridad con índices técnicos reales.",
     heroStats: {
-      value: "Auditorias conectadas",
-      label: "a identidad, permisos y archivos del ecosistema",
+      value: "Offline completo",
+      label: "con sincronización automática al recuperar conexión",
     },
     valueProposition:
-      "Si buscas software de auditorias con formularios y evidencias digitalizadas, ControlAudit combina captura operativa con storage centralizado y acceso por rol.",
+      "Si tus inspectores trabajan en campo sin WiFi, ControlAudit les da formularios digitales, captura de evidencias y reportes automáticos que no dependen de la señal.",
     audiences: [
       {
-        title: "Equipos de seguridad y calidad",
-        description: "Aporta estructura para inspecciones, hallazgos y reportes con evidencia asociada.",
+        title: "Empresas con obligaciones de Higiene y Seguridad",
+        description:
+          "Cumplimiento con índices IF/IG/IA/II calculados automáticamente sobre datos reales de empleados y accidentes.",
       },
       {
-        title: "Operaciones distribuidas",
-        description: "Sirve cuando distintas sedes o responsables deben auditar sobre la misma base.",
+        title: "Operaciones con inspectores en campo",
+        description:
+          "Inspectores que trabajan en zonas sin conectividad y necesitan completar formularios con fotos sin depender del WiFi.",
       },
       {
-        title: "Areas que necesitan trazabilidad",
-        description: "Permite relacionar formularios, adjuntos y reportes sin sacar informacion del ecosistema.",
+        title: "RRHH con capacitaciones por empleado",
+        description:
+          "Gestión de planes anuales, registro de sesiones con asistencia y matriz de cumplimiento por sucursal.",
       },
     ],
     problems: [
-      "Auditorias en planillas o formularios desconectados de los archivos.",
-      "Fotos y evidencias guardadas fuera del sistema principal.",
-      "Dificultad para compartir resultados entre equipos con permisos distintos.",
+      "Inspecciones en papel o WhatsApp sin trazabilidad ni evidencias organizadas.",
+      "Fotos de hallazgos guardadas en el celular del inspector, fuera del sistema.",
+      "Índices de seguridad calculados manualmente en Excel con datos desactualizados.",
     ],
     benefits: [
-      "Centraliza formularios, evidencias y reportes en una sola experiencia.",
-      "Mantiene permisos por modulo para proteger auditorias sensibles.",
-      "Hace visibles archivos y adjuntos en el storage global.",
-      "Comparte autenticacion con los demas modulos.",
-      "Evita reprocesos al reutilizar reportes y evidencia.",
-      "Escala nuevas auditorias sobre una base ya resuelta.",
+      "Formularios completables desde el celular sin señal, con autoguardado.",
+      "Evidencias fotográficas adjuntas a cada ítem de la auditoría.",
+      "Reporte HTML imprimible generado automáticamente al cerrar.",
+      "Índices HSE calculados sobre datos reales, no en planillas.",
+      "Dashboard de seguridad filtrable por sucursal y período.",
+      "Galería pública de formularios: copiá uno como base sin afectar el original.",
     ],
     functionalities: [
       {
-        title: "Formularios configurables",
-        description: "Registra auditorias e inspecciones con estructura digital reutilizable.",
+        title: "Formularios offline completos",
+        description:
+          "Diseñá plantillas con secciones, preguntas de texto, opciones y campos de foto. El inspector los completa desde el celular aunque no haya señal. El autoguardado protege el trabajo ante cualquier cierre accidental.",
         icon: Shield,
       },
       {
-        title: "Evidencias centralizadas",
-        description: "Fotos, observaciones y archivos se almacenan en la capa comun de archivos.",
+        title: "Galería pública de formularios",
+        description:
+          "Accedé a formularios compartidos por otros administradores, con rating y filtros por popularidad o cantidad de preguntas. Copiá uno como base y editalo — sin afectar el original.",
         icon: FolderOpen,
       },
       {
-        title: "Reportes operativos",
-        description: "Los resultados quedan listos para consulta y seguimiento dentro del ecosistema.",
+        title: "Reportes automáticos al cerrar",
+        description:
+          "Al terminar una auditoría se genera un reporte HTML imprimible con todas las respuestas, observaciones y evidencias. Listo para imprimir o compartir.",
         icon: FileText,
       },
       {
-        title: "Acceso por rol",
-        description: "Cada usuario ve auditorias y adjuntos segun permisos sobre el modulo.",
+        title: "Gestión de empleados por sucursal",
+        description:
+          "Nómina completa con filtros por cargo, tipo y estado. Búsqueda por nombre o DNI. El estado activo/inactivo se actualiza automáticamente cuando hay accidentes con reposo.",
         icon: Lock,
+      },
+      {
+        title: "Capacitaciones y planes anuales",
+        description:
+          "Matriz de cumplimiento año × sucursal × empleado. Creá el plan, registrá sesiones con asistencia, seguí el cumplimiento. Tipos de capacitación con vigencia en meses.",
+        icon: Shield,
+      },
+      {
+        title: "Accidentes e incidentes laborales",
+        description:
+          "Registrá accidentes con múltiples empleados, días de reposo e imágenes. Al cerrar el caso, calcula días perdidos automáticamente y reactiva al empleado.",
+        icon: FileText,
+      },
+      {
+        title: "Dashboard de seguridad HSE",
+        description:
+          "Índices técnicos reales: IF (frecuencia), IG (gravedad), IA (accidentabilidad), II (incidencia), calculados sobre datos reales de empleados y accidentes. Filtrable por sucursal y período, con gráficos.",
+        icon: Shield,
+      },
+      {
+        title: "Agenda de auditorías",
+        description:
+          "Calendario de auditorías programadas por empresa y sucursal. Asignale formulario, fecha y seguí el estado desde el tablero operativo.",
+        icon: FolderOpen,
       },
     ],
     useCases: [
       {
-        title: "Auditorias de seguridad",
-        description: "Documenta inspecciones de campo y relaciona hallazgos con evidencia fotografica y reportes.",
+        title: "Inspector en campo sin WiFi",
+        description:
+          "Abre ControlAudit instalado en el celular sin internet. Selecciona empresa → sucursal → formulario. Completa ítems, adjunta fotos de hallazgos. Al volver a la oficina, el sistema sincroniza automáticamente y el reporte queda disponible para el supervisor con evidencias incluidas.",
       },
       {
-        title: "Control de calidad",
-        description: "Conecta formularios, adjuntos y reportes de calidad sin salir del ecosistema.",
+        title: "Responsable de RRHH gestionando capacitaciones",
+        description:
+          "Crea el plan anual para cada sucursal. Registra cada sesión con lista de asistencia. La matriz muestra de un vistazo quién completó cada ítem. Al vencer la vigencia, el sistema lo señala en la matriz.",
       },
       {
-        title: "Supervision de sucursales",
-        description: "Permite estandarizar controles en operaciones distribuidas con permisos acotados.",
+        title: "Empresa con múltiples sucursales",
+        description:
+          "Admin central configura formularios en la galería compartida. Cada sucursal los usa con sus propios operarios. Dashboard muestra índices IF/IG/IA por sucursal o total. Accidentes con reposo marcan automáticamente al empleado como inactivo.",
       },
     ],
     faq: [
       {
-        question: "ControlAudit sirve para auditorias e inspecciones?",
+        question: "¿Funciona sin internet?",
         answer:
-          "Si. El modulo esta pensado para capturar formularios, evidencias y reportes dentro de una experiencia conectada al resto de la plataforma.",
+          "Sí. Es una PWA instalable con offline completo. Los formularios se completan sin señal y se sincronizan automáticamente al recuperar conexión.",
       },
       {
-        question: "Donde quedan las evidencias?",
-        answer:
-          "Las evidencias se almacenan en la capa compartida de ControlFile para mantener trazabilidad y acceso controlado.",
+        question: "¿Se instala en el celular?",
+        answer: "Sí, en Android e iOS como app nativa desde el navegador, sin pasar por la App Store.",
       },
       {
-        question: "Que lo diferencia de una app de formularios generica?",
+        question: "¿Los formularios son fijos?",
         answer:
-          "La diferencia es que comparte identidad, permisos y archivos con otros modulos del negocio, por lo que no queda como una herramienta aislada.",
+          "No. Los diseñás vos con secciones, preguntas y campos de foto. También podés copiar uno de la galería pública y editarlo.",
+      },
+      {
+        question: "¿Los índices HSE son automáticos?",
+        answer:
+          "Sí. IF, IG, IA e II se calculan automáticamente sobre los datos reales de empleados y accidentes registrados en el sistema.",
+      },
+      {
+        question: "¿Qué diferencia tiene de una app de formularios genérica?",
+        answer:
+          "Tiene módulos de empleados, capacitaciones, accidentes y dashboard de seguridad integrados. No es solo formularios — es gestión HSE completa.",
       },
     ],
     finalCta: {
       primaryLabel: "Explorar ControlAudit",
       primaryHref: "/control-audit",
-      secondaryLabel: "Ver storage para evidencias",
-      secondaryHref: "/control-file",
+      secondaryLabel: "Ver demo",
+      secondaryHref: "/demos",
     },
     platformIntegration: {
       title: "ControlAudit comparte la base de identidad y archivos de la plataforma",
       description:
-        "Las evidencias y reportes se conectan con la misma capa comun que usan otros modulos de ControlApp.",
+        "Las evidencias y reportes se conectan con la misma capa común que usan otros módulos de ControlApp.",
       bullets: [
-        "Comparte autenticacion con el resto de las apps activas.",
+        "Comparte autenticación con el resto de las apps activas.",
         "Guarda evidencias dentro del storage global visible desde ControlFile.",
-        "Mantiene acceso seguro mediante permisos por modulo y rol.",
+        "Mantiene acceso seguro mediante permisos por módulo y rol.",
       ],
     },
     relatedApps: [
@@ -162,8 +212,8 @@ export const controlAudit: PlatformApp = {
       },
       {
         slug: "control-doc",
-        anchor: "Ver gestion documental para procesos de compliance",
-        reason: "ControlDoc complementa auditorias con documentacion controlada y vencimientos.",
+        anchor: "Ver gestión documental para procesos de compliance",
+        reason: "ControlDoc complementa auditorías con documentación controlada y vencimientos.",
       },
     ],
   },

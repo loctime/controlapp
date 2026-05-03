@@ -81,10 +81,10 @@ export function PlatformAppGrid() {
 
               <div className="grid grid-cols-2 gap-3 mb-6 text-xs font-semibold uppercase tracking-wide text-gray-600">
                 <div className="rounded-2xl bg-blue-50 border border-blue-100 px-3 py-3">
-                  {app.platformCapabilities.sharedAuth ? "Auth central" : "Auth propia"}
+                  {app.cardBadges[0]}
                 </div>
                 <div className="rounded-2xl bg-blue-50 border border-blue-100 px-3 py-3">
-                  {app.platformCapabilities.sharedStorage ? "Storage global" : "Storage aislado"}
+                  {app.cardBadges[1]}
                 </div>
               </div>
 

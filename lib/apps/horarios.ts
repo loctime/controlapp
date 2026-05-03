@@ -5,7 +5,8 @@ export const horariosSimple: PlatformApp = {
   id: "horarios-simple",
   slug: "horarios",
   name: "Horarios Simple",
-  shortDescription: "Software de gestion de horarios para equipos, turnos semanales y vista mensual.",
+  shortDescription:
+    "Armá los turnos de la semana, publicálos para que los empleados los vean sin login, gestioná el stock, hacé pedidos a proveedores y generá remitos con firma digital.",
   category: "operations",
   status: "active",
   icon: Calendar,
@@ -13,12 +14,16 @@ export const horariosSimple: PlatformApp = {
   color: "from-orange-500 to-amber-500",
   href: "/horarios",
   features: [
-    "Horarios semanales",
-    "Vista mensual",
-    "Exportacion a imagen",
-    "Publicacion para empleados",
-    "Integracion con la plataforma",
+    "Turnos semanales y mensuales",
+    "Link público para empleados sin login",
+    "Stock con movimientos entrada/salida",
+    "Pedidos a proveedores con remito",
+    "Firma digital de remitos",
+    "Chat de stock en lenguaje natural",
+    "Tareas por empleado con calendario",
+    "Exportación imagen, PDF y Excel",
   ],
+  cardBadges: ["Horarios + Stock + Remitos", "Firma digital"],
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
@@ -26,144 +31,153 @@ export const horariosSimple: PlatformApp = {
     requiresPermissions: true,
   },
   seo: {
-    title: "Horarios Simple | Software de gestion de horarios para equipos",
+    title: "Horarios Simple | Horarios, stock, pedidos y remitos con firma digital",
     description:
-      "Horarios Simple es el software de gestion de horarios de ControlApp para planificar turnos semanales y mensuales con autenticacion compartida y publicacion controlada.",
+      "Horarios Simple es una PWA para gestión operativa: turnos semanales, publicación para empleados sin login, stock, pedidos a proveedores y remitos con firma digital.",
     canonicalPath: "/horarios",
     socialImage: "/horarios-app.jpg",
-    categoryLabel: "Software de gestion de horarios",
+    categoryLabel: "Gestión operativa con horarios y stock",
     keywords: {
-      primary: "gestion de horarios para equipos",
+      primary: "gestion de horarios y stock para negocios",
       secondary: [
-        "software de turnos semanales",
-        "planificacion de horarios laborales",
-        "cronogramas para empleados",
+        "software de turnos para empleados",
+        "pedidos a proveedores con remito digital",
+        "firma digital de remitos",
       ],
       problems: [
-        "conflictos de horarios",
-        "cronogramas compartidos por mensajes",
-        "falta de visibilidad mensual",
+        "horarios compartidos por WhatsApp",
+        "stock controlado en Excel",
+        "remitos en papel sin trazabilidad",
       ],
-      industries: ["retail", "gastronomia", "servicios"],
+      industries: ["gastronomía", "retail", "distribución"],
     },
   },
   landingContent: {
-    heroLabel: "Software de gestion de horarios",
+    heroLabel: "Horarios, stock, pedidos y remitos para tu operación diaria.",
     heroTitle: "Horarios Simple",
     heroDescription:
-      "Horarios Simple organiza turnos semanales y mensuales para equipos que necesitan publicar cronogramas con menos friccion y dentro del mismo ecosistema operativo de ControlApp.",
+      "Armá los turnos de la semana, publicálos para que los empleados los vean sin login, gestioná el stock, hacé pedidos a proveedores y generá remitos con firma digital. Todo en una PWA instalable.",
     heroStats: {
-      value: "Menos conflictos",
-      label: "al planificar turnos y compartir cronogramas del equipo",
+      value: "PWA instalable",
+      label: "para gestión operativa completa desde el celular",
     },
     valueProposition:
-      "Si buscas gestion de horarios para equipos, Horarios Simple ayuda a planificar, publicar y compartir turnos sin depender de planillas sueltas.",
+      "Si hoy gestionás horarios por WhatsApp, el stock en Excel y los pedidos a mano, Horarios Simple centraliza todo en una sola app instalable en el celular.",
     audiences: [
       {
-        title: "Equipos con turnos variables",
-        description: "Sirve para negocios que trabajan con cambios semanales, coberturas y francos rotativos.",
+        title: "Restaurantes y cadenas gastronómicas",
+        description:
+          "Armá turnos con francos y medios turnos, publicálos para los empleados y gestioná pedidos de insumos con remito digital.",
       },
       {
-        title: "Supervisores y coordinadores",
-        description: "Facilita la planificacion y comunicacion de horarios desde una interfaz simple.",
+        title: "Negocios con fábrica y puntos de venta",
+        description:
+          "La fábrica recibe pedidos de cada sucursal, los procesa y genera el remito. La sucursal confirma cantidades y registra devoluciones.",
       },
       {
-        title: "Empresas con comunicacion operativa intensa",
-        description: "Permite compartir cronogramas sin sacar la gestion del ecosistema principal.",
+        title: "Equipos con múltiples empleados y áreas",
+        description:
+          "Separadores visuales por área, roles diferenciados (admin, manager, fábrica, sucursal) y tareas asignadas por empleado.",
       },
     ],
     problems: [
-      "Horarios que se actualizan en planillas o chats sin version clara.",
-      "Dificultad para detectar huecos y superposiciones de turnos.",
-      "Cronogramas que no llegan a tiempo a todo el equipo.",
+      "Horarios enviados por WhatsApp que nadie recuerda dónde están.",
+      "Stock controlado en Excel que se desactualiza entre turnos.",
+      "Pedidos a proveedores sin trazabilidad de cantidades enviadas vs recibidas.",
     ],
     benefits: [
-      "Reduce conflictos y superposiciones de turnos.",
-      "Ordena la planificacion semanal y mensual en un solo lugar.",
-      "Permite exportar y compartir cronogramas con rapidez.",
-      "Comparte login y permisos con otros modulos.",
-      "Mantiene contexto operativo dentro del ecosistema.",
-      "Escala por area o sucursal sin rehacer la base.",
+      "Los empleados ven su horario desde el celular sin crear cuenta.",
+      "Stock mínimo calculado automáticamente para saber qué pedir.",
+      "Remitos con firma digital de fábrica y sucursal.",
+      "Estados del pedido visibles para ambas partes en tiempo real.",
+      "Chat de stock en lenguaje natural sin necesidad de IA.",
+      "Exportación de horarios como imagen, PDF o Excel.",
     ],
     functionalities: [
       {
-        title: "Horarios semanales",
-        description: "Arma y ajusta cronogramas semanales para equipos con dinamica operativa cambiante.",
+        title: "Horarios — turnos, francos y exportación",
+        description:
+          "Turnos semanales y mensuales configurables, incluyendo turnos cortados en dos franjas. Franco, medio franco y medios turnos como estados de día. Cálculo automático de horas extra. Separadores visuales por área. Publicación de semana: empleados ven el horario en /horario/{empresa} sin login. Exportación como imagen, PDF semanal/mensual y Excel.",
         icon: Calendar,
       },
       {
-        title: "Vista mensual",
-        description: "Permite anticipar cobertura, huecos y cambios antes de publicar horarios.",
-        icon: FileText,
-      },
-      {
-        title: "Exportacion a imagen",
-        description: "Convierte horarios en imagen para compartirlos por canales operativos habituales.",
+        title: "Stock y pedidos — entrada, salida y proveedores",
+        description:
+          "Stock actual con movimientos de entrada y salida. Stock mínimo que calcula automáticamente la cantidad a pedir. Pedidos a proveedores con productos, unidades o packs. Importación masiva de productos. Links públicos de pedidos compartibles con proveedores. Chat de stock en lenguaje natural: 'ingresé 10 cajas' o '¿cuántas botellas quedan?' — sin IA, IA opcional con Ollama.",
         icon: FolderOpen,
       },
       {
-        title: "Publicacion controlada",
-        description: "Publica el horario para que cada empleado consulte su cronograma con acceso gestionado.",
+        title: "Remitos y recepciones — firma digital y estados",
+        description:
+          "Generación de remitos desde pedidos aprobados. Firma digital de remitos por fábrica y sucursal. Recepción con cantidades recibidas, devoluciones y observaciones. Estados del pedido: creado → processing → enviado → recibido → completado. Panel de fábrica separado para procesar pedidos y emitir remitos.",
+        icon: FileText,
+      },
+      {
+        title: "Tareas — calendario semanal por empleado",
+        description:
+          "Calendario semanal con turnos mañana/tarde. Tareas diarias, semanales y específicas por fecha. Creación rápida desde la celda del calendario. Asignación a empleados con estado activo/inactivo.",
         icon: Lock,
       },
     ],
     useCases: [
       {
-        title: "Restaurantes y bares",
-        description: "Gestiona cambios de turnos, francos y coberturas en operaciones de alta rotacion.",
+        title: "Restaurante o cadena gastronómica",
+        description:
+          "El encargado arma los turnos, los publica, y los empleados los ven desde el celular sin login. También gestiona el stock de ingredientes, hace el pedido al proveedor y el remito se firma digitalmente cuando llega la mercadería.",
       },
       {
-        title: "Tiendas y comercios",
-        description: "Planifica equipos por semana y por mes sin depender de archivos desordenados.",
-      },
-      {
-        title: "Empresas de servicios",
-        description: "Coordina disponibilidad de personas y equipos para sostener la operacion diaria.",
+        title: "Negocio con fábrica y puntos de venta",
+        description:
+          "La fábrica recibe pedidos de cada sucursal, los procesa y genera el remito. La sucursal confirma cantidades y registra devoluciones. Todo con estados visibles para ambas partes.",
       },
     ],
     faq: [
       {
-        question: "Horarios Simple sirve para publicar horarios a empleados?",
+        question: "¿Es solo para horarios?",
         answer:
-          "Si. El modulo permite planificar cronogramas y publicarlos para consulta del equipo con acceso controlado.",
+          "No. Tiene stock, pedidos, remitos con firma digital, chat de stock en lenguaje natural y tareas asignables por empleado.",
       },
       {
-        question: "Que tipo de empresas pueden usarlo?",
+        question: "¿Los empleados necesitan login para ver el horario?",
         answer:
-          "Es especialmente util para operaciones con turnos variables como retail, gastronomia o servicios.",
+          "No. El link público /horario/{empresa} es compartible. Los empleados ven su horario sin crear cuenta.",
       },
       {
-        question: "Como se integra con ControlApp?",
+        question: "¿El chat de stock necesita IA?",
         answer:
-          "Comparte autenticacion, permisos y puede convivir con documentacion y archivos del resto del ecosistema.",
+          "No. Funciona sin IA y entiende frases como 'ingresé 10 cajas' o '¿cuántas botellas quedan?'. IA opcional con Ollama si lo querés conectar.",
+      },
+      {
+        question: "¿Funciona en el celular?",
+        answer: "Sí, PWA instalable en Android y desktop desde el navegador, sin pasar por la App Store.",
       },
     ],
     finalCta: {
       primaryLabel: "Explorar Horarios Simple",
       primaryHref: "/horarios",
-      secondaryLabel: "Ver el resto de los modulos",
+      secondaryLabel: "Ver el resto de los módulos",
       secondaryHref: "/#apps",
     },
     platformIntegration: {
-      title: "Horarios Simple se apoya en la base comun de ControlApp",
+      title: "Horarios Simple se apoya en la base común de ControlApp",
       description:
-        "El modulo se concentra en planificacion y comunicacion operativa mientras la plataforma resuelve identidad, permisos y crecimiento modular.",
+        "El módulo se concentra en planificación y operación diaria mientras la plataforma resuelve identidad, permisos y crecimiento modular.",
       bullets: [
-        "Comparte login con otros modulos del ecosistema.",
-        "Puede convivir con archivos y documentacion visibles desde ControlFile.",
-        "Se suma al catalogo sin duplicar navegacion ni estructura comercial.",
+        "Comparte login con otros módulos del ecosistema.",
+        "Puede convivir con archivos y documentación visibles desde ControlFile.",
+        "Roles diferenciados: Admin, Manager, Fábrica, Sucursal e Invitado.",
       ],
     },
     relatedApps: [
       {
         slug: "bolsa-trabajo",
-        anchor: "Ver modulo de candidatos y CVs para equipos operativos",
-        reason: "Bolsa de Trabajo complementa la coordinacion de personas con seleccion y perfiles.",
+        anchor: "Ver módulo de candidatos y CVs para equipos operativos",
+        reason: "Bolsa de Trabajo complementa la coordinación de personas con selección y perfiles.",
       },
       {
         slug: "control-file",
         anchor: "Ver storage compartido para archivos y publicaciones internas",
-        reason: "ControlFile puede concentrar archivos y soportes vinculados a la operacion.",
+        reason: "ControlFile puede concentrar archivos y soportes vinculados a la operación.",
       },
     ],
   },

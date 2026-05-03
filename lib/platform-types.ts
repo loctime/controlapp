@@ -75,6 +75,7 @@ export interface PlatformApp {
   color: string
   href: string
   features: string[]
+  cardBadges: [string, string]
   platformCapabilities: PlatformCapability
   landingContent: AppLandingContent
   seo: {

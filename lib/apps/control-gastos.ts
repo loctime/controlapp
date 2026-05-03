@@ -5,7 +5,8 @@ export const controlGastos: PlatformApp = {
   id: "control-gastos",
   slug: "control-gastos",
   name: "ControlGastos",
-  shortDescription: "Software de control de gastos y comprobantes con adjuntos conectados al storage global.",
+  shortDescription:
+    "PWA con dashboard visual, gastos recurrentes por frecuencia, historial con gráficos e integración con ControlFile para comprobantes. Modo oscuro incluido.",
   category: "finance",
   status: "active",
   icon: Receipt,
@@ -13,12 +14,14 @@ export const controlGastos: PlatformApp = {
   color: "from-amber-500 to-orange-500",
   href: "/control-gastos",
   features: [
-    "Registro de gastos",
-    "Comprobantes adjuntos",
-    "Acceso compartido",
-    "Orden por modulo y coleccion",
-    "Integracion con ControlFile",
+    "Dashboard con resumen visual",
+    "Gastos recurrentes automáticos",
+    "Historial con gráficos interactivos",
+    "Comprobantes en ControlFile",
+    "PWA instalable con modo oscuro",
+    "Un login con el ecosistema",
   ],
+  cardBadges: ["Gastos recurrentes", "Comprobantes en ControlFile"],
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
@@ -26,116 +29,127 @@ export const controlGastos: PlatformApp = {
     requiresPermissions: true,
   },
   seo: {
-    title: "ControlGastos | Software de control de gastos empresarial",
+    title: "ControlGastos | Control de gastos con comprobantes y dashboard visual",
     description:
-      "ControlGastos es el software de control de gastos de ControlApp para registrar comprobantes y adjuntos con autenticacion compartida y storage global.",
+      "ControlGastos registra tus gastos fijos, adjunta el comprobante en ControlFile y muestra si tus gastos crecen mes a mes. PWA instalable con modo oscuro.",
     canonicalPath: "/control-gastos",
     socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file3-vmbmN61v5atqI637XpFupjQa80OunU.png",
     categoryLabel: "Software de control de gastos",
     keywords: {
-      primary: "control de gastos empresarial",
+      primary: "control de gastos con comprobantes",
       secondary: [
-        "software de comprobantes",
-        "gestion de gastos con adjuntos",
-        "registro de gastos para empresas",
+        "gastos recurrentes automaticos",
+        "dashboard de gastos con graficos",
+        "software de gastos para pymes",
       ],
       problems: [
-        "comprobantes fuera del sistema",
-        "gastos distribuidos en carpetas separadas",
-        "falta de trazabilidad financiera",
+        "gastos fijos sin comprobante archivado",
+        "sin saber si los gastos crecen mes a mes",
+        "comprobantes sueltos en el celular o email",
       ],
-      industries: ["administracion", "finanzas", "operaciones"],
+      industries: ["administración", "emprendedores", "pymes"],
     },
   },
   landingContent: {
-    heroLabel: "Software de control de gastos",
+    heroLabel: "Registrá tus gastos fijos, adjuntá el comprobante y sabé siempre cuánto gastás.",
     heroTitle: "ControlGastos",
     heroDescription:
-      "ControlGastos administra gastos y comprobantes sin salir del ecosistema de ControlApp. Los adjuntos se conectan con el storage global y respetan los mismos permisos del resto de la plataforma.",
+      "PWA instalable con dashboard visual, gastos recurrentes por frecuencia, historial con gráficos e integración con ControlFile para comprobantes. Modo oscuro incluido.",
     heroStats: {
-      value: "Comprobantes conectados",
-      label: "al mismo login, permisos y storage del negocio",
+      value: "Dashboard visual",
+      label: "total del mes, pendientes y pagados de un vistazo",
     },
     valueProposition:
-      "Si buscas control de gastos empresarial con comprobantes integrados, ControlGastos ordena registros y adjuntos dentro de una plataforma compartida.",
+      "Si llevás los gastos en una planilla y guardás los comprobantes en el celular, ControlGastos los centraliza con dashboard, recurrentes automáticos y comprobantes archivados.",
     audiences: [
       {
-        title: "Equipos administrativos",
-        description: "Ayuda a ordenar gastos operativos y documentacion de soporte en un flujo mas consistente.",
+        title: "Responsable de administración con gastos fijos",
+        description:
+          "Lleva alquiler, servicios y otros gastos mensuales con comprobantes archivados y accesibles desde ControlFile.",
       },
       {
-        title: "Areas financieras",
-        description: "Sirve para conectar gastos, comprobantes y contexto documental sin carpetas separadas.",
-      },
-      {
-        title: "Empresas con multiples procesos internos",
-        description: "Mantiene continuidad entre finanzas, archivos y otros modulos del negocio.",
+        title: "Emprendedor que quiere ver si sus gastos crecen",
+        description:
+          "Dashboard con evolución mes a mes y comprobante adjunto a cada gasto para tener el respaldo donde corresponde.",
       },
     ],
     problems: [
-      "Comprobantes guardados fuera del sistema o en repositorios paralelos.",
-      "Gastos sin trazabilidad documental clara por proceso o area.",
-      "Friccion al pasar de la gestion financiera al archivo de soporte.",
+      "Los gastos fijos se registran en Excel y los comprobantes quedan sueltos en el celular o el email.",
+      "No hay forma de ver si los gastos crecen mes a mes sin armar una planilla.",
+      "Los recurrentes hay que cargarlos manualmente todos los meses.",
     ],
     benefits: [
-      "Conecta recibos y comprobantes con el storage global.",
-      "Comparte identidad y permisos con otras apps.",
-      "Evita adjuntos sueltos fuera del sistema principal.",
-      "Mantiene trazabilidad por modulo y coleccion.",
-      "Facilita escalar procesos financieros sin rehacer auth.",
-      "Mejora orden y recuperacion de documentacion de gastos.",
+      "Dashboard con total del mes, pendientes y pagados en un solo vistazo.",
+      "Gastos recurrentes que se generan solos — configurás la frecuencia una vez.",
+      "Historial con gráficos para ver tendencias por categoría y período.",
+      "Comprobante adjunto en ControlFile con organización automática.",
+      "Link permanente para compartir el comprobante cuando hace falta.",
+      "PWA instalable con modo oscuro para uso diario desde el celular.",
     ],
     functionalities: [
       {
-        title: "Registro de gastos",
-        description: "Gestiona egresos y movimientos con una experiencia conectada al ecosistema administrativo.",
+        title: "Dashboard con resumen visual",
+        description:
+          "Total del mes, pendientes de pago y ya pagados. Indicadores de estado con colores semánticos: verde pagado, amarillo pendiente.",
         icon: Receipt,
       },
       {
-        title: "Comprobantes adjuntos",
-        description: "Asocia comprobantes y respaldos al storage global para consulta posterior.",
+        title: "Gastos recurrentes automáticos",
+        description:
+          "Marcá un gasto como recurrente con frecuencia semanal, mensual o anual. Se genera automáticamente en el período siguiente.",
+        icon: FileText,
+      },
+      {
+        title: "Historial con gráficos interactivos",
+        description:
+          "Evolución de gastos por período. Filtrá por categoría o estado. Gráficos Recharts con tendencias.",
         icon: FolderOpen,
       },
       {
-        title: "Acceso unificado",
-        description: "Los usuarios comparten login con el resto de las apps y acceden segun permisos.",
+        title: "Comprobantes adjuntos en ControlFile",
+        description:
+          "Adjuntá factura o comprobante al gasto. Se organiza automáticamente en ControlFile por usuario y tipo. Generá link permanente para compartirlo.",
+        icon: FolderOpen,
+      },
+      {
+        title: "PWA instalable con modo oscuro",
+        description:
+          "Instalable en celular y desktop. Modo oscuro automático. Diseño responsive para uso móvil.",
         icon: Lock,
       },
       {
-        title: "Contexto financiero",
-        description: "Los archivos quedan ordenados por origen y coleccion para no perder trazabilidad.",
-        icon: FileText,
+        title: "Un login con el ecosistema",
+        description:
+          "Misma cuenta de ControlApp da acceso directo a ControlFile, sin popups ni relogin.",
+        icon: Lock,
       },
     ],
     useCases: [
       {
-        title: "Administracion interna",
-        description: "Ordena gastos recurrentes y respaldos documentales con acceso centralizado.",
+        title: "Responsable de administración con gastos fijos mensuales",
+        description:
+          "Lleva alquiler, servicios y otros gastos recurrentes con comprobantes archivados en ControlFile y accesibles en cualquier momento.",
       },
       {
-        title: "Seguimiento de comprobantes",
-        description: "Evita que los recibos queden repartidos en carpetas externas o canales manuales.",
-      },
-      {
-        title: "Trabajo entre areas",
-        description: "Conecta finanzas, administracion y archivo en la misma plataforma operativa.",
+        title: "Emprendedor que quiere ver si sus gastos crecen mes a mes",
+        description:
+          "Dashboard con evolución por categoría y comprobante adjunto a cada gasto. Sin planillas ni comprobantes sueltos.",
       },
     ],
     faq: [
       {
-        question: "ControlGastos funciona como software de control de gastos para empresas?",
+        question: "¿Los recurrentes se crean solos?",
         answer:
-          "Si. Esta orientado a registrar gastos y comprobantes con una base comun de identidad, permisos y archivos.",
+          "Sí. Configurás la frecuencia (semanal, mensual, anual) una vez y el sistema genera el gasto automáticamente en el período siguiente.",
       },
       {
-        question: "Donde se guardan los comprobantes?",
+        question: "¿Puedo adjuntar facturas?",
         answer:
-          "Se guardan en el storage global del ecosistema y pueden consultarse desde ControlFile segun permisos.",
+          "Sí. Se guardan en ControlFile con organización automática y podés generar un link permanente para compartirlos.",
       },
       {
-        question: "Que ventaja tiene frente a planillas y carpetas separadas?",
-        answer:
-          "Permite mantener gastos y respaldos dentro del mismo flujo operativo, con mejor trazabilidad y menos dispersion.",
+        question: "¿Funciona en el celular?",
+        answer: "Sí, PWA instalable en Android y desktop con modo oscuro incluido.",
       },
     ],
     finalCta: {
@@ -145,25 +159,25 @@ export const controlGastos: PlatformApp = {
       secondaryHref: "/control-file",
     },
     platformIntegration: {
-      title: "ControlGastos aprovecha la infraestructura comun del ecosistema",
+      title: "ControlGastos aprovecha la infraestructura común del ecosistema",
       description:
-        "El modulo se concentra en el dominio financiero mientras la plataforma resuelve autenticacion, permisos y archivos compartidos.",
+        "El módulo se concentra en el dominio financiero mientras la plataforma resuelve autenticación, permisos y archivos compartidos.",
       bullets: [
-        "Comparte sesion con el resto del ecosistema.",
+        "Comparte sesión con el resto del ecosistema.",
         "Guarda comprobantes dentro del storage global.",
-        "Expone adjuntos en ControlFile con organizacion por modulo y coleccion.",
+        "Expone adjuntos en ControlFile con organización por módulo y colección.",
       ],
     },
     relatedApps: [
       {
         slug: "control-file",
         anchor: "Ver storage compartido para comprobantes y adjuntos",
-        reason: "ControlFile centraliza los respaldos de ControlGastos y otros modulos.",
+        reason: "ControlFile centraliza los respaldos de ControlGastos y otros módulos.",
       },
       {
         slug: "control-ventas",
-        anchor: "Ver modulo comercial conectado a caja y documentacion",
-        reason: "ControlVentas complementa gastos con operacion comercial y caja diaria.",
+        anchor: "Ver módulo comercial conectado a caja y documentación",
+        reason: "ControlVentas complementa gastos con operación comercial y caja diaria.",
       },
     ],
   },

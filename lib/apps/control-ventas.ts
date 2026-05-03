@@ -5,7 +5,8 @@ export const controlVentas: PlatformApp = {
   id: "control-ventas",
   slug: "control-ventas",
   name: "ControlVentas",
-  shortDescription: "Software de operacion comercial y caja diaria conectado al storage y permisos del ecosistema.",
+  shortDescription:
+    "PWA de flujo de caja móvil-first. Tres métodos de pago, pagos recurrentes, historial filtrable por período y tipo, offline-first con todos los datos guardados localmente.",
   category: "finance",
   status: "active",
   icon: TrendingUp,
@@ -13,12 +14,14 @@ export const controlVentas: PlatformApp = {
   color: "from-cyan-500 to-blue-500",
   href: "/control-ventas",
   features: [
-    "Caja diaria",
-    "Operacion comercial",
-    "Documentacion integrada",
-    "Permisos por rol",
-    "Integracion con ControlFile",
+    "Cobros y pagos en segundos",
+    "3 métodos de pago (efectivo, tarjeta, transferencia)",
+    "Pagos recurrentes automáticos",
+    "Resumen financiero en tiempo real",
+    "Historial filtrable por período y tipo",
+    "Offline-first, instalable como app",
   ],
+  cardBadges: ["Caja diaria · Offline-first", "3 métodos de pago"],
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
@@ -26,132 +29,137 @@ export const controlVentas: PlatformApp = {
     requiresPermissions: true,
   },
   seo: {
-    title: "ControlVentas | Software de operacion comercial y caja diaria",
+    title: "ControlVentas | Caja diaria offline-first con 3 métodos de pago",
     description:
-      "ControlVentas es el software comercial de ControlApp para caja diaria y documentacion asociada con autenticacion compartida y storage global.",
+      "ControlVentas es una PWA de caja diaria móvil-first. Registrá cobros y pagos con efectivo, tarjeta y transferencia, sin internet, desde el celular.",
     canonicalPath: "/control-ventas",
     socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lecturaAutomatica-10Zh7xNgq7oJmQdMNGaIVDKaJYIHWE.png",
-    categoryLabel: "Software comercial y caja diaria",
+    categoryLabel: "Caja diaria y flujo de caja",
     keywords: {
-      primary: "software de operacion comercial",
+      primary: "caja diaria offline para negocios",
       secondary: [
-        "caja diaria para negocios",
-        "control comercial con adjuntos",
-        "software de ventas interno",
+        "app de caja sin internet",
+        "registro de cobros y pagos desde celular",
+        "flujo de caja movil",
       ],
       problems: [
-        "caja diaria separada del archivo",
-        "falta de trazabilidad comercial",
-        "documentacion comercial dispersa",
+        "caja anotada en papel o WhatsApp",
+        "sin saber cuánto entró por tarjeta vs efectivo",
+        "historial de caja inaccesible cuando no hay WiFi",
       ],
-      industries: ["retail", "comercio", "operaciones"],
+      industries: ["kioscos", "comercios", "emprendedores"],
     },
   },
   landingContent: {
-    heroLabel: "Software comercial y caja diaria",
+    heroLabel: "Registrá cobros y pagos desde el celular, con o sin internet.",
     heroTitle: "ControlVentas",
     heroDescription:
-      "ControlVentas trabaja sobre la misma plataforma compartida de ControlApp para unificar identidad, permisos y documentacion comercial alrededor de la operacion diaria.",
+      "PWA de flujo de caja móvil-first. Tres métodos de pago, pagos recurrentes, historial filtrable por período y tipo, offline-first con todos los datos guardados localmente.",
     heroStats: {
-      value: "Operacion conectada",
-      label: "a archivos, permisos y otros modulos del ecosistema",
+      value: "Offline-first",
+      label: "todos los datos guardados localmente, sin depender de internet",
     },
     valueProposition:
-      "Si buscas software de operacion comercial o caja diaria, ControlVentas integra procesos comerciales con adjuntos y acceso centralizado.",
+      "Si hoy anotás la caja en papel o en el celular de forma manual, ControlVentas reemplaza ese anotador con historial, filtros y desglose por método de pago.",
     audiences: [
       {
-        title: "Locales y puntos de venta",
-        description: "Sirve para negocios que necesitan relacionar operacion diaria con documentacion y control interno.",
+        title: "Pequeño negocio o kiosco",
+        description:
+          "Reemplazá el anotador de caja con algo digital que funcione sin WiFi. Efectivo, tarjeta y transferencia en botones grandes para el mostrador.",
       },
       {
-        title: "Administracion comercial",
-        description: "Aporta una base comun para trabajar con permisos, adjuntos y trazabilidad.",
-      },
-      {
-        title: "Equipos que crecen por modulos",
-        description: "Ayuda a sumar funciones comerciales sin romper la coherencia del ecosistema.",
+        title: "Emprendedor que cobra por múltiples métodos",
+        description:
+          "Al final del día sabés cuánto entró por efectivo, cuánto por tarjeta y cuánto por transferencia sin tener que sumar a mano.",
       },
     ],
     problems: [
-      "Caja diaria gestionada fuera del sistema principal.",
-      "Documentacion comercial sin orden ni acceso unificado.",
-      "Friccion entre ventas, administracion y archivo.",
+      "La caja se anota en papel o en notas del celular sin historial ni filtros.",
+      "No hay forma rápida de saber cuánto entró por cada método de pago.",
+      "Si no hay WiFi, el sistema de caja no funciona.",
     ],
     benefits: [
-      "Integra operacion comercial con otros modulos del ecosistema.",
-      "Mantiene acceso por permisos sin credenciales separadas.",
-      "Conecta tickets y adjuntos al storage global.",
-      "Facilita trazabilidad por modulo comercial.",
-      "Evita silos entre ventas, archivos y administracion.",
-      "Permite sumar funciones sin rehacer la base tecnica.",
+      "Cobros y pagos registrados en segundos con botones grandes para el mostrador.",
+      "Tres métodos de pago: efectivo, tarjeta y transferencia.",
+      "Pagos recurrentes que se generan solos con la frecuencia que configures.",
+      "Balance en tiempo real actualizado con cada movimiento.",
+      "Historial filtrable por día, semana, mes o año y por tipo de movimiento.",
+      "Offline-first: funciona sin internet con datos guardados localmente.",
     ],
     functionalities: [
       {
-        title: "Caja diaria",
-        description: "Gestiona movimientos comerciales cotidianos dentro del ecosistema compartido.",
+        title: "Cobros y pagos en segundos",
+        description:
+          "Ingresos y egresos con tres métodos: efectivo, tarjeta y transferencia. Botones grandes para usar desde el mostrador.",
         icon: TrendingUp,
       },
       {
-        title: "Documentacion integrada",
-        description: "Adjuntos y comprobantes se ordenan en el storage global y quedan disponibles con contexto.",
-        icon: FolderOpen,
+        title: "Pagos recurrentes automáticos",
+        description:
+          "Marcá cualquier pago como recurrente (semanal, mensual, anual). Se genera solo en el período siguiente.",
+        icon: FileText,
       },
       {
-        title: "Permisos por rol",
-        description: "El acceso al modulo se resuelve por claims y roles dentro de la misma plataforma.",
+        title: "Resumen financiero en tiempo real",
+        description:
+          "Ingresos totales, gastos totales y balance actualizado con cada registro.",
         icon: Shield,
       },
       {
-        title: "Escalabilidad comercial",
-        description: "Permite crecer en procesos comerciales sin rehacer identidad o archivos.",
-        icon: FileText,
+        title: "Historial filtrable",
+        description:
+          "Por día, semana, mes o año. Por tipo: todas, solo ingresos, solo gastos. Detalle completo de cada movimiento.",
+        icon: FolderOpen,
+      },
+      {
+        title: "Offline-first, instalable",
+        description:
+          "Todos los datos se guardan localmente con localStorage. Funciona sin internet. Instalable como app en cualquier dispositivo.",
+        icon: Shield,
       },
     ],
     useCases: [
       {
-        title: "Locales y sucursales",
-        description: "Controla cierres y movimientos diarios con documentacion asociada y acceso centralizado.",
+        title: "Pequeño negocio o kiosco sin WiFi estable",
+        description:
+          "Reemplazá el anotador de caja con algo digital que funcione sin internet. Cada cobro queda registrado con método de pago y hora.",
       },
       {
-        title: "Negocios con administracion interna",
-        description: "Conecta caja diaria con procesos de soporte y archivo en una misma plataforma.",
-      },
-      {
-        title: "Operacion comercial escalable",
-        description: "Suma nuevos procesos sin multiplicar accesos ni sistemas aislados.",
+        title: "Emprendedor que cobra por varios métodos",
+        description:
+          "Al cierre del día ves cuánto entró por efectivo, tarjeta y transferencia por separado, con el balance total actualizado.",
       },
     ],
     faq: [
       {
-        question: "ControlVentas sirve para caja diaria y operacion comercial?",
+        question: "¿Funciona sin internet?",
         answer:
-          "Si. El modulo esta orientado a ordenar operacion comercial, caja diaria y documentacion relacionada dentro del mismo ecosistema.",
+          "Sí. Es offline-first. Todos los datos se guardan localmente con localStorage y no necesitás conexión para registrar ni consultar.",
       },
       {
-        question: "Los adjuntos comerciales quedan integrados con otros modulos?",
+        question: "¿Se puede ver el historial por semana o mes?",
         answer:
-          "Si. Los archivos pueden ordenarse en el storage global y consultarse desde ControlFile segun permisos.",
+          "Sí. Filtrás por día, semana, mes o año, y también por tipo: todos los movimientos, solo ingresos o solo gastos.",
       },
       {
-        question: "Que aporta frente a una herramienta comercial aislada?",
-        answer:
-          "Aporta identidad compartida, permisos comunes y continuidad con otras areas como gastos, archivos y documentacion.",
+        question: "¿Funciona en el celular?",
+        answer: "Sí, PWA instalable con diseño móvil-first. Se instala en Android e iOS desde el navegador.",
       },
     ],
     finalCta: {
       primaryLabel: "Explorar ControlVentas",
       primaryHref: "/control-ventas",
-      secondaryLabel: "Ver modulo de gastos conectado",
+      secondaryLabel: "Ver módulo de gastos conectado",
       secondaryHref: "/control-gastos",
     },
     platformIntegration: {
-      title: "ControlVentas usa la misma capa comun del ecosistema",
+      title: "ControlVentas usa la misma capa común del ecosistema",
       description:
-        "Operacion comercial, archivos y permisos hablan el mismo idioma para evitar procesos aislados.",
+        "Operación comercial, archivos y permisos hablan el mismo idioma para evitar procesos aislados.",
       bullets: [
-        "Comparte autenticacion con otros modulos activos.",
-        "Puede publicar documentacion comercial en el storage global.",
-        "Mantiene visibilidad controlada desde ControlFile segun permisos.",
+        "Comparte autenticación con otros módulos activos.",
+        "Puede publicar documentación comercial en el storage global.",
+        "Mantiene visibilidad controlada desde ControlFile según permisos.",
       ],
     },
     relatedApps: [
@@ -163,7 +171,7 @@ export const controlVentas: PlatformApp = {
       {
         slug: "control-file",
         anchor: "Ver storage compartido para tickets y archivos comerciales",
-        reason: "ControlFile centraliza documentacion comercial y adjuntos operativos.",
+        reason: "ControlFile centraliza documentación comercial y adjuntos operativos.",
       },
     ],
   },
