@@ -2,162 +2,264 @@
 
 Landing de ControlApp orientada a comunicar la plataforma como un ecosistema centralizado multi-app.
 
-## Enfoque actual
+---
 
-La landing ya no presenta solo una "suite" de productos sueltos. Ahora comunica a ControlApp como una plataforma con:
+## Enfoque de comunicación
 
-- autenticacion compartida entre apps
-- permisos por modulo
-- storage global transversal
-- ControlFile como capa visible para navegar archivos por app y coleccion
+El copy está escrito desde la perspectiva del usuario, no de la plataforma. El primer nivel siempre es el trabajo concreto que resuelve cada app. La integración (auth compartida, storage global) es el argumento de cierre, no de apertura.
 
-## Que se refactorizo
+Patrón aplicado en cada landing:
+1. Headline = el problema concreto que resuelve
+2. Features = verbos de acción ("Diseñá formularios", "Completá desde el celular")
+3. Funcionalidades = descripciones tipo "así funciona", no definiciones
+4. Cierre = "Todo dentro de ControlApp — archivos, permisos y usuarios ya están resueltos"
 
-### 1. Fuente unica de verdad
+---
 
-Toda la informacion de plataforma y apps activas vive en [lib/platform-data.ts](./lib/platform-data.ts).
+## Apps activas
 
-Desde ese archivo se resuelven:
+| App | Slug | Archivo de datos |
+|---|---|---|
+| ControlFile | `/control-file` | `lib/apps/control-file.ts` |
+| ControlDoc | `/control-doc` | `lib/apps/control-doc.ts` |
+| ControlAudit | `/control-audit` | `lib/apps/control-audit.ts` |
+| Horarios Simple | `/horarios` | `lib/apps/horarios.ts` |
+| ControlGastos | `/control-gastos` | `lib/apps/control-gastos.ts` |
+| ControlVentas | `/control-ventas` | `lib/apps/control-ventas.ts` |
+| Bolsa de Trabajo | `/bolsa-trabajo` | `lib/apps/bolsa-trabajo.ts` |
+| ControlMarket | `/control-market` | `lib/apps/control-market.ts` |
 
-- metadata editorial de la home
-- apps activas
-- capacidades compartidas
-- contenido de las landings individuales
-- links de navegacion
+---
 
-### 2. Home orientada a plataforma
+## Arquitectura de datos
 
-La home en [app/page.tsx](./app/page.tsx) ahora se compone de:
+### Fuente única de verdad
 
-- `Hero`: narrativa de cuenta unica, permisos y storage global
-- `PlatformArchitecture`: flujo real de login, acceso y archivos
-- `PlatformCapabilities`: capacidades heredadas por cada nueva app
-- `PlatformAppGrid`: catalogo de apps activas renderizado desde el registro central
+```
+lib/
+  platform-types.ts       → interfaces TypeScript de toda la plataforma
+  platform-catalog.ts     → array platformApps, platformOverview, FAQ homepage
+  platform-data.ts        → barrel export (re-exporta platform-catalog.ts)
+  apps/
+    control-audit.ts
+    control-doc.ts
+    control-file.ts
+    control-gastos.ts
+    control-market.ts
+    control-ventas.ts
+    horarios.ts
+    bolsa-trabajo.ts
+```
 
-### 3. Navbar y catalogo escalables
+Cada archivo en `lib/apps/` exporta un objeto `PlatformApp` completo. Al agregarlo al array `platformApps` en `platform-catalog.ts` aparece automáticamente en navbar, grilla de apps, footer y sitemap.
 
-El navbar y los menus mobile/desktop consumen el mismo registro central. Para sumar una app activa no hay que duplicar listas en varios componentes.
+### Estructura de PlatformApp
 
-Archivos principales:
+```typescript
+{
+  id, slug, name, shortDescription,
+  category,   // "operations" | "finance" | "talent" | "storage"
+  status,     // "active" | "comingSoon" | "hidden"
+  icon,       // LucideIcon
+  image,      // URL de imagen del hero
+  color,      // clases Tailwind para el gradiente ("from-X to-Y")
+  href,       // ruta de la landing ("/control-audit")
+  features,   // array de strings — pills con verbos de acción en el hero
+  cardBadges, // [string, string] — dos badges en la card del homepage
+  platformCapabilities: { sharedAuth, sharedStorage, visibleInControlFile, requiresPermissions },
+  seo:        { title, description, canonicalPath, socialImage, categoryLabel, keywords },
+  landingContent: { ... }  // ver sección siguiente
+}
+```
 
-- [components/navbar.tsx](./components/navbar.tsx)
-- [components/navbar/MegaMenu.tsx](./components/navbar/MegaMenu.tsx)
-- [components/navbar/NavbarMobile.tsx](./components/navbar/NavbarMobile.tsx)
+### Estructura de landingContent
 
-### 4. Plantilla reusable para apps
+```typescript
+{
+  mediaGallery?,         // galería split-screen web/móvil (ver sección "Galería de medios")
+  heroLabel,             // eyebrow pill del hero
+  heroTitle,             // título H1
+  heroDescription,       // párrafo principal — foco en el trabajo concreto
+  heroStats?,            // { value, label } — stat flotante sobre la imagen
+  valueProposition,      // párrafo de cierre del hero — incluye nota de integración
+  audiences,             // array { title, description } — para qué empresas sirve
+  problems,              // array de strings — qué problemas resuelve
+  benefits,              // array de strings — beneficios concretos
+  functionalities,       // array { title, description, icon } — funcionalidades clave
+  useCases,              // array { title, description } — flujos reales de uso
+  faq,                   // array { question, answer }
+  finalCta:              { primaryLabel, primaryHref, secondaryLabel, secondaryHref },
+  platformIntegration?,  // { title, description, bullets[] } — sección dark de integración
+  relatedApps,           // array { slug, anchor, reason }
+}
+```
 
-Las landings individuales usan una plantilla comun en [components/app-landing-template.tsx](./components/app-landing-template.tsx).
+---
 
-Cada pagina de app solo:
+## Badges del homepage
 
-1. busca su configuracion por `slug`
-2. expone metadata SEO
-3. renderiza la plantilla
+Los badges en las cards del homepage (`platform-app-grid.tsx`) se renderizan desde `app.cardBadges: [string, string]`. Cada app define sus propios textos — ya no son genéricos ("Auth central · Storage global").
 
-Apps activas migradas:
+Valores actuales:
 
-- [app/control-file/page.tsx](./app/control-file/page.tsx)
-- [app/control-doc/page.tsx](./app/control-doc/page.tsx)
-- [app/control-audit/page.tsx](./app/control-audit/page.tsx)
-- [app/control-gastos/page.tsx](./app/control-gastos/page.tsx)
-- [app/control-ventas/page.tsx](./app/control-ventas/page.tsx)
-- [app/bolsa-trabajo/page.tsx](./app/bolsa-trabajo/page.tsx)
+| App | Badge 1 | Badge 2 |
+|---|---|---|
+| ControlAudit | Offline completo | PWA instalable |
+| ControlDoc | OCR de fechas | Semáforo de vencimientos |
+| ControlFile | Links con expiración | Storage desde 5 GB gratis |
+| Horarios Simple | Horarios + Stock + Remitos | Firma digital |
+| ControlGastos | Gastos recurrentes | Comprobantes en ControlFile |
+| ControlVentas | Caja diaria · Offline-first | 3 métodos de pago |
+| Bolsa de Trabajo | CVs + Dashboard admin | Notificaciones email |
+| ControlMarket | Escáner de barras | Multi-tenant |
 
-## Como agregar una nueva app
+---
 
-Para publicar una nueva app activa en la landing:
+## Galería de medios (split-screen)
 
-1. Agregar su configuracion a `platformApps` en [lib/platform-data.ts](./lib/platform-data.ts)
-2. Definir:
-   - `id`
-   - `slug`
-   - `name`
-   - `shortDescription`
-   - `category`
-   - `status`
-   - `icon`
-   - `image`
-   - `href`
-   - `features`
-   - `platformCapabilities`
-   - `landingContent`
-   - `seo`
-3. Crear una ruta minima en `app/<slug>/page.tsx` que use `AppLandingTemplate`
-4. Marcarla como `active`
+Cada landing tiene una sección `"En acción"` con comparativa web/móvil y thumbnail carousel.
 
-Con eso la app aparece automaticamente en:
+### Componente
 
-- navbar desktop
-- menu mobile
-- grilla principal de apps
-- footer
-- landing individual
+`components/app-media-gallery.tsx` — componente client-side con:
+- Split screen: frame de browser (izquierda, ratio 16:10) + frame de teléfono (derecha, ratio 9:19)
+- Caption + flechas de navegación entre items
+- Tira de thumbnails clickeables debajo
 
-## Estructura relevante
+### Estructura de datos
 
-```text
+```typescript
+mediaGallery: {
+  items: [
+    {
+      caption: "Descripción del item",
+      web:    { type: "image" | "video", src: "" },
+      mobile: { type: "image" | "video", src: "" },
+    },
+    // ...
+  ]
+}
+```
+
+**`src: ""`** = slot placeholder (muestra icono y caption mientras no haya captura real).
+
+### Cómo agregar capturas
+
+Reemplazá el `src: ""` por la URL real:
+
+```typescript
+// Imagen
+web:    { type: "image", src: "/screenshots/mi-captura-web.png" },
+mobile: { type: "image", src: "/screenshots/mi-captura-mobile.png" },
+
+// Video de YouTube (embed automático)
+web:    { type: "video", src: "https://youtu.be/XXXXXXXXXXX" },
+mobile: { type: "video", src: "https://youtu.be/XXXXXXXXXXX" },
+
+// Video directo (mp4)
+web:    { type: "video", src: "/videos/demo.mp4" },
+mobile: { type: "video", src: "/videos/demo-mobile.mp4" },
+```
+
+Los items con `src: ""` se muestran como placeholder con borde punteado y el caption como guía — se pueden dejar así hasta tener el contenido listo.
+
+### Slots definidos por app
+
+Cada app tiene sus slots pre-configurados con captions descriptivos:
+
+**ControlAudit** (6 items): demo completo · constructor de formularios · inspector en campo · reporte generado · dashboard HSE · matriz de capacitaciones
+
+**ControlDoc** (5 items): demo OCR · semáforo de vencimientos · visor con OCR · flujo de aprobación · dashboard por entidad
+
+**ControlFile** (4 items): demo explorador · vista principal · link con expiración · archivos por módulo
+
+**Horarios** (5 items): demo completo · grilla semanal · link público empleados · panel de stock · remito con firma
+
+**ControlGastos** (4 items): demo recurrente · dashboard · historial con gráfico · modo oscuro
+
+**ControlVentas** (4 items): demo cobro · pantalla principal · historial filtrado · PWA en Android
+
+**Bolsa de Trabajo** (4 items): demo notificación · dashboard admin · formulario público · vista de perfil
+
+**ControlMarket** (5 items): demo escanear · pantalla de venta · escáner con cámara · dashboard stock · historial por vendedor
+
+---
+
+## Cómo agregar una nueva app
+
+1. Crear `lib/apps/<slug>.ts` con el objeto `PlatformApp` completo
+2. Importarlo y agregarlo al array `platformApps` en `lib/platform-catalog.ts`
+3. Crear `app/<slug>/page.tsx`:
+
+```typescript
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { AppLandingTemplate } from "@/components/app-landing-template"
+import { getPlatformAppBySlug } from "@/lib/platform-data"
+import { createAppMetadata } from "@/lib/seo"
+
+const app = getPlatformAppBySlug("<slug>")
+export const metadata: Metadata = app ? createAppMetadata(app) : {}
+
+export default function MiAppPage() {
+  if (!app) notFound()
+  return <AppLandingTemplate appSlug="<slug>" />
+}
+```
+
+Con eso aparece automáticamente en navbar, grilla, footer y sitemap.
+
+---
+
+## Estructura de archivos relevante
+
+```
 app/
-  layout.tsx
-  page.tsx
-  control-file/page.tsx
-  control-doc/page.tsx
+  page.tsx                   → homepage
   control-audit/page.tsx
+  control-doc/page.tsx
+  control-file/page.tsx
   control-gastos/page.tsx
+  control-market/page.tsx    → nueva
   control-ventas/page.tsx
   bolsa-trabajo/page.tsx
+  horarios/page.tsx
 
 components/
+  app-landing-template.tsx   → plantilla compartida de todas las landings
+  app-media-gallery.tsx      → galería split-screen web/móvil
+  platform-app-grid.tsx      → grilla de apps en homepage (usa cardBadges)
   hero.tsx
   navbar.tsx
   footer.tsx
   platform-architecture.tsx
   platform-capabilities.tsx
-  platform-app-grid.tsx
-  app-landing-template.tsx
+  platform-audiences.tsx
+  platform-entity.tsx
+  platform-faq.tsx
 
 lib/
-  platform-data.ts
+  platform-types.ts          → interfaces: PlatformApp, MediaGalleryItem, etc.
+  platform-catalog.ts        → platformApps[], platformOverview, FAQ
+  platform-data.ts           → barrel export
+  apps/                      → un archivo por app
 ```
 
-## Estado y decisiones
-
-- Se muestran solo apps activas y coherentes con la narrativa actual
-- `ControlFile` se comunica como explorador transversal del storage global
-- La landing prioriza arquitectura de plataforma por encima del catalogo tradicional
-- Las apps documentadas pero no publicadas pueden quedar en estado `hidden` o `comingSoon`
+---
 
 ## Desarrollo
 
-### Requisitos
-
-- Node.js 18+
-- npm o pnpm
-
-### Comandos
-
-```bash
-npm install
-npm run dev
-```
-
-o
-
 ```bash
 pnpm install
-pnpm dev
+pnpm dev      # http://localhost:3000
+pnpm build    # verificar TypeScript y build de producción
 ```
 
-## Verificacion
+---
 
-En este entorno de trabajo no estuvieron disponibles `node`, `npm` ni `pnpm`, asi que no pude ejecutar build o checks automaticos desde la terminal del agente.
+## Notas
 
-## Remanentes
-
-Todavia existen algunos componentes antiguos no usados por la nueva home, como:
-
-- `components/solutions.tsx`
-- `components/integration.tsx`
-- `components/clients.tsx`
-- `components/pricing.tsx`
-
-No forman parte del flujo actual de la landing principal.
+- El campo `status: "hidden"` excluye una app del catálogo sin borrarla
+- `activePlatformApps` filtra automáticamente por `status === "active"`
+- La homepage FAQ tiene 6 preguntas: las 4 originales + "¿Puedo usar solo una app?" + "¿Las apps funcionan en el celular?"
+- `ControlMarket` es la app más reciente — no tiene capturas reales todavía

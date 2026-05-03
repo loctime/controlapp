@@ -50,6 +50,35 @@ export const controlDoc: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — subir documento, OCR detecta la fecha, aprobación en un click",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Semáforo de vencimientos — verde, amarillo y rojo de un vistazo",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Visor de PDF con OCR detectando la fecha de vencimiento",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Flujo de aprobación — pendiente, aprobado y rechazado con comentario",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Dashboard por entidad — empleados, vehículos y empresa",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Nunca más se te vence un documento sin saberlo.",
     heroTitle: "ControlDoc",
     heroDescription:

@@ -51,6 +51,35 @@ export const horariosSimple: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — armar turnos, publicar y completar un pedido con remito firmado",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Grilla semanal de turnos con separadores por área",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Link público del horario — vista del empleado sin login",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Panel de stock con movimientos entrada/salida",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Remito con firma digital de fábrica y sucursal",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Horarios, stock, pedidos y remitos para tu operación diaria.",
     heroTitle: "Horarios Simple",
     heroDescription:

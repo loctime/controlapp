@@ -49,6 +49,30 @@ export const bolsaTrabajo: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — candidato carga CV y admin recibe notificación en el dashboard",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Dashboard admin — candidatos con foto de perfil y estado",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Formulario público de carga de CV sin login",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Vista de perfil completo con CV adjunto",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Recibí, revisá y gestioná CVs con fotos de perfil y notificaciones por email.",
     heroTitle: "Bolsa de Trabajo",
     heroDescription:

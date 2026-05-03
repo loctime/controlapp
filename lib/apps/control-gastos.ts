@@ -50,6 +50,30 @@ export const controlGastos: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — registrar gasto recurrente y adjuntar comprobante en ControlFile",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Dashboard — total del mes, pendientes y pagados",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Historial con gráfico de evolución por período y categoría",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Modo oscuro en celular",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Registrá tus gastos fijos, adjuntá el comprobante y sabé siempre cuánto gastás.",
     heroTitle: "ControlGastos",
     heroDescription:

@@ -34,7 +34,21 @@ export interface KeywordProfile {
   industries: string[]
 }
 
+export interface MediaSide {
+  type: "image" | "video"
+  src: string  // URL real, o "" para mostrar placeholder
+}
+
+export interface MediaGalleryItem {
+  caption: string
+  web: MediaSide
+  mobile: MediaSide
+}
+
 export interface AppLandingContent {
+  mediaGallery?: {
+    items: MediaGalleryItem[]
+  }
   heroLabel: string
   heroTitle: string
   heroDescription: string

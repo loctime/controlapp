@@ -50,6 +50,30 @@ export const controlFile: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — explorador, crear link con expiración y compartir sin login",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Vista principal — navegación por carpetas con panel de detalles",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Generar link con fecha de expiración configurable",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Archivos organizados por módulo — ControlAudit, ControlDoc, ControlGastos",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "El explorador de archivos de toda tu empresa, en un solo lugar.",
     heroTitle: "ControlFile",
     heroDescription:

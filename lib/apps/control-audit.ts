@@ -53,6 +53,40 @@ export const controlAudit: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo completo — de formulario en campo a reporte generado",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Constructor de formularios — secciones, preguntas y campos de foto",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Inspector completando auditoría sin internet",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Reporte HTML generado automáticamente al cerrar",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Dashboard HSE con índices IF / IG / IA por sucursal",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Matriz de capacitaciones — cumplimiento por empleado y período",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Auditorías e inspecciones de campo, con o sin internet.",
     heroTitle: "ControlAudit",
     heroDescription:

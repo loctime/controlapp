@@ -50,6 +50,35 @@ export const controlMarket: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — escanear producto, registrar venta, stock actualizado al instante",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Pantalla de venta — productos con botones grandes para el mostrador",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Escáner de código de barras con la cámara del celular",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Dashboard de stock — cantidad actual por producto",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Historial de ventas filtrado por vendedor y fecha",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Punto de venta y stock para tu comercio, en el celular.",
     heroTitle: "ControlMarket",
     heroDescription:

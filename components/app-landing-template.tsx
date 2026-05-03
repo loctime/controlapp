@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Check, ChevronRight, FolderOpen } from "lucide-react"
 import { StructuredData } from "@/components/structured-data"
+import { AppMediaGallery } from "@/components/app-media-gallery"
 import { activePlatformApps, getPlatformAppBySlug } from "@/lib/platform-data"
 import { getAppSchemas } from "@/lib/seo"
 
@@ -189,6 +190,10 @@ export function AppLandingTemplate({ appSlug }: AppLandingTemplateProps) {
               ))}
             </div>
           </section>
+
+          {landingContent.mediaGallery && (
+            <AppMediaGallery items={landingContent.mediaGallery.items} appColor={app.color} />
+          )}
 
           <section className="mb-20">
             <div className={`rounded-3xl bg-gradient-to-br ${app.color} p-12 text-white`}>

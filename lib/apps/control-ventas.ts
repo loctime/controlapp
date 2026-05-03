@@ -50,6 +50,30 @@ export const controlVentas: PlatformApp = {
     },
   },
   landingContent: {
+    mediaGallery: {
+      items: [
+        {
+          caption: "Demo — registrar cobro en efectivo y transferencia, ver balance del día",
+          web:    { type: "video", src: "" },
+          mobile: { type: "video", src: "" },
+        },
+        {
+          caption: "Pantalla principal — botones de cobro grandes para el mostrador",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "Historial filtrado por semana con desglose por método de pago",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+        {
+          caption: "App instalada como PWA en Android",
+          web:    { type: "image", src: "" },
+          mobile: { type: "image", src: "" },
+        },
+      ],
+    },
     heroLabel: "Registrá cobros y pagos desde el celular, con o sin internet.",
     heroTitle: "ControlVentas",
     heroDescription:
