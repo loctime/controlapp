@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { NavbarLogo } from "./navbar/NavbarLogo"
@@ -34,7 +34,6 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [showMegaMenu, setShowMegaMenu] = useState(false)
-  const [megaMenuTimeout, setMegaMenuTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,50 +44,18 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
+    if (!showMegaMenu) return
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (showMegaMenu) {
-        const target = event.target as HTMLElement
-        if (!target.closest("[data-mega-menu]") && !target.closest("[data-apps-trigger]")) {
-          setShowMegaMenu(false)
-        }
+      const target = event.target as HTMLElement
+      if (!target.closest("[data-mega-menu]") && !target.closest("[data-apps-trigger]")) {
+        setShowMegaMenu(false)
       }
     }
 
-    if (showMegaMenu) {
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => document.removeEventListener("mousedown", handleClickOutside)
-    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [showMegaMenu])
-
-  const handleMegaMenuClick = useCallback(() => {
-    setShowMegaMenu((current) => !current)
-  }, [])
-
-  const handleMegaMenuHover = useCallback(() => {
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout)
-      setMegaMenuTimeout(null)
-    }
-    setShowMegaMenu(true)
-  }, [megaMenuTimeout])
-
-  const handleMegaMenuLeave = useCallback(() => {
-    const timeout = setTimeout(() => {
-      setShowMegaMenu(false)
-    }, 300)
-    setMegaMenuTimeout(timeout)
-  }, [])
-
-  const handleMegaMenuEnter = useCallback(() => {
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout)
-      setMegaMenuTimeout(null)
-    }
-  }, [megaMenuTimeout])
-
-  const handleMobileClose = useCallback(() => {
-    setIsOpen(false)
-  }, [])
 
   return (
     <>
@@ -102,21 +69,18 @@ export function Navbar() {
             <NavbarLogo />
 
             <div className="hidden md:flex items-center gap-8">
-              <div className="flex items-center gap-8" onMouseLeave={handleMegaMenuLeave}>
-                <div className="relative">
-                  <motion.button
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    onClick={handleMegaMenuClick}
-                    onMouseEnter={handleMegaMenuHover}
-                    data-apps-trigger
-                    className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
-                  >
-                    Apps
-                    <ChevronDown size={16} className={`transition-transform duration-300 ${showMegaMenu ? "rotate-180" : ""}`} />
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-                  </motion.button>
-                </div>
+              <div className="relative">
+                <motion.button
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  onClick={() => setShowMegaMenu((v) => !v)}
+                  data-apps-trigger
+                  className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-all duration-300 text-sm font-medium relative group"
+                >
+                  Apps
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${showMegaMenu ? "rotate-180" : ""}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </motion.button>
               </div>
 
               {navLinks.map((link, index) => (
@@ -148,20 +112,13 @@ export function Navbar() {
           </div>
         </div>
 
-        <NavbarMobile isOpen={isOpen} apps={activePlatformApps} navLinks={navLinks} onClose={handleMobileClose} />
+        <NavbarMobile isOpen={isOpen} apps={activePlatformApps} navLinks={navLinks} onClose={() => setIsOpen(false)} />
       </nav>
-
-      <AnimatePresence>
-        {showMegaMenu ? (
-          <div className="fixed top-16 left-0 right-0 h-4 z-30" onMouseEnter={handleMegaMenuEnter} />
-        ) : null}
-      </AnimatePresence>
 
       <MegaMenu
         showMegaMenu={showMegaMenu}
         groups={groupedApps.filter((group) => group.apps.length > 0)}
-        onMouseLeave={handleMegaMenuLeave}
-        onMouseEnter={handleMegaMenuEnter}
+        onClose={() => setShowMegaMenu(false)}
       />
     </>
   )

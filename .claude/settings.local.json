@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\User\\\\Desktop\\\\Proyectos\\\\controlapp\\\\components\" | Where-Object { $_.Name -match \"nav\" -or $_.Name -match \"Nav\" } | Select-Object Name)",
+      "PowerShell(head *)"
+    ]
+  }
+}

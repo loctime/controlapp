@@ -10,11 +10,10 @@ import type { NavigationAppGroup } from "./types"
 interface MegaMenuProps {
   showMegaMenu: boolean
   groups: NavigationAppGroup[]
-  onMouseLeave: () => void
-  onMouseEnter: () => void
+  onClose: () => void
 }
 
-export const MegaMenu = memo(({ showMegaMenu, groups, onMouseLeave, onMouseEnter }: MegaMenuProps) => {
+export const MegaMenu = memo(({ showMegaMenu, groups, onClose }: MegaMenuProps) => {
   return (
     <AnimatePresence>
       {showMegaMenu ? (
@@ -25,8 +24,6 @@ export const MegaMenu = memo(({ showMegaMenu, groups, onMouseLeave, onMouseEnter
           transition={{ duration: 0.2 }}
           className="fixed top-20 left-0 right-0 z-40 glass-effect shadow-2xl border-2 border-white/50 overflow-hidden"
           data-mega-menu
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
         >
           <div className="max-w-6xl mx-auto p-6">
             <div className="mb-6">
@@ -49,6 +46,7 @@ export const MegaMenu = memo(({ showMegaMenu, groups, onMouseLeave, onMouseEnter
                       <Link
                         key={app.id}
                         href={app.href}
+                        onClick={onClose}
                         className="flex items-center gap-3 rounded-2xl p-3 hover:bg-blue-50 transition-colors"
                       >
                         <div className="relative w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
