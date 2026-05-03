@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\User\\\\Desktop\\\\Proyectos\\\\controlapp\\\\components\" | Where-Object { $_.Name -match \"nav\" -or $_.Name -match \"Nav\" } | Select-Object Name)",
-      "PowerShell(head *)"
+      "PowerShell(head *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Desktop\\\\Proyectos\\\\controlapp\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx tsc *)"
     ]
   }
 }
