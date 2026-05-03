@@ -23,7 +23,7 @@ export const bolsaTrabajo: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -181,7 +181,7 @@ export const bolsaTrabajo: PlatformApp = {
         "La plataforma aporta identidad, archivos y permisos para que RRHH se enfoque en perfiles y procesos, no en infraestructura paralela.",
       bullets: [
         "Comparte autenticación y permisos con las demás apps.",
-        "Publica CVs y fotos de perfil en el storage global de ControlFile.",
+        "Publica CVs y fotos de perfil en el almacenamiento compartido, accesible desde ControlFile.",
         "Mantiene organización por módulo para evitar mezcla de contextos.",
       ],
     },

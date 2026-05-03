@@ -25,7 +25,7 @@ export const horariosSimple: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {

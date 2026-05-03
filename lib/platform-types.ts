@@ -1,12 +1,12 @@
 import type { LucideIcon } from "lucide-react"
 
 export type PlatformAppStatus = "active" | "comingSoon" | "hidden"
-export type PlatformAppCategory = "operations" | "finance" | "talent" | "storage"
+export type PlatformAppCategory = "operations" | "finance" | "talent" | "drive"
 
 export interface PlatformCapability {
   sharedAuth: boolean
   sharedStorage: boolean
-  visibleInControlFile: boolean
+  exposedInDrive: boolean
   requiresPermissions: boolean
 }
 

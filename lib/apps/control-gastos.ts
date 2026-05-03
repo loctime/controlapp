@@ -24,7 +24,7 @@ export const controlGastos: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -187,7 +187,7 @@ export const controlGastos: PlatformApp = {
         "El módulo se concentra en el dominio financiero mientras la plataforma resuelve autenticación, permisos y archivos compartidos.",
       bullets: [
         "Comparte sesión con el resto del ecosistema.",
-        "Guarda comprobantes dentro del storage global.",
+        "Guarda comprobantes en el almacenamiento compartido, accesible desde ControlFile.",
         "Expone adjuntos en ControlFile con organización por módulo y colección.",
       ],
     },

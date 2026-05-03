@@ -7,7 +7,7 @@ export const controlFile: PlatformApp = {
   name: "ControlFile",
   shortDescription:
     "El explorador de archivos de toda tu empresa. Interfaz tipo Windows, links con expiración y storage desde 5 GB gratis.",
-  category: "storage",
+  category: "drive",
   status: "active",
   icon: FolderOpen,
   image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
@@ -24,7 +24,7 @@ export const controlFile: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -216,7 +216,7 @@ export const controlFile: PlatformApp = {
       {
         slug: "control-audit",
         anchor: "Ver software de auditorías con evidencias centralizadas",
-        reason: "ControlAudit usa el storage global para evidencias y reportes.",
+        reason: "ControlAudit guarda evidencias en el almacenamiento compartido, accesible desde ControlFile.",
       },
     ],
   },

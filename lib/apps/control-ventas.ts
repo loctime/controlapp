@@ -24,7 +24,7 @@ export const controlVentas: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -181,7 +181,7 @@ export const controlVentas: PlatformApp = {
         "Operación comercial, archivos y permisos hablan el mismo idioma para evitar procesos aislados.",
       bullets: [
         "Comparte autenticación con otros módulos activos.",
-        "Puede publicar documentación comercial en el storage global.",
+        "Puede publicar documentación comercial en el almacenamiento compartido, accesible desde ControlFile.",
         "Mantiene visibilidad controlada desde ControlFile según permisos.",
       ],
     },

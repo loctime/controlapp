@@ -24,7 +24,7 @@ export const controlMarket: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: false,
-    visibleInControlFile: false,
+    exposedInDrive: false,
     requiresPermissions: true,
   },
   seo: {

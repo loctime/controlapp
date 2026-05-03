@@ -26,7 +26,7 @@ export const controlAudit: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -232,7 +232,7 @@ export const controlAudit: PlatformApp = {
         "Las evidencias y reportes se conectan con la misma capa común que usan otros módulos de ControlApp.",
       bullets: [
         "Comparte autenticación con el resto de las apps activas.",
-        "Guarda evidencias dentro del storage global visible desde ControlFile.",
+        "Guarda evidencias en el almacenamiento compartido, accesible desde ControlFile.",
         "Mantiene acceso seguro mediante permisos por módulo y rol.",
       ],
     },

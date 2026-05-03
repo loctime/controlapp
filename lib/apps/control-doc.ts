@@ -24,7 +24,7 @@ export const controlDoc: PlatformApp = {
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
-    visibleInControlFile: true,
+    exposedInDrive: true,
     requiresPermissions: true,
   },
   seo: {
@@ -225,7 +225,7 @@ export const controlDoc: PlatformApp = {
         "La documentación mantiene contexto de negocio porque comparte autenticación, permisos y storage con los demás módulos del ecosistema.",
       bullets: [
         "Comparte sesión y acceso con el resto de las apps habilitadas.",
-        "Publica documentos en el storage global administrado por ControlFile.",
+        "Publica documentos en el almacenamiento compartido, accesible desde ControlFile.",
         "Permite sumar nuevos procesos documentales sin rehacer la base técnica.",
       ],
     },
