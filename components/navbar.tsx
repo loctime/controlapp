@@ -16,7 +16,7 @@ const groupedApps: NavigationAppGroup[] = [
   {
     title: "Operacion y documentos",
     description: "Modulos para procesos, auditoria y gestion documental.",
-    apps: activePlatformApps.filter((app) => app.category === "operations" || app.category === "storage"),
+    apps: activePlatformApps.filter((app) => app.category === "operations" || app.category === "drive"),
   },
   {
     title: "Finanzas",
