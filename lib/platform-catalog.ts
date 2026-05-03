@@ -27,7 +27,7 @@ export const platformOverview = {
   heroHighlights: [
     "Una cuenta para entrar a todas las apps habilitadas",
     "Permisos por modulo y acceso segun rol",
-    "Storage global para documentos, evidencias y comprobantes",
+    "Almacenamiento centralizado para documentos, evidencias y comprobantes",
   ],
   searchIntents: [
     "software de gestion documental",
@@ -53,7 +53,7 @@ export const platformOverview = {
           "Cada app valida claims y permisos antes de mostrar informacion. El acceso se controla por rol y por proceso.",
       },
       {
-        title: "Storage global",
+        title: "Almacenamiento centralizado",
         description:
           "Los archivos viven en una capa comun. Documentos, evidencias y comprobantes no quedan encerrados en silos por producto.",
       },
@@ -81,7 +81,7 @@ export const platformOverview = {
         icon: Shield,
       },
       {
-        title: "Storage global",
+        title: "Almacenamiento centralizado",
         description: "Archivos, fotos y adjuntos viven en una capa comun lista para reutilizacion.",
         icon: FolderOpen,
       },
@@ -111,7 +111,7 @@ export const platformOverview = {
     eyebrow: "Apps activas",
     title: "Software empresarial por modulo, conectado sobre la misma plataforma",
     description:
-      "Cada landing compite por su propia necesidad de busqueda, pero todas las apps comparten autenticacion, permisos y storage global para evitar sistemas aislados.",
+      "Cada landing compite por su propia necesidad de busqueda, pero todas las apps comparten autenticacion, permisos y almacenamiento centralizado para evitar sistemas aislados.",
   },
   entity: {
     eyebrow: "Que es ControlApp",
@@ -167,7 +167,7 @@ export const platformOverview = {
   },
   footer: {
     description:
-      "Plataforma multi-app para gestion documental, auditorias, archivos, finanzas, horarios y talento con identidad compartida y storage global.",
+      "Plataforma multi-app para gestion documental, auditorias, archivos, finanzas, horarios y talento con identidad compartida y almacenamiento centralizado.",
   },
 }
 
