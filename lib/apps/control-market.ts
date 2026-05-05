@@ -206,11 +206,11 @@ export const controlMarket: PlatformApp = {
       secondaryHref: "/#apps",
     },
     platformIntegration: {
-      title: "ControlMarket es parte del ecosistema ControlApp",
+      title: "ControlMarket es parte del ecosistema ControlApps",
       description:
-        "Comparte la base de autenticación de ControlApp para que el admin gestione su equipo con la misma cuenta.",
+        "Comparte la base de autenticación de ControlApps para que el admin gestione su equipo con la misma cuenta.",
       bullets: [
-        "Misma cuenta de ControlApp para admin y vendedores.",
+        "Misma cuenta de ControlApps para admin y vendedores.",
         "Roles diferenciados con acceso restringido por función.",
         "Multi-tenant: cada empresa opera de forma completamente independiente.",
       ],

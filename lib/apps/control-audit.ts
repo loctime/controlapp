@@ -96,7 +96,7 @@ export const controlAudit: PlatformApp = {
       label: "con sincronización automática al recuperar conexión",
     },
     valueProposition:
-      "Si tus inspectores trabajan en campo sin WiFi, ControlAudit les da formularios digitales, captura de evidencias y reportes automáticos que no dependen de la señal. Todo dentro de ControlApp — archivos, permisos y usuarios ya están resueltos.",
+      "Si tus inspectores trabajan en campo sin WiFi, ControlAudit les da formularios digitales, captura de evidencias y reportes automáticos que no dependen de la señal. Todo dentro de ControlApps — archivos, permisos y usuarios ya están resueltos.",
     audiences: [
       {
         title: "Empresas con obligaciones de Higiene y Seguridad",
@@ -229,7 +229,7 @@ export const controlAudit: PlatformApp = {
     platformIntegration: {
       title: "ControlAudit comparte la base de identidad y archivos de la plataforma",
       description:
-        "Las evidencias y reportes se conectan con la misma capa común que usan otros módulos de ControlApp.",
+        "Las evidencias y reportes se conectan con la misma capa común que usan otros módulos de ControlApps.",
       bullets: [
         "Comparte autenticación con el resto de las apps activas.",
         "Guarda evidencias en el almacenamiento compartido, accesible desde ControlFile.",

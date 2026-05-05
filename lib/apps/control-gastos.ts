@@ -143,7 +143,7 @@ export const controlGastos: PlatformApp = {
       {
         title: "Un login con el ecosistema",
         description:
-          "Misma cuenta de ControlApp da acceso directo a ControlFile, sin popups ni relogin.",
+          "Misma cuenta de ControlApps da acceso directo a ControlFile, sin popups ni relogin.",
         icon: Lock,
       },
     ],

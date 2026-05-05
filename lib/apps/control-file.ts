@@ -30,7 +30,7 @@ export const controlFile: PlatformApp = {
   seo: {
     title: "ControlFile | Explorador de archivos empresarial con links compartidos",
     description:
-      "ControlFile es el explorador de archivos del ecosistema ControlApp. Interfaz estilo Windows, links con expiración, storage desde 5 GB gratis y un solo login para todas tus apps.",
+      "ControlFile es el explorador de archivos del ecosistema ControlApps. Interfaz estilo Windows, links con expiración, storage desde 5 GB gratis y un solo login para todas tus apps.",
     canonicalPath: "/control-file",
     socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/folder-nLglAqvepYvxs5bv0mqwmR1VEo3UFj.png",
     categoryLabel: "Explorador de archivos empresarial",
@@ -110,7 +110,7 @@ export const controlFile: PlatformApp = {
       "Navegación por carpetas con breadcrumb y panel de detalles, igual que OneDrive.",
       "Links de compartido con expiración configurable — sin login para el destinatario.",
       "Storage por planes: Free 5 GB · Basic 50 GB · Pro 500 GB · Enterprise ilimitado.",
-      "Un solo login de ControlApp da acceso a todos tus archivos del ecosistema.",
+      "Un solo login de ControlApps da acceso a todos tus archivos del ecosistema.",
       "Acceso por roles: cada usuario ve solo lo que le corresponde según permisos.",
       "75% más barato que Amazon S3 con Backblaze B2 como backend.",
     ],
@@ -136,7 +136,7 @@ export const controlFile: PlatformApp = {
       {
         title: "Un login para todas las apps",
         description:
-          "La misma cuenta de ControlApp da acceso a ControlFile. Los archivos de cada app se organizan automáticamente por módulo: ControlAudit, ControlDoc, ControlGastos.",
+          "La misma cuenta de ControlApps da acceso a ControlFile. Los archivos de cada app se organizan automáticamente por módulo: ControlAudit, ControlDoc, ControlGastos.",
         icon: Lock,
       },
       {
@@ -176,7 +176,7 @@ export const controlFile: PlatformApp = {
           "También para organizar, compartir con expiración y controlar accesos por rol y módulo.",
       },
       {
-        question: "¿Puedo compartir con alguien que no usa ControlApp?",
+        question: "¿Puedo compartir con alguien que no usa ControlApps?",
         answer:
           "Sí. Los links públicos con expiración no requieren login. Al vencer la fecha, el link deja de funcionar automáticamente.",
       },

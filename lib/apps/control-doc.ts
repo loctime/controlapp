@@ -220,7 +220,7 @@ export const controlDoc: PlatformApp = {
       secondaryHref: "/control-file",
     },
     platformIntegration: {
-      title: "ControlDoc opera sobre la base común de ControlApp",
+      title: "ControlDoc opera sobre la base común de ControlApps",
       description:
         "La documentación mantiene contexto de negocio porque comparte autenticación, permisos y storage con los demás módulos del ecosistema.",
       bullets: [

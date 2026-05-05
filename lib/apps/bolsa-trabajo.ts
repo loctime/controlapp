@@ -29,7 +29,7 @@ export const bolsaTrabajo: PlatformApp = {
   seo: {
     title: "Bolsa de Trabajo | Recibí y gestioná CVs con dashboard y notificaciones",
     description:
-      "Bolsa de Trabajo de ControlApp: formulario de carga de CV sin cuenta, dashboard administrativo con fotos de perfil y notificaciones automáticas por email.",
+      "Bolsa de Trabajo de ControlApps: formulario de carga de CV sin cuenta, dashboard administrativo con fotos de perfil y notificaciones automáticas por email.",
     canonicalPath: "/bolsa-trabajo",
     socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file-2Kclv2QWxtrOdw7z6E3eP3Kj8ZK39M.png",
     categoryLabel: "Gestión de candidatos y CVs",
@@ -76,13 +76,13 @@ export const bolsaTrabajo: PlatformApp = {
     heroLabel: "Recibí, revisá y gestioná CVs con fotos de perfil y notificaciones por email.",
     heroTitle: "Bolsa de Trabajo",
     heroDescription:
-      "Módulo de gestión de candidatos de ControlApp. Formulario de carga de CV, dashboard administrativo, fotos de perfil vía ControlFile y notificaciones automáticas.",
+      "Módulo de gestión de candidatos de ControlApps. Formulario de carga de CV, dashboard administrativo, fotos de perfil vía ControlFile y notificaciones automáticas.",
     heroStats: {
       value: "Sin cuenta",
       label: "los candidatos cargan su CV sin necesidad de registrarse",
     },
     valueProposition:
-      "Si recibís CVs por email y los revisás sin panel centralizado, Bolsa de Trabajo te da un formulario público para candidatos y un dashboard para gestionar todo desde ControlApp.",
+      "Si recibís CVs por email y los revisás sin panel centralizado, Bolsa de Trabajo te da un formulario público para candidatos y un dashboard para gestionar todo desde ControlApps.",
     audiences: [
       {
         title: "Empresa que recibe CVs y quiere un panel centralizado",
@@ -105,7 +105,7 @@ export const bolsaTrabajo: PlatformApp = {
       "Dashboard con foto de perfil, CV y estado de cada postulante.",
       "Notificación automática por email cuando se carga un CV nuevo.",
       "Fotos de perfil almacenadas en ControlFile con links de compartido.",
-      "El admin accede con la misma cuenta del resto de ControlApp.",
+      "El admin accede con la misma cuenta del resto de ControlApps.",
       "Permisos que determinan quién puede ver y gestionar candidatos.",
     ],
     functionalities: [
@@ -136,7 +136,7 @@ export const bolsaTrabajo: PlatformApp = {
       {
         title: "Permisos compartidos con el ecosistema",
         description:
-          "El admin accede con la misma cuenta del resto de ControlApp. Los permisos determinan quién puede ver y gestionar candidatos.",
+          "El admin accede con la misma cuenta del resto de ControlApps. Los permisos determinan quién puede ver y gestionar candidatos.",
         icon: Shield,
       },
     ],
@@ -149,7 +149,7 @@ export const bolsaTrabajo: PlatformApp = {
       {
         title: "RRHH que quiere que los candidatos suban su información sin cuenta",
         description:
-          "El formulario es público y no requiere login del candidato. El admin ve todo desde el panel con los permisos habituales de ControlApp.",
+          "El formulario es público y no requiere login del candidato. El admin ve todo desde el panel con los permisos habituales de ControlApps.",
       },
     ],
     faq: [
@@ -166,7 +166,7 @@ export const bolsaTrabajo: PlatformApp = {
       {
         question: "¿Los candidatos necesitan crear cuenta?",
         answer:
-          "No. El formulario es público. Solo el admin necesita la cuenta de ControlApp para gestionar el panel.",
+          "No. El formulario es público. Solo el admin necesita la cuenta de ControlApps para gestionar el panel.",
       },
     ],
     finalCta: {

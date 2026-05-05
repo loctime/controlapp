@@ -186,7 +186,7 @@ export const horariosSimple: PlatformApp = {
       secondaryHref: "/#apps",
     },
     platformIntegration: {
-      title: "Horarios Simple se apoya en la base común de ControlApp",
+      title: "Horarios Simple se apoya en la base común de ControlApps",
       description:
         "El módulo se concentra en planificación y operación diaria mientras la plataforma resuelve identidad, permisos y crecimiento modular.",
       bullets: [
