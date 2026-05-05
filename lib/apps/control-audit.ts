@@ -20,7 +20,7 @@ export const controlAudit: PlatformApp = {
     "Adjuntá fotos en campo",
     "Generá reportes al cerrar",
     "Dashboard HSE automático",
-    "Controlá quién ve qué",
+    "Registrá ausentismo y siniestralidad",
   ],
   cardBadges: ["Offline completo", "PWA instalable"],
   platformCapabilities: {
@@ -43,13 +43,17 @@ export const controlAudit: PlatformApp = {
         "app de inspecciones offline",
         "formularios de auditoria sin internet",
         "dashboard HSE indices tecnicos",
+        "software ausentismo laboral",
+        "control de siniestralidad empresarial",
+        "gestion HSE multi-empresa",
       ],
       problems: [
         "inspecciones en papel o Excel",
         "evidencias sin conectividad",
         "indices de seguridad calculados manualmente",
+        "ausentismo sin metricas ni alertas automaticas",
       ],
-      industries: ["higiene y seguridad", "calidad", "operaciones de campo"],
+      industries: ["higiene y seguridad", "calidad", "operaciones de campo", "construccion", "manufactura"],
     },
   },
   landingContent: {
@@ -113,11 +117,16 @@ export const controlAudit: PlatformApp = {
         description:
           "Gestión de planes anuales, registro de sesiones con asistencia y matriz de cumplimiento por sucursal.",
       },
+      {
+        title: "Empresas con gestión de ausentismo",
+        description: "Control de ausencias con métricas automáticas y alertas configurables. Estadísticas de siniestralidad mensual con exportación a Excel para reportes regulatorios.",
+      },
     ],
     problems: [
       "Inspecciones en papel o WhatsApp sin trazabilidad ni evidencias organizadas.",
       "Fotos de hallazgos guardadas en el celular del inspector, fuera del sistema.",
       "Índices de seguridad calculados manualmente en Excel con datos desactualizados.",
+      "Ausentismo registrado en planillas sin alertas ni métricas automáticas.",
     ],
     benefits: [
       "Formularios completables desde el celular sin señal, con autoguardado.",
@@ -126,6 +135,8 @@ export const controlAudit: PlatformApp = {
       "Índices HSE calculados sobre datos reales, no en planillas.",
       "Dashboard de seguridad filtrable por sucursal y período.",
       "Galería pública de formularios: copiá uno como base sin afectar el original.",
+      "Módulo de ausentismo con cálculo automático de tasas y alertas por umbral.",
+      "Estadísticas de siniestralidad mensual exportables a Excel.",
     ],
     functionalities: [
       {
@@ -176,6 +187,11 @@ export const controlAudit: PlatformApp = {
           "Calendario de auditorías programadas por empresa y sucursal. Asignale formulario, fecha y seguí el estado desde el tablero operativo.",
         icon: FolderOpen,
       },
+      {
+        title: "Ausentismo y siniestralidad",
+        description: "Registrá ausencias por empleado con tipo y justificación. El sistema calcula la tasa de ausentismo automáticamente y dispara alertas al superar umbrales. Estadísticas mensuales de siniestralidad exportables a Excel.",
+        icon: FileText,
+      },
     ],
     useCases: [
       {
@@ -218,6 +234,10 @@ export const controlAudit: PlatformApp = {
         question: "Diferencia entre ControlAudit y apps de formularios genéricas",
         answer:
           "ControlAudit tiene módulos de empleados, capacitaciones, accidentes y dashboard de seguridad integrados. No es solo formularios — es gestión HSE completa con índices técnicos.",
+      },
+      {
+        question: "Control de ausentismo laboral y siniestralidad en ControlAudit",
+        answer: "ControlAudit incluye un módulo de ausentismo que calcula tasas automáticas y genera alertas cuando se alcanzan umbrales configurados. Las estadísticas de siniestralidad mensual (empleados, HHT, accidentes, días caídos) son exportables a Excel.",
       },
     ],
     finalCta: {
