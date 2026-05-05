@@ -4,8 +4,8 @@ import { platformOverview, type FAQItem, type PlatformApp } from "@/lib/platform
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") || "https://controlapp.vercel.app"
 
 export const siteConfig = {
-  name: "ControlApp",
-  legalName: "ControlApp",
+  name: "ControlApps",
+  legalName: "ControlApps",
   url: baseUrl,
   locale: "es_AR",
   siteLanguage: "es",
@@ -40,7 +40,7 @@ export function getSiteKeywords() {
 export function createHomeMetadata(): Metadata {
   return {
     title: {
-      absolute: "ControlApp | Plataforma multi-app para gestion documental, auditorias, gastos y operaciones",
+      absolute: "ControlApps | Plataforma multi-app para gestion documental, auditorias, gastos y operaciones",
     },
     description: siteConfig.description,
     keywords: getSiteKeywords(),
@@ -50,7 +50,7 @@ export function createHomeMetadata(): Metadata {
     openGraph: {
       type: "website",
       url: absoluteUrl("/"),
-      title: "ControlApp | Plataforma multi-app para empresas",
+      title: "ControlApps | Plataforma multi-app para empresas",
       description: siteConfig.description,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
@@ -59,13 +59,13 @@ export function createHomeMetadata(): Metadata {
           url: absoluteUrl(siteConfig.defaultOgImage),
           width: 1200,
           height: 630,
-          alt: "ControlApp plataforma multi-app para empresas",
+          alt: "ControlApps plataforma multi-app para empresas",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "ControlApp | Plataforma multi-app para empresas",
+      title: "ControlApps | Plataforma multi-app para empresas",
       description: siteConfig.description,
       images: [absoluteUrl(siteConfig.defaultOgImage)],
     },
@@ -79,7 +79,7 @@ export function createAppMetadata(app: PlatformApp): Metadata {
     ...app.seo.keywords.problems,
     ...app.seo.keywords.industries,
     app.name,
-    "ControlApp",
+    "ControlApps",
   ]
 
   return {
@@ -119,9 +119,9 @@ export function createAppMetadata(app: PlatformApp): Metadata {
 export function createDemosMetadata(): Metadata {
   return {
     title: {
-      absolute: "Demos internas | ControlApp",
+      absolute: "Demos internas | ControlApps",
     },
-    description: "Laboratorio interno de animaciones y pruebas visuales de ControlApp.",
+    description: "Laboratorio interno de animaciones y pruebas visuales de ControlApps.",
     robots: {
       index: false,
       follow: false,
