@@ -12,11 +12,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ControlApp | Plataforma multi-app para empresas",
-    template: "%s | ControlApp",
+    default: "ControlApps | Plataforma multi-app para empresas",
+    template: "%s | ControlApps",
   },
   description: siteConfig.description,
-  applicationName: "ControlApp",
+  applicationName: "ControlApps",
   manifest: "/manifest.json",
   generator: "Next.js",
   category: "business software",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: "ControlApp | Plataforma multi-app para empresas",
+    title: "ControlApps | Plataforma multi-app para empresas",
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
         url: siteConfig.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "ControlApp plataforma multi-app para empresas",
+        alt: "ControlApps plataforma multi-app para empresas",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ControlApp | Plataforma multi-app para empresas",
+    title: "ControlApps | Plataforma multi-app para empresas",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage],
   },
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "ControlApp",
+    title: "ControlApps",
   },
 }
 
