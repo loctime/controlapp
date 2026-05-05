@@ -32,7 +32,7 @@ export const controlAudit: PlatformApp = {
   seo: {
     title: "ControlAudit | Auditorías e inspecciones de campo offline",
     description:
-      "ControlAudit es una PWA para inspecciones de campo sin internet. Formularios personalizados, fotos adjuntas, reportes automáticos y dashboard de seguridad con índices HSE reales.",
+      "PWA para inspectores sin internet. Formularios offline personalizados, fotos adjuntas, reportes automáticos y dashboard HSE con índices técnicos reales.",
     canonicalPath: "/control-audit",
     socialImage:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
@@ -88,7 +88,7 @@ export const controlAudit: PlatformApp = {
       ],
     },
     heroLabel: "Auditorías e inspecciones de campo, con o sin internet.",
-    heroTitle: "ControlAudit",
+    heroTitle: "Auditorías e inspecciones offline con formularios digitales",
     heroDescription:
       "ControlAudit es una PWA que tus inspectores instalan en el celular y usan sin conexión. Formularios personalizados, fotos adjuntas, reportes automáticos y dashboard de seguridad con índices técnicos reales.",
     heroStats: {
@@ -196,28 +196,28 @@ export const controlAudit: PlatformApp = {
     ],
     faq: [
       {
-        question: "¿Funciona sin internet?",
+        question: "Cómo usar ControlAudit sin conexión a internet",
         answer:
-          "Sí. Es una PWA instalable con offline completo. Los formularios se completan sin señal y se sincronizan automáticamente al recuperar conexión.",
+          "ControlAudit es una PWA instalable con offline completo. Los formularios se completan sin señal y se sincronizan automáticamente al recuperar conexión.",
       },
       {
-        question: "¿Se instala en el celular?",
-        answer: "Sí, en Android e iOS como app nativa desde el navegador, sin pasar por la App Store.",
+        question: "Instalación de ControlAudit en Android e iOS",
+        answer: "Se instala en Android e iOS como app nativa desde el navegador, sin pasar por la App Store.",
       },
       {
-        question: "¿Los formularios son fijos?",
+        question: "Crear y personalizar formularios de auditoría",
         answer:
-          "No. Los diseñás vos con secciones, preguntas y campos de foto. También podés copiar uno de la galería pública y editarlo.",
+          "Los formularios son completamente personalizables. Los diseñás vos con secciones, preguntas y campos de foto. También podés copiar uno de la galería pública y editarlo.",
       },
       {
-        question: "¿Los índices HSE son automáticos?",
+        question: "Cálculo automático de índices HSE IF IG IA II",
         answer:
-          "Sí. IF, IG, IA e II se calculan automáticamente sobre los datos reales de empleados y accidentes registrados en el sistema.",
+          "Sí. Los índices IF (frecuencia), IG (gravedad), IA (accidentabilidad) e II (incidencia) se calculan automáticamente sobre los datos reales de empleados y accidentes registrados en el sistema.",
       },
       {
-        question: "¿Qué diferencia tiene de una app de formularios genérica?",
+        question: "Diferencia entre ControlAudit y apps de formularios genéricas",
         answer:
-          "Tiene módulos de empleados, capacitaciones, accidentes y dashboard de seguridad integrados. No es solo formularios — es gestión HSE completa.",
+          "ControlAudit tiene módulos de empleados, capacitaciones, accidentes y dashboard de seguridad integrados. No es solo formularios — es gestión HSE completa con índices técnicos.",
       },
     ],
     finalCta: {
