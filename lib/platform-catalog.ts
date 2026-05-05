@@ -186,6 +186,7 @@ export const navigationLinks = [
   { name: "Como funciona", href: "#arquitectura" },
   { name: "Empresas", href: "#empresas" },
   { name: "Apps", href: "#apps" },
+  { name: "Demos", href: "/demos" },
   { name: "FAQ", href: "#faq" },
   { name: "Metodología", href: "/metodologia" },
 ]
