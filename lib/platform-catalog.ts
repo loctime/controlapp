@@ -13,9 +13,9 @@ export type { PlatformApp, PlatformAppStatus, PlatformAppCategory, PlatformCapab
 export const platformOverview = {
   eyebrow: "Plataforma centralizada",
   heroBadge: "Una cuenta. Todas tus apps operativas.",
-  heroTitle: "ControlApp centraliza software de gestion por modulos sobre una sola plataforma",
+  heroTitle: "ControlApps centraliza software de gestion por modulos sobre una sola plataforma",
   heroDescription:
-    "ControlApp es una plataforma multi-app para empresas que necesitan gestion documental, auditorias, archivos, gastos, ventas, horarios y talento sobre una misma base de identidad, permisos y archivos.",
+    "ControlApps es una plataforma multi-app para empresas que necesitan gestion documental, auditorias, archivos, gastos, ventas, horarios y talento sobre una misma base de identidad, permisos y archivos.",
   heroPrimaryCta: {
     label: "Explorar software por modulo",
     href: "#apps",
@@ -66,7 +66,7 @@ export const platformOverview = {
   },
   capabilities: {
     eyebrow: "Capacidades compartidas",
-    title: "Lo que hereda cada nueva app del ecosistema ControlApp",
+    title: "Lo que hereda cada nueva app del ecosistema ControlApps",
     description:
       "Cada modulo nuevo se monta sobre una arquitectura ya resuelta para identidad, permisos y archivos. Eso acelera el despliegue y mejora la consistencia operativa.",
     items: [
@@ -91,7 +91,7 @@ export const platformOverview = {
     eyebrow: "Para que empresas sirve",
     title: "Una plataforma pensada para equipos que necesitan varios procesos conectados",
     description:
-      "ControlApp encaja mejor en organizaciones que ya operan con documentos, evidencias, comprobantes y flujos internos repartidos entre varias herramientas.",
+      "ControlApps encaja mejor en organizaciones que ya operan con documentos, evidencias, comprobantes y flujos internos repartidos entre varias herramientas.",
     items: [
       {
         title: "Operaciones y compliance",
@@ -114,8 +114,8 @@ export const platformOverview = {
       "Cada landing compite por su propia necesidad de busqueda, pero todas las apps comparten autenticacion, permisos y almacenamiento centralizado para evitar sistemas aislados.",
   },
   entity: {
-    eyebrow: "Que es ControlApp",
-    title: "ControlApp no es una app aislada: es una base comun para software operativo",
+    eyebrow: "Que es ControlApps",
+    title: "ControlApps no es una app aislada: es una base comun para software operativo",
     description:
       "La propuesta del producto es reemplazar islas de software por un ecosistema coherente. Cada modulo aporta profundidad funcional en su dominio y la plataforma resuelve la capa comun de identidad, archivos y gobierno de acceso.",
     bullets: [
@@ -133,15 +133,15 @@ export const platformOverview = {
     eyebrow: "Preguntas frecuentes",
     title: "Respuestas claras para compradores y asistentes de IA",
     description:
-      "Estas respuestas resumen los conceptos que mas conviene explicar de forma directa cuando alguien descubre ControlApp por primera vez.",
+      "Estas respuestas resumen los conceptos que mas conviene explicar de forma directa cuando alguien descubre ControlApps por primera vez.",
     items: [
       {
-        question: "Que es ControlApp?",
+        question: "Que es ControlApps?",
         answer:
-          "ControlApp es una plataforma multi-app para empresas que centraliza autenticacion, permisos y archivos para varios modulos operativos y administrativos.",
+          "ControlApps es una plataforma multi-app para empresas que centraliza autenticacion, permisos y archivos para varios modulos operativos y administrativos.",
       },
       {
-        question: "Que diferencia a ControlApp de usar herramientas separadas?",
+        question: "Que diferencia a ControlApps de usar herramientas separadas?",
         answer:
           "La diferencia principal es la base compartida. Los modulos no trabajan como islas: comparten identidad, storage y trazabilidad para reducir friccion operativa.",
       },
@@ -187,7 +187,6 @@ export const navigationLinks = [
   { name: "Empresas", href: "#empresas" },
   { name: "Apps", href: "#apps" },
   { name: "FAQ", href: "#faq" },
-  { name: "Demos", href: "/demos" },
   { name: "Metodología", href: "/metodologia" },
 ]
 
