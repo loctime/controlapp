@@ -257,6 +257,20 @@ pnpm build    # verificar TypeScript y build de producción
 
 ---
 
+## SEO y Google Search Console
+
+El sitio está configurado para indexación en Google:
+
+- **URL de producción:** `https://apps.controldoc.app`
+- **Env var requerida:** `NEXT_PUBLIC_APP_URL=https://apps.controldoc.app` (configurada en Vercel)
+- **Sitemap:** `https://apps.controldoc.app/sitemap.xml` (9 URLs, enviado a GSC)
+- **Google Search Console:** propiedad `https://apps.controldoc.app/` verificada y activa
+- **Structured data:** Organization + WebSite + SoftwareApplication + FAQPage + BreadcrumbList por cada app
+
+Para cambiar el dominio de producción: actualizar `NEXT_PUBLIC_APP_URL` en Vercel Dashboard → Settings → Environment Variables.
+
+---
+
 ## Notas
 
 - El campo `status: "hidden"` excluye una app del catálogo sin borrarla

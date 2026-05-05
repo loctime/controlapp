@@ -61,10 +61,10 @@ vercel --prod
 En el dashboard de Vercel, ve a **Settings → Environment Variables** y agrega:
 
 ```env
-NEXT_PUBLIC_APP_URL=https://tu-dominio.vercel.app
+NEXT_PUBLIC_APP_URL=https://apps.controldoc.app
 ```
 
-> 💡 **Tip:** Puedes agregar más variables según necesites (ver `.env.example`)
+> ⚠️ Esta variable es crítica para SEO: controla las URLs en sitemap.xml, canonical tags y JSON-LD. Sin ella el sitio usa un dominio de fallback incorrecto.
 
 ---
 
