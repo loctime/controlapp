@@ -59,6 +59,15 @@
     background-image:
       radial-gradient(circle at top left, rgba(217, 205, 184, 0.22), transparent 28%),
       linear-gradient(180deg, rgba(250, 248, 244, 1) 0%, rgba(248, 245, 240, 1) 100%);
+    color: rgb(15, 23, 42);
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
   
   html {

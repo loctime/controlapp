@@ -3,12 +3,12 @@ import { siteContent } from "@/lib/site-content"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[rgba(210,217,228,0.9)] bg-[rgb(246,242,235)]">
+    <footer className="border-t border-[rgba(18,26,44,0.1)] bg-[rgb(246,242,235)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 py-10 md:px-10 lg:px-12">
         <div className="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="max-w-xl">
             <Link href="/" className="inline-flex items-center gap-3 text-[rgb(15,23,42)]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(18,26,44,0.12)] bg-white font-mono text-xs uppercase tracking-[0.2em]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(109,80,47,0.28)] bg-white font-mono text-xs uppercase tracking-[0.2em] shadow-[0_8px_18px_rgba(15,23,42,0.06)]">
                 CA
               </span>
               <span className="text-lg font-semibold tracking-[-0.04em]">ControlApps</span>
