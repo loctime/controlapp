@@ -57,8 +57,9 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans), sans-serif;
     background-image:
-      radial-gradient(circle at top left, rgba(217, 205, 184, 0.22), transparent 28%),
-      linear-gradient(180deg, rgba(250, 248, 244, 1) 0%, rgba(248, 245, 240, 1) 100%);
+      radial-gradient(circle at top left, rgba(217, 205, 184, 0.26), transparent 26%),
+      radial-gradient(circle at 85% 10%, rgba(93, 117, 150, 0.08), transparent 20%),
+      linear-gradient(180deg, rgba(252, 250, 246, 1) 0%, rgba(246, 241, 234, 1) 100%);
     color: rgb(15, 23, 42);
   }
 

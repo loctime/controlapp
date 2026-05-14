@@ -4,7 +4,7 @@ import { siteContent } from "@/lib/site-content"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(18,26,44,0.12)] bg-[rgba(252,250,246,0.94)] shadow-[0_12px_40px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[rgba(18,26,44,0.16)] bg-[rgba(253,251,248,0.96)] shadow-[0_16px_44px_rgba(15,23,42,0.08)] backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 py-4 md:px-10 lg:px-12">
         <Link href="/" className="inline-flex min-w-0 items-center gap-3 text-[rgb(15,23,42)]">
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(109,80,47,0.35)] bg-white font-mono text-xs uppercase tracking-[0.24em] shadow-[0_12px_26px_rgba(15,23,42,0.08)]">
@@ -12,7 +12,7 @@ export function SiteHeader() {
           </span>
           <span className="min-w-0">
             <span className="block text-lg font-semibold tracking-[-0.045em]">ControlApps</span>
-            <span className="block font-mono text-[11px] uppercase tracking-[0.26em] text-[rgb(94,109,136)]">
+            <span className="block font-mono text-[11px] uppercase tracking-[0.26em] text-[rgb(84,60,36)]">
               Software a medida
             </span>
           </span>
@@ -23,7 +23,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-semibold tracking-[0.01em] text-[rgb(51,65,85)] transition-colors hover:text-[rgb(15,23,42)]"
+              className="text-sm font-semibold tracking-[0.01em] text-[rgb(24,36,58)] transition-colors hover:text-[rgb(104,76,45)]"
             >
               {item.label}
             </Link>
