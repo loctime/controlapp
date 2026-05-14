@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { IBM_Plex_Mono, Manrope } from "next/font/google"
+import { Cormorant_Garamond, IBM_Plex_Mono, Manrope } from "next/font/google"
 import { SiteFooter } from "@/components/site/footer"
 import { SiteHeader } from "@/components/site/header"
 import { StructuredData } from "@/components/structured-data"
@@ -16,6 +16,12 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-plex-mono",
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-cormorant",
 })
 
 export const metadata: Metadata = {
@@ -93,7 +99,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#16233E",
+  themeColor: "#141d2d",
 }
 
 export default function RootLayout({
@@ -103,7 +109,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${manrope.variable} ${plexMono.variable} antialiased`}>
+      <body className={`${manrope.variable} ${plexMono.variable} ${cormorant.variable} antialiased`}>
         <StructuredData data={getJsonLdGraph()} />
         <SiteHeader />
         {children}

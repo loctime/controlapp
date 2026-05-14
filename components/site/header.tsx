@@ -4,15 +4,15 @@ import { siteContent } from "@/lib/site-content"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(18,26,44,0.16)] bg-[rgba(253,251,248,0.96)] shadow-[0_16px_44px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[rgba(34,30,24,0.12)] bg-[rgba(247,243,237,0.88)] backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 py-4 md:px-10 lg:px-12">
-        <Link href="/" className="inline-flex min-w-0 items-center gap-3 text-[rgb(15,23,42)]">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(109,80,47,0.35)] bg-white font-mono text-xs uppercase tracking-[0.24em] shadow-[0_12px_26px_rgba(15,23,42,0.08)]">
+        <Link href="/" className="inline-flex min-w-0 items-center gap-3 text-[rgb(18,24,37)]">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(132,109,84,0.4)] bg-[rgba(255,255,255,0.78)] font-mono text-xs uppercase tracking-[0.24em]">
             CA
           </span>
           <span className="min-w-0">
-            <span className="block text-lg font-semibold tracking-[-0.045em]">ControlApps</span>
-            <span className="block font-mono text-[11px] uppercase tracking-[0.26em] text-[rgb(84,60,36)]">
+            <span className="font-display block text-[1.85rem] font-semibold leading-none tracking-[-0.04em]">ControlApps</span>
+            <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.26em] text-[rgb(102,82,60)]">
               Software a medida
             </span>
           </span>
@@ -23,7 +23,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-semibold tracking-[0.01em] text-[rgb(24,36,58)] transition-colors hover:text-[rgb(104,76,45)]"
+              className="text-sm font-semibold tracking-[0.01em] text-[rgb(38,43,55)] transition-colors hover:text-[rgb(120,95,68)]"
             >
               {item.label}
             </Link>
@@ -32,7 +32,7 @@ export function SiteHeader() {
 
         <a
           href="#contacto"
-          className="inline-flex items-center gap-2 rounded-full border border-[rgba(109,80,47,0.3)] bg-[rgb(22,35,62)] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)] transition-transform hover:-translate-y-0.5 hover:bg-[rgb(31,48,83)]"
+          className="inline-flex items-center gap-2 rounded-full border border-[rgba(24,30,43,0.14)] bg-[rgb(20,29,46)] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[rgb(28,38,58)]"
         >
           Hablemos
           <ArrowUpRight className="size-4" />
