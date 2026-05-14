@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next"
-import { activePlatformApps } from "@/lib/platform-data"
 import { absoluteUrl } from "@/lib/seo"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...activePlatformApps.map((app) => ({
-      url: absoluteUrl(app.href),
+    {
+      url: absoluteUrl("/metodologia"),
       lastModified: now,
-      changeFrequency: "weekly" as const,
+      changeFrequency: "monthly",
       priority: 0.8,
-    })),
+    },
   ]
 }

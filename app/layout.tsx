@@ -1,32 +1,41 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
+import { IBM_Plex_Mono, Manrope } from "next/font/google"
+import { SiteFooter } from "@/components/site/footer"
+import { SiteHeader } from "@/components/site/header"
 import { StructuredData } from "@/components/structured-data"
 import { getJsonLdGraph, siteConfig } from "@/lib/seo"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ControlApps | Plataforma multi-app para empresas",
+    default: "ControlApps | Software a medida para resolver operación real",
     template: "%s | ControlApps",
   },
   description: siteConfig.description,
   applicationName: "ControlApps",
   manifest: "/manifest.json",
   generator: "Next.js",
-  category: "business software",
+  category: "software services",
   keywords: [
-    "software empresarial",
-    "plataforma multi-app",
-    "gestion documental",
-    "software de auditorias",
-    "control de gastos",
-    "gestion de horarios",
+    "software a medida",
+    "automatizacion de procesos",
+    "aplicaciones internas",
+    "soluciones de software para empresas",
+    "optimizacion operativa",
+    "flujos de trabajo",
   ],
   referrer: "origin-when-cross-origin",
   robots: {
@@ -46,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: "ControlApps | Plataforma multi-app para empresas",
+    title: "ControlApps | Software a medida para resolver operación real",
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -55,13 +64,13 @@ export const metadata: Metadata = {
         url: siteConfig.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "ControlApps plataforma multi-app para empresas",
+        alt: "ControlApps software a medida",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ControlApps | Plataforma multi-app para empresas",
+    title: "ControlApps | Software a medida para resolver operación real",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage],
   },
@@ -84,7 +93,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#2563EB",
+  themeColor: "#16233E",
 }
 
 export default function RootLayout({
@@ -94,11 +103,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${manrope.variable} ${plexMono.variable} antialiased`}>
         <StructuredData data={getJsonLdGraph()} />
-        <Navbar />
+        <SiteHeader />
         {children}
-        <Footer />
+        <SiteFooter />
       </body>
     </html>
   )

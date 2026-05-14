@@ -6,7 +6,7 @@ export const controlDoc: PlatformApp = {
   slug: "control-doc",
   name: "ControlDoc",
   shortDescription:
-    "Semáforo visual de vencimientos, OCR automático de fechas y flujo de aprobación con versiones y trazabilidad completa.",
+    "Plataforma SaaS para la gestión integral de documentación y contratistas. Auditoría asistida por OCR, trazabilidad total y semáforo de cumplimiento en tiempo real.",
   category: "operations",
   status: "active",
   icon: FileText,
@@ -14,13 +14,13 @@ export const controlDoc: PlatformApp = {
   color: "from-blue-500 to-cyan-500",
   href: "/control-doc",
   features: [
-    "Detectá vencimientos antes de que pasen",
-    "El OCR lee la fecha solo",
-    "Aprobá con historial y versiones",
-    "Convertí imágenes a PDF",
-    "Notificaciones automáticas",
+    "Centralizá empleados, flota y subcontratistas",
+    "Auditoría con OCR para eliminar errores de carga",
+    "Flujo de aprobación con historial y versiones",
+    "Conversión automática de adjuntos a PDF",
+    "Tableros de control para toma de decisiones",
   ],
-  cardBadges: ["OCR de fechas", "Semáforo de vencimientos"],
+  cardBadges: ["SaaS de Gestión", "Cumplimiento Legal"],
   platformCapabilities: {
     sharedAuth: true,
     sharedStorage: true,
@@ -28,217 +28,196 @@ export const controlDoc: PlatformApp = {
     requiresPermissions: true,
   },
   seo: {
-    title: "ControlDoc | Gestión documental con OCR y semáforo de vencimientos",
+    title: "ControlDoc | Gestión Documental y Control de Contratistas con OCR",
     description:
-      "ControlDoc gestiona documentación de empleados, vehículos y empresa con semáforo visual de vencimientos, OCR automático y flujo de aprobación con trazabilidad completa.",
+      "Modernizá el control de cumplimiento de tu empresa. ControlDoc ofrece una plataforma intuitiva para auditar documentación de personal y flota con trazabilidad absoluta.",
     canonicalPath: "/control-doc",
     socialImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/documento-0W2O7GyQ89nJ0Kxpi6kB6aYM0TVYt1.png",
-    categoryLabel: "Software de gestión documental",
+    categoryLabel: "Software de gestión documental y compliance",
     keywords: {
-      primary: "software de gestion documental",
+      primary: "gestion documental de contratistas",
       secondary: [
-        "control de vencimientos de documentos",
-        "OCR para documentos empresariales",
-        "flujo de aprobacion documental",
+        "auditoria de documentos rrhh",
+        "compliance de flota vehicular",
+        "trazabilidad documental saas",
+        "software de gestion de contratistas",
       ],
       problems: [
-        "documentos vencidos sin saberlo",
-        "fechas de vencimiento cargadas a mano",
-        "aprobaciones sin historial ni trazabilidad",
+        "incumplimiento legal por documentos vencidos",
+        "errores humanos en carga de fechas",
+        "falta de transparencia en aprobaciones",
       ],
-      industries: ["compliance", "transporte", "recursos humanos"],
+      industries: ["logistica", "energia", "recursos humanos", "seguridad e higiene"],
     },
   },
   landingContent: {
     mediaGallery: {
       items: [
         {
-          caption: "Demo — subir documento, OCR detecta la fecha, aprobación en un click",
+          caption: "Panel de control centralizado — image_da769a.png",
           web:    { type: "video", src: "" },
           mobile: { type: "video", src: "" },
         },
         {
-          caption: "Semáforo de vencimientos — verde, amarillo y rojo de un vistazo",
+          caption: "Gestión visual — image_da767c.png",
           web:    { type: "image", src: "" },
           mobile: { type: "image", src: "" },
         },
         {
-          caption: "Visor de PDF con OCR detectando la fecha de vencimiento",
+          caption: "Visor de auditoría con detección inteligente de fechas",
           web:    { type: "image", src: "" },
           mobile: { type: "image", src: "" },
         },
         {
-          caption: "Flujo de aprobación — pendiente, aprobado y rechazado con comentario",
+          caption: "Historial de versiones y responsables por documento",
           web:    { type: "image", src: "" },
           mobile: { type: "image", src: "" },
         },
         {
-          caption: "Dashboard por entidad — empleados, vehículos y empresa",
+          caption: "Configuración de sub-empresas para consultoras y BPO",
           web:    { type: "image", src: "" },
           mobile: { type: "image", src: "" },
         },
       ],
     },
-    heroLabel: "Nunca más se te vence un documento sin saberlo.",
+    heroLabel: "Gestión documental profesional, sin la fricción de los sistemas tradicionales.",
     heroTitle: "ControlDoc",
     heroDescription:
-      "ControlDoc gestiona documentación de empleados, vehículos y empresa con semáforo visual de vencimientos, OCR automático para detectar fechas y flujo de aprobación con versiones y trazabilidad completa.",
+      "El centro de control definitivo para el cumplimiento operativo de tu empresa. Gestioná documentación de empleados, vehículos y subcontratistas en un entorno diseñado para la eficiencia y la auditoría real.",
     heroStats: {
-      value: "Semáforo visual",
-      label: "verde, amarillo y rojo por cada documento según su estado",
+      value: "Gestión 360°",
+      label: "Control total sobre cada legajo y vencimiento operativo",
     },
     valueProposition:
-      "Si gestionás documentos con fechas de vencimiento y necesitás saber en todo momento qué está al día y qué no, ControlDoc es el panel centralizado que reemplaza el Excel de vencimientos.",
+      "ControlDoc no es solo una alerta; es el sistema donde tu equipo trabaja. Reemplazamos las planillas vulnerables por un ecosistema digital con OCR, trazabilidad de versiones y una interfaz intuitiva que no requiere capacitación eterna.",
     audiences: [
       {
-        title: "Empresas de transporte con flota",
+        title: "Operaciones y Logística",
         description:
-          "Cada vehículo necesita seguro, VTV y libreta del conductor. El semáforo avisa cuando algo está por vencer, sin recordatorios manuales.",
+          "Mantené tu flota habilitada. El sistema vincula seguros, VTV y licencias a cada unidad, alertando al equipo antes de que el riesgo operativo sea una realidad.",
       },
       {
-        title: "RRHH con empleados en relación de dependencia",
+        title: "Recursos Humanos y Seguridad e Higiene",
         description:
-          "Contratos, carnets de salud y certificados por empleado. Si alguien sube un documento desactualizado, el admin lo rechaza con comentario.",
+          "Auditá contratos, carnets y capacitaciones. Asegurá que cada empleado cuente con la documentación vigente bajo estándares de cumplimiento profesional.",
       },
       {
-        title: "Consultoras que gestionan documentación de clientes",
+        title: "Empresas BPO y Consultoras",
         description:
-          "Cada cliente tiene su propio dashboard. La empresa principal ve todo desde su vista global. Un documento requerido puede aplicar a uno o varios clientes.",
+          "Gestioná múltiples clientes desde una vista global. Ofreceles dashboards dedicados con aislamiento de datos, manteniendo la jerarquía de tu gestión principal.",
       },
     ],
     problems: [
-      "Documentos que vencen sin aviso porque el control está en un Excel desactualizado.",
-      "Fechas de vencimiento cargadas a mano con errores de tipeo.",
-      "Aprobaciones sin historial — no se sabe quién aprobó ni cuándo.",
+      "Software de gestión anticuado, lento y difícil de usar para el equipo operativo.",
+      "Riesgos legales y multas por documentos que vencen sin un responsable claro.",
+      "Pérdida de tiempo en carga manual de datos y corrección de errores de tipeo.",
     ],
     benefits: [
-      "Semáforo verde/amarillo/rojo visible de un vistazo para toda la documentación.",
-      "OCR lee la fecha de vencimiento del PDF automáticamente — sin tipear.",
-      "Cada aprobación incrementa el número de versión con responsable y fecha.",
-      "Imágenes y Word se convierten a PDF automáticamente durante la aprobación.",
-      "Notificaciones por email cuando un documento está por vencer.",
-      "Sistema de subempresas para gestionar documentación de múltiples clientes.",
+      "Interfaz moderna y rápida: diseñada para que el equipo trabaje con fluidez.",
+      "OCR de alto rendimiento: lectura automática de fechas para minimizar la carga manual.",
+      "Trazabilidad auditora: registro detallado de quién aprobó o rechazó cada documento.",
+      "Estandarización automática: conversión de fotos y textos a PDF sin intervención del usuario.",
+      "Aislamiento de datos: sistema de sub-empresas para manejar clientes o unidades de negocio.",
+      "Integración nativa: compartí storage y sesión con el resto de tus herramientas operativas.",
     ],
     functionalities: [
       {
-        title: "Semáforo visual de vencimientos",
+        title: "Tablero de Control Visual",
         description:
-          "Verde, amarillo y rojo por cada documento. El sistema clasifica vencidos, próximos a vencer, rechazados y pendientes. De un vistazo sabés qué necesita atención.",
+          "Semáforo de cumplimiento en tiempo real. Clasificación inmediata de documentos vencidos, próximos a vencer y pendientes de auditoría.",
         icon: Shield,
       },
       {
-        title: "OCR automático de fechas",
+        title: "Auditoría Asistida (OCR)",
         description:
-          "Subís un PDF o imagen y el sistema lee el texto con OCR y propone la fecha de vencimiento detectada. La seleccionás con un click desde el visor. Sin tipear fechas.",
+          "El sistema escanea los adjuntos y propone las fechas de vencimiento. El operador solo verifica, reduciendo el error humano y acelerando el proceso.",
         icon: FileText,
       },
       {
-        title: "Flujo de aprobación con versiones",
+        title: "Flujo de Trabajo y Versiones",
         description:
-          "Pendiente → Aprobado / Rechazado. Cada aprobación incrementa el número de versión. El admin puede comentar al rechazar. Trazabilidad completa: quién aprobó y cuándo.",
+          "Cada documento tiene un ciclo de vida: Pendiente, Aprobado o Rechazado con comentario. Mantené el historial de versiones para cumplir con cualquier auditoría externa.",
         icon: Receipt,
       },
       {
-        title: "Conversión automática a PDF",
+        title: "Normalización de Archivos",
         description:
-          "Si el usuario sube una imagen JPG/PNG o un Word, se convierte automáticamente a PDF durante la aprobación. Sin pedirle nada al usuario.",
+          "Subí una foto o un Word; ControlDoc entrega un PDF estandarizado. Ideal para mantener un repositorio documental profesional y uniforme.",
         icon: FileText,
       },
       {
-        title: "Entidades flexibles",
+        title: "Jerarquías y Sub-empresas",
         description:
-          "Empresa, empleados, vehículos y personalizados. Un documento requerido puede aplicar a una o varias entidades. Toda la documentación en el mismo sistema.",
+          "Configurá estructuras complejas. Definí documentos requeridos que apliquen a toda la organización o solo a subcontratistas específicos.",
         icon: FolderOpen,
       },
       {
-        title: "Gestión de clientes y subempresas",
+        title: "Notificaciones de Compliance",
         description:
-          "Una empresa principal puede gestionar múltiples clientes con documentación separada. Selector de empresa activa. Un documento requerido puede aplicar a la empresa principal, todos los clientes, o clientes específicos.",
-        icon: Shield,
-      },
-      {
-        title: "Personalización visual por empresa",
-        description:
-          "Colores corporativos configurables. El sistema recalcula contraste automáticamente. Cada empresa tiene su propia paleta visual.",
-        icon: FolderOpen,
-      },
-      {
-        title: "Notificaciones automáticas de vencimientos",
-        description:
-          "Cuando un documento está por vencer, se envía notificación por email. Sin revisar el dashboard todos los días.",
+          "Alertas proactivas vía email para los responsables de área. Asegurá que el equipo actúe antes de que un documento cambie a estado crítico.",
         icon: Receipt,
       },
     ],
     useCases: [
       {
-        title: "Empresa de transporte con flota",
+        title: "Control de Contratistas",
         description:
-          "Cada vehículo necesita seguro, VTV, libreta del conductor. Semáforo en rojo cuando la VTV vence. Sin Excel, sin recordatorios manuales.",
+          "Asegurá que tus proveedores cumplan con toda la normativa antes de ingresar a planta, centralizando la recepción y auditoría de sus seguros y aportes.",
       },
       {
-        title: "Empresa con empleados en relación de dependencia",
+        title: "Gestión de Flota Vehicular",
         description:
-          "Contratos, carnets de salud, certificados de capacitación por empleado. Si el empleado sube uno desactualizado, el admin lo rechaza con comentario y queda el historial.",
+          "Centralizá la documentación técnica y legal de tus unidades. Vinculá choferes a vehículos y mantené el control de vencimientos de cada componente.",
       },
       {
-        title: "Consultora que gestiona documentación de sus clientes",
+        title: "Auditoría de Legajos de RRHH",
         description:
-          "Cada cliente tiene su propio dashboard. La empresa principal ve todo desde su vista global. Un documento requerido aplica a uno o varios clientes con aislamiento de datos.",
+          "Digitalizá y controlá la vigencia de toda la documentación del personal, desde exámenes médicos hasta recibos de sueldo y certificaciones técnicas.",
       },
     ],
     faq: [
       {
-        question: "¿Qué tipos de archivo acepta?",
+        question: "¿Cómo se diferencia de un sistema tradicional?",
         answer:
-          "PDF, JPG, PNG, DOC, DOCX. Las imágenes y Word se convierten automáticamente a PDF durante la aprobación.",
+          "ControlDoc prioriza la experiencia de usuario y la velocidad. Mientras otros sistemas son pesados y complejos, nosotros ofrecemos una plataforma SaaS moderna, intuitiva y con herramientas de automatización como el OCR de fechas.",
       },
       {
-        question: "¿El OCR funciona en todos los PDFs?",
+        question: "¿Es seguro para manejar datos de múltiples clientes?",
         answer:
-          "En PDFs con texto legible sí. En documentos escaneados depende de la calidad de la imagen.",
+          "Absolutamente. Contamos con un sistema de aislamiento de datos que permite a consultoras gestionar la documentación de sus clientes sin riesgo de cruce de información.",
       },
       {
-        question: "¿Se puede usar para empleados Y vehículos?",
+        question: "¿Qué pasa si un documento es rechazado?",
         answer:
-          "Sí. Los documentos requeridos se configuran por tipo de entidad: empresa, empleado, vehículo o personalizado.",
-      },
-      {
-        question: "¿Qué pasa cuando vence un documento?",
-        answer:
-          "Aparece en rojo en el semáforo y se envían notificaciones automáticas por email.",
-      },
-      {
-        question: "¿Puede gestionar documentación de clientes?",
-        answer:
-          "Sí. Tiene sistema de subempresas con aislamiento de datos y vista global para la empresa principal.",
+          "El auditor deja un comentario obligatorio explicando el motivo. El usuario recibe la notificación, puede subir una nueva versión y todo el historial queda registrado para consulta futura.",
       },
     ],
     finalCta: {
-      primaryLabel: "Explorar ControlDoc",
+      primaryLabel: "Comenzar con ControlDoc",
       primaryHref: "/control-doc",
-      secondaryLabel: "Ver cómo se integra con ControlFile",
+      secondaryLabel: "Conocer el ecosistema ControlApps",
       secondaryHref: "/control-file",
     },
     platformIntegration: {
-      title: "ControlDoc opera sobre la base común de ControlApps",
+      title: "Potencia tu gestión con el ecosistema ControlApps",
       description:
-        "La documentación mantiene contexto de negocio porque comparte autenticación, permisos y storage con los demás módulos del ecosistema.",
+        "ControlDoc no es una herramienta aislada. Se integra de forma nativa con el resto de la suite para ofrecer una experiencia operativa unificada.",
       bullets: [
-        "Comparte sesión y acceso con el resto de las apps habilitadas.",
-        "Publica documentos en el almacenamiento compartido, accesible desde ControlFile.",
-        "Permite sumar nuevos procesos documentales sin rehacer la base técnica.",
+        "Gestión de acceso unificada: un solo usuario para todo tu control operativo.",
+        "Repositorio compartido: accedé a los documentos aprobados directamente desde ControlFile.",
+        "Escalabilidad inmediata: sumá módulos de auditoría o storage sin configuraciones complejas.",
       ],
     },
     relatedApps: [
       {
         slug: "control-file",
-        anchor: "Ver storage compartido para documentos y adjuntos",
-        reason: "ControlFile ordena archivos y colecciones publicados por ControlDoc.",
+        anchor: "Explorar almacenamiento inteligente",
+        reason: "Vinculá tu gestión documental con un storage organizado y accesible.",
       },
       {
         slug: "control-audit",
-        anchor: "Ver software de auditorías con documentación conectada",
-        reason: "Las evidencias de auditoría pueden convivir con documentos controlados.",
+        anchor: "Software de inspecciones y auditorías",
+        reason: "Conectá los hallazgos de tus auditorías de campo con la documentación de soporte.",
       },
     ],
   },

@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { platformOverview, type FAQItem, type PlatformApp } from "@/lib/platform-data"
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") || "https://controlapp.vercel.app"
 
@@ -10,7 +9,7 @@ export const siteConfig = {
   locale: "es_AR",
   siteLanguage: "es",
   description:
-    "Plataforma multi-app para empresas que conecta gestion documental, auditorias, archivos, gastos, ventas, horarios y talento sobre una base compartida de identidad, permisos y storage.",
+    "Empresa de software a medida dedicada a resolver problemas operativos, automatizar tareas repetitivas y diseñar herramientas digitales adaptadas a cada negocio.",
   defaultOgImage:
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
 }
@@ -25,22 +24,20 @@ export function absoluteUrl(path = "/") {
 
 export function getSiteKeywords() {
   return [
-    "software empresarial modular",
-    "plataforma multi-app",
-    "gestion documental",
-    "software de auditorias",
-    "storage compartido para apps",
-    "control de gastos empresarial",
-    "gestion de horarios para equipos",
-    "gestion de candidatos y CVs",
-    ...platformOverview.searchIntents,
+    "software a medida",
+    "desarrollo de software para empresas",
+    "automatizacion de procesos",
+    "optimizacion operativa",
+    "aplicaciones internas",
+    "flujos de trabajo",
+    "soluciones digitales a medida",
   ]
 }
 
 export function createHomeMetadata(): Metadata {
   return {
     title: {
-      absolute: "ControlApps | Plataforma multi-app para gestion documental, auditorias, gastos y operaciones",
+      absolute: "ControlApps | Software a medida para ordenar procesos y resolver operación real",
     },
     description: siteConfig.description,
     keywords: getSiteKeywords(),
@@ -50,7 +47,7 @@ export function createHomeMetadata(): Metadata {
     openGraph: {
       type: "website",
       url: absoluteUrl("/"),
-      title: "ControlApps | Plataforma multi-app para empresas",
+      title: "ControlApps | Software a medida para resolver problemas operativos",
       description: siteConfig.description,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
@@ -59,80 +56,53 @@ export function createHomeMetadata(): Metadata {
           url: absoluteUrl(siteConfig.defaultOgImage),
           width: 1200,
           height: 630,
-          alt: "ControlApps plataforma multi-app para empresas",
+          alt: "ControlApps software a medida",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "ControlApps | Plataforma multi-app para empresas",
+      title: "ControlApps | Software a medida para resolver problemas operativos",
       description: siteConfig.description,
       images: [absoluteUrl(siteConfig.defaultOgImage)],
     },
   }
 }
 
-export function createAppMetadata(app: PlatformApp): Metadata {
-  const keywords = [
-    app.seo.keywords.primary,
-    ...app.seo.keywords.secondary,
-    ...app.seo.keywords.problems,
-    ...app.seo.keywords.industries,
-    app.name,
-    "ControlApps",
-  ]
-
+export function createMethodologyMetadata(): Metadata {
   return {
     title: {
-      absolute: app.seo.title,
+      absolute: "Metodología | ControlApps",
     },
-    description: app.seo.description,
-    keywords,
+    description:
+      "Cómo trabaja ControlApps para transformar procesos repetitivos y operativos en software a medida útil, claro y escalable.",
+    keywords: [...getSiteKeywords(), "metodologia de trabajo", "software a medida"],
     alternates: {
-      canonical: app.seo.canonicalPath,
+      canonical: "/metodologia",
     },
     openGraph: {
       type: "website",
-      url: absoluteUrl(app.seo.canonicalPath),
-      title: app.seo.title,
-      description: app.seo.description,
+      url: absoluteUrl("/metodologia"),
+      title: "Metodología | ControlApps",
+      description:
+        "Cómo trabaja ControlApps para transformar procesos repetitivos y operativos en software a medida útil, claro y escalable.",
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       images: [
         {
-          url: absoluteUrl(app.seo.socialImage),
+          url: absoluteUrl(siteConfig.defaultOgImage),
           width: 1200,
           height: 630,
-          alt: `${app.name} - ${app.seo.categoryLabel}`,
+          alt: "Metodología de ControlApps",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: app.seo.title,
-      description: app.seo.description,
-      images: [absoluteUrl(app.seo.socialImage)],
-    },
-  }
-}
-
-export function createDemosMetadata(): Metadata {
-  return {
-    title: {
-      absolute: "Demos internas | ControlApps",
-    },
-    description: "Laboratorio interno de animaciones y pruebas visuales de ControlApps.",
-    robots: {
-      index: false,
-      follow: false,
-      googleBot: {
-        index: false,
-        follow: false,
-        noimageindex: true,
-      },
-    },
-    alternates: {
-      canonical: "/demos",
+      title: "Metodología | ControlApps",
+      description:
+        "Cómo trabaja ControlApps para transformar procesos repetitivos y operativos en software a medida útil, claro y escalable.",
+      images: [absoluteUrl(siteConfig.defaultOgImage)],
     },
   }
 }
@@ -150,6 +120,7 @@ export function getJsonLdGraph() {
         description: siteConfig.description,
         knowsAbout: getSiteKeywords(),
         areaServed: "Latam",
+        sameAs: [],
       },
       {
         "@type": "WebSite",
@@ -166,86 +137,31 @@ export function getJsonLdGraph() {
   }
 }
 
-export function getAppSchemas(app: PlatformApp) {
-  const faqSchema = app.landingContent.faq.length
-    ? {
-        "@type": "FAQPage",
-        mainEntity: app.landingContent.faq.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
-      }
-    : null
-
+export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        name: app.name,
-        applicationCategory: app.seo.categoryLabel,
-        operatingSystem: "Web",
+        "@type": "ProfessionalService",
+        "@id": absoluteUrl("/#service"),
+        name: siteConfig.name,
         inLanguage: siteConfig.siteLanguage,
-        description: app.seo.description,
-        url: absoluteUrl(app.seo.canonicalPath),
-        image: absoluteUrl(app.seo.socialImage),
-        publisher: {
+        url: absoluteUrl("/"),
+        description: siteConfig.description,
+        areaServed: "Latam",
+        serviceType: [
+          "Desarrollo de software a medida",
+          "Automatización de procesos",
+          "Aplicaciones internas",
+        ],
+        provider: {
           "@id": absoluteUrl("/#organization"),
         },
-        isPartOf: {
-          "@type": "SoftwareApplication",
-          name: siteConfig.name,
-          url: absoluteUrl("/"),
+        audience: {
+          "@type": "BusinessAudience",
+          audienceType: "Empresas y equipos con necesidades operativas específicas",
         },
-        keywords: [app.seo.keywords.primary, ...app.seo.keywords.secondary].join(", "),
-        audience: app.landingContent.audiences.map((audience) => ({
-          "@type": "Audience",
-          audienceType: audience.title,
-        })),
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Inicio",
-            item: absoluteUrl("/"),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Apps",
-            item: absoluteUrl("/#apps"),
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: app.name,
-            item: absoluteUrl(app.seo.canonicalPath),
-          },
-        ],
-      },
-      faqSchema,
-    ].filter(Boolean),
-  }
-}
-
-export function getHomeFaqSchema(faqItems: FAQItem[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    ],
   }
 }
