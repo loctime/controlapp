@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { siteContent } from "@/lib/site-content"
 
@@ -7,9 +8,15 @@ export function SiteFooter() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 py-10 md:px-10 lg:px-12">
         <div className="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="max-w-xl">
-            <Link href="/" className="inline-flex items-center gap-3 text-[rgb(18,24,37)]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(132,109,84,0.3)] bg-[rgba(255,255,255,0.72)] font-mono text-xs uppercase tracking-[0.2em]">
-                CA
+            <Link href="/" aria-label="ControlApps — Inicio" className="inline-flex items-center gap-3 text-[rgb(18,24,37)]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(132,109,84,0.3)] bg-[rgba(255,255,255,0.82)]">
+                <Image
+                  src="/brand/isotype-light.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-[60%] w-[60%] object-contain"
+                />
               </span>
               <span className="font-display text-[1.9rem] font-semibold leading-none tracking-[-0.04em]">ControlApps</span>
             </Link>

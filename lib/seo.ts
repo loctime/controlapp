@@ -10,8 +10,7 @@ export const siteConfig = {
   siteLanguage: "es",
   description:
     "Empresa de software a medida dedicada a resolver problemas operativos, automatizar tareas repetitivas y diseñar herramientas digitales adaptadas a cada negocio.",
-  defaultOgImage:
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprobacionTrazabilidad-mgNXKcoyRUR7t5OH2ubUscUL12ndGr.png",
+  defaultOgImage: "/og-image.jpg",
 }
 
 export function absoluteUrl(path = "/") {
@@ -116,7 +115,7 @@ export function getJsonLdGraph() {
         "@id": absoluteUrl("/#organization"),
         name: siteConfig.legalName,
         url: absoluteUrl("/"),
-        logo: absoluteUrl("/icon-512.jpg"),
+        logo: absoluteUrl("/icon-512.png"),
         description: siteConfig.description,
         knowsAbout: getSiteKeywords(),
         areaServed: "Latam",

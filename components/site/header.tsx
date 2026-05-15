@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { siteContent } from "@/lib/site-content"
@@ -6,9 +7,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(34,30,24,0.12)] bg-[rgba(247,243,237,0.88)] backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-10 md:py-4 lg:px-12">
-        <Link href="/" className="inline-flex min-w-0 items-center gap-3 text-[rgb(18,24,37)]">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(132,109,84,0.4)] bg-[rgba(255,255,255,0.78)] font-mono text-[11px] uppercase tracking-[0.22em] md:h-11 md:w-11 md:text-xs md:tracking-[0.24em]">
-            CA
+        <Link href="/" aria-label="ControlApps — Inicio" className="inline-flex min-w-0 items-center gap-3 text-[rgb(18,24,37)]">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(132,109,84,0.4)] bg-[rgba(255,255,255,0.86)] shadow-[0_1px_2px_rgba(20,29,46,0.06)] md:h-11 md:w-11">
+            <Image
+              src="/brand/isotype-light.png"
+              alt=""
+              width={44}
+              height={44}
+              priority
+              className="h-[60%] w-[60%] object-contain"
+            />
           </span>
           <span className="min-w-0">
             <span className="font-display block text-[1.55rem] font-semibold leading-none tracking-[-0.04em] md:text-[1.85rem]">ControlApps</span>
