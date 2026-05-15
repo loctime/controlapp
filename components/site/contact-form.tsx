@@ -39,11 +39,11 @@ export function ContactForm({ email }: ContactFormProps) {
   }
 
   return (
-    <div className="rounded-[2rem] border border-[rgba(211,200,186,0.18)] bg-[linear-gradient(180deg,_rgba(22,31,47,0.98),_rgba(16,23,36,0.98))] p-6 text-white shadow-[0_28px_70px_rgba(8,12,20,0.3)] md:p-8">
-      <div className="mb-6 flex items-start justify-between gap-4">
+    <div className="rounded-[1.8rem] border border-[rgba(211,200,186,0.18)] bg-[linear-gradient(180deg,_rgba(22,31,47,0.98),_rgba(16,23,36,0.98))] p-5 text-white shadow-[0_28px_70px_rgba(8,12,20,0.3)] sm:p-6 md:rounded-[2rem] md:p-8">
+      <div className="mb-6 flex items-start justify-between gap-3 sm:gap-4">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgba(207,188,165,0.78)]">Contacto</p>
-          <h3 className="font-display mt-3 text-[2.4rem] font-semibold leading-[0.95] tracking-[-0.04em] text-[rgb(249,247,242)]">
+          <h3 className="font-display mt-3 text-[2rem] font-semibold leading-[0.95] tracking-[-0.04em] text-[rgb(249,247,242)] sm:text-[2.2rem] md:text-[2.4rem]">
             Contanos qué parte del trabajo hoy te está frenando.
           </h3>
         </div>
@@ -106,13 +106,13 @@ export function ContactForm({ email }: ContactFormProps) {
           />
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-[rgba(207,188,165,0.12)] pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-[rgba(207,188,165,0.12)] pt-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-sm font-medium leading-6 text-[rgba(233,228,221,0.8)]">
             El formulario prepara un correo con tu contexto para iniciar la conversación de forma directa.
           </p>
           <Button
             type="submit"
-            className="h-12 rounded-full border border-[rgba(207,188,165,0.2)] bg-[rgb(241,235,226)] px-6 text-sm font-semibold tracking-[0.02em] text-[rgb(20,29,46)] shadow-none hover:bg-[rgb(246,242,236)]"
+            className="h-12 w-full rounded-full border border-[rgba(207,188,165,0.2)] bg-[rgb(241,235,226)] px-6 text-sm font-semibold tracking-[0.02em] text-[rgb(20,29,46)] shadow-none hover:bg-[rgb(246,242,236)] sm:w-auto"
           >
             Iniciar conversación
             <ArrowUpRight className="size-4" />
