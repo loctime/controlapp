@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { ContactForm } from "@/components/site/contact-form"
+import { controlDoc } from "@/lib/apps/control-doc"
 import { siteContent } from "@/lib/site-content"
 
 const heroCards = [
@@ -196,6 +197,31 @@ export function HomePage() {
               </article>
             )
           })}
+        </div>
+      </section>
+
+      <section className="border-y border-[rgba(34,30,24,0.12)] bg-[rgba(255,255,255,0.48)]">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 sm:px-6 md:gap-12 md:px-10 md:py-20 lg:grid-cols-[0.84fr_1.16fr] lg:px-12">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgb(102,82,60)]">Producto propio</p>
+            <h2 className="font-display mt-5 text-[clamp(2.45rem,10vw,4.2rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-[rgb(18,24,37)]">
+              ControlDoc, nuestra plataforma de gestión documental.
+            </h2>
+          </div>
+          <div className="flex flex-col justify-between gap-6">
+            <p className="max-w-xl text-base font-medium leading-7 text-[rgb(56,60,70)] sm:text-lg sm:leading-8">
+              {controlDoc.shortDescription}
+            </p>
+            <div>
+              <Link
+                href="/control-doc"
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(24,30,43,0.14)] bg-[rgb(20,29,46)] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[rgb(28,38,58)]"
+              >
+                Conocer ControlDoc
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

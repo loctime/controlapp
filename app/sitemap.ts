@@ -17,5 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: absoluteUrl("/control-doc"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ]
 }

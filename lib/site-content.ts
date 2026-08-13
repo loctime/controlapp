@@ -47,6 +47,7 @@ export const siteContent = {
       "No partimos de un producto cerrado. Partimos del problema. Diseñamos aplicaciones, automatizaciones y flujos adaptados a cada contexto para que el equipo gane claridad, control y capacidad de crecer sin sumar complejidad.",
   },
   navigation: [
+    { label: "ControlDoc", href: "/control-doc" },
     { label: "Empresa", href: "/#empresa" },
     { label: "Problemas", href: "/#problemas" },
     { label: "Soluciones", href: "/#soluciones" },
