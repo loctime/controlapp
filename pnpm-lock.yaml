@@ -183,6 +183,9 @@ importers:
       eslint-config-next:
         specifier: ^14.2.5
         version: 14.2.33(eslint@8.57.1)(typescript@5.9.3)
+      playwright-core:
+        specifier: ^1.63.0
+        version: 1.63.0
       postcss:
         specifier: ^8.5
         version: 8.5.6
@@ -3542,6 +3545,11 @@ packages:
   pkce-challenge@5.0.0:
     resolution: {integrity: sha512-ueGLflrrnvwB3xuo/uGob5pd5FN7l0MsLf0Z87o/UQmRtwjvfylfc9MurIxRAWywCYTgrvpXBcqjV4OfCYGCIQ==}
     engines: {node: '>=16.20.0'}
+
+  playwright-core@1.63.0:
+    resolution: {integrity: sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -7827,6 +7835,8 @@ snapshots:
   pirates@4.0.7: {}
 
   pkce-challenge@5.0.0: {}
+
+  playwright-core@1.63.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
