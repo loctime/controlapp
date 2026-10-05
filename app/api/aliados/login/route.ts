@@ -24,7 +24,11 @@ export async function POST(request: Request) {
   const codigo = cuerpo.codigo.trim().toLowerCase()
   const pin = cuerpo.pin.trim().toLowerCase()
 
-  if (porIp.bloqueado(ip, ahora) || porCodigo.bloqueado(codigo, ahora)) {
+  // El código de aliado no es secreto (viaja en los links), así que el bloqueo es por origen + código:
+  // quien adivina PINs no puede dejar afuera al dueño legítimo desde otra IP.
+  const claveCodigo = `${ip}|${codigo}`
+
+  if (porIp.bloqueado(ip, ahora) || porCodigo.bloqueado(claveCodigo, ahora)) {
     return NextResponse.json({ error: "Demasiados intentos. Probá de nuevo en unos minutos." }, { status: 429 })
   }
 
@@ -41,11 +45,11 @@ export async function POST(request: Request) {
 
   if (!aliado || !pinValido) {
     porIp.registrarFallo(ip, ahora)
-    porCodigo.registrarFallo(codigo, ahora)
+    porCodigo.registrarFallo(claveCodigo, ahora)
     return NextResponse.json({ error: "Código o PIN incorrectos." }, { status: 401 })
   }
 
-  porCodigo.limpiar(codigo)
+  porCodigo.limpiar(claveCodigo)
   const respuesta = NextResponse.json({ ok: true })
   respuesta.cookies.set({
     name: COOKIE_SESION,
