@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Cormorant_Garamond, IBM_Plex_Mono, Manrope } from "next/font/google"
+import { RefCapture } from "@/components/catalogo/ref-capture"
 import { SiteFooter } from "@/components/site/footer"
 import { SiteHeader } from "@/components/site/header"
 import { StructuredData } from "@/components/structured-data"
@@ -111,6 +112,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${manrope.variable} ${plexMono.variable} ${cormorant.variable} antialiased`}>
         <StructuredData data={getJsonLdGraph()} />
+        <RefCapture />
         <SiteHeader />
         {children}
         <SiteFooter />
