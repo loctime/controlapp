@@ -38,14 +38,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href="#contacto"
+        <Link
+          href="/#contacto"
           className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[rgba(24,30,43,0.14)] bg-[rgb(20,29,46)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[rgb(28,38,58)] md:px-5 md:py-3"
         >
           <span className="sm:hidden">Hablar</span>
           <span className="hidden sm:inline">Hablemos</span>
           <ArrowUpRight className="size-4" />
-        </a>
+        </Link>
       </div>
 
       <div className="border-t border-[rgba(34,30,24,0.08)] md:hidden">
