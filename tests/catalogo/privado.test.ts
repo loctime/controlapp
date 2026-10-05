@@ -87,15 +87,15 @@ describe("leerConfig", () => {
   const secreto = "x".repeat(32)
 
   it("devuelve datos y secreto", () => {
-    const c = leerConfig({ ALIADOS_PRIVADO: valido, ALIADOS_SESSION_SECRET: secreto } as NodeJS.ProcessEnv)
+    const c = leerConfig({ ALIADOS_PRIVADO: valido, ALIADOS_SESSION_SECRET: secreto })
     expect(c.secreto).toBe(secreto)
     expect(c.privado.aliados).toHaveLength(1)
   })
 
   it("lanza si falta el secreto o es corto", () => {
-    expect(() => leerConfig({ ALIADOS_PRIVADO: valido } as NodeJS.ProcessEnv)).toThrowError(/ALIADOS_SESSION_SECRET/)
+    expect(() => leerConfig({ ALIADOS_PRIVADO: valido })).toThrowError(/ALIADOS_SESSION_SECRET/)
     expect(() =>
-      leerConfig({ ALIADOS_PRIVADO: valido, ALIADOS_SESSION_SECRET: "corto" } as NodeJS.ProcessEnv),
+      leerConfig({ ALIADOS_PRIVADO: valido, ALIADOS_SESSION_SECRET: "corto" }),
     ).toThrowError(/ALIADOS_SESSION_SECRET/)
   })
 })

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { fichasPublicadas } from "@/lib/catalogo"
 import { absoluteUrl } from "@/lib/seo"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,5 +24,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: absoluteUrl("/servicios"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...fichasPublicadas().map((f) => ({
+      url: absoluteUrl(`/servicios/${f.slug}`),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ]
 }

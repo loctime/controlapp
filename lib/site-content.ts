@@ -48,6 +48,7 @@ export const siteContent = {
   },
   navigation: [
     { label: "ControlDoc", href: "/control-doc" },
+    { label: "Servicios", href: "/servicios" },
     { label: "Empresa", href: "/#empresa" },
     { label: "Problemas", href: "/#problemas" },
     { label: "Soluciones", href: "/#soluciones" },
