@@ -15,12 +15,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const ficha = fichaPorSlug(slug)
   if (!ficha) return {}
-  const titulo = `${ficha.nombre} | ControlApps`
+  const titulo = ficha.seo?.title ?? `${ficha.nombre} | ControlApps`
+  const descripcion = ficha.seo?.description ?? ficha.frase
   return {
     title: { absolute: titulo },
-    description: ficha.frase,
+    description: descripcion,
     alternates: { canonical: `/servicios/${ficha.slug}` },
-    openGraph: { type: "website", url: absoluteUrl(`/servicios/${ficha.slug}`), title: titulo, description: ficha.frase },
+    openGraph: { type: "website", url: absoluteUrl(`/servicios/${ficha.slug}`), title: titulo, description: descripcion },
   }
 }
 
