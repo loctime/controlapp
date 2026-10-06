@@ -173,6 +173,8 @@ export const SERVICIOS: FichaPublica[] = [
     grupo: "medida",
     nombre: "Sistema a medida",
     frase: "Un sistema hecho a tu medida para el problema que hoy te frena.",
+    intro:
+      "En ControlApps desarrollamos apps y sistemas a medida para empresas de Argentina. Partimos de cómo trabajás hoy y construimos una herramienta que reemplaza planillas, papeles y mensajes sueltos, y automatiza las tareas que se repiten todos los días. También nos buscan como Control Apps o ControlApp.",
     paraVos: [
       "Trabajás con planillas, papeles y WhatsApp y todo se desordena.",
       "Ningún programa del mercado hace exactamente lo que necesitás.",

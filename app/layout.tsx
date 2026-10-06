@@ -11,7 +11,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ControlApps | Software a medida para resolver operación real",
+    default: "ControlApps | Apps a medida para empresas en Argentina",
     template: "%s | ControlApps",
   },
   description: siteConfig.description,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: "ControlApps | Software a medida para resolver operación real",
+    title: "ControlApps | Apps a medida para empresas en Argentina",
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ControlApps | Software a medida para resolver operación real",
+    title: "ControlApps | Apps a medida para empresas en Argentina",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage],
   },

@@ -19,6 +19,9 @@ export function FichaPage({ ficha, email }: { ficha: FichaPublica; email: string
           {ficha.nombre}
         </h1>
         <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[rgb(56,60,70)]">{ficha.frase}</p>
+        {ficha.intro ? (
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[rgb(56,60,70)]">{ficha.intro}</p>
+        ) : null}
         <p className="mt-4 font-mono text-xs uppercase tracking-[0.24em] text-[rgb(102,82,60)]">{textoPrecio(ficha)}</p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <BotonConsulta servicio={ficha.nombre} email={email} />

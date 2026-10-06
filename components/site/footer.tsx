@@ -91,7 +91,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p>ControlApps • Software inteligente para operación real sin fricción.</p>
+          <p>ControlApps (Control Apps): apps y software a medida para empresas en Argentina.</p>
           <p>© {new Date().getFullYear()} ControlApps — Todos los derechos reservados.</p>
         </div>
       </div>
