@@ -197,6 +197,16 @@ export const siteContent = {
   ],
   faq: [
     {
+      question: "¿Qué es una app o software a medida para empresas?",
+      answer:
+        "Es un sistema diseñado desde cero para la forma de trabajar de una empresa, en lugar de adaptar el negocio a un programa genérico. En ControlApps lo usamos para reemplazar planillas, papeles y mensajes sueltos, y para automatizar tareas que se repiten todos los días.",
+    },
+    {
+      question: "¿ControlApps, Control App o ControlApp? ¿Es la misma empresa?",
+      answer:
+        "Sí. Somos ControlApps (controlapps.ar), también escrito Control Apps, ControlApp o Control App. Desarrollamos apps y software a medida para empresas en Argentina y Latinoamérica.",
+    },
+    {
       question: "¿Trabajan sobre una plataforma ya cerrada?",
       answer:
         "No. ControlApps desarrolla software a medida. Podemos reutilizar criterios, experiencia o componentes, pero cada solución se plantea según la necesidad concreta del cliente.",

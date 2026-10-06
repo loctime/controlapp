@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import type { PlatformApp } from "@/lib/platform-types"
+import { siteContent } from "@/lib/site-content"
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") || "https://www.controlapps.ar"
 
@@ -29,6 +30,8 @@ export function getSiteKeywords() {
     "aplicaciones a medida",
     "desarrollo de software a medida en Argentina",
     "ControlApps",
+    "Control Apps",
+    "ControlApp",
     "desarrollo de software para empresas",
     "automatizacion de procesos",
     "optimizacion operativa",
@@ -221,11 +224,12 @@ export function getJsonLdGraph() {
         "@type": "Organization",
         "@id": absoluteUrl("/#organization"),
         name: siteConfig.legalName,
+        alternateName: ["Control Apps", "ControlApp", "Control App"],
         url: absoluteUrl("/"),
         logo: absoluteUrl("/icon-512.png"),
         description: siteConfig.description,
         knowsAbout: getSiteKeywords(),
-        areaServed: "Latam",
+        areaServed: ["Argentina", "Latam"],
         sameAs: [],
       },
       {
@@ -251,10 +255,11 @@ export function getOrganizationSchema() {
         "@type": "ProfessionalService",
         "@id": absoluteUrl("/#service"),
         name: siteConfig.name,
+        alternateName: ["Control Apps", "ControlApp", "Control App"],
         inLanguage: siteConfig.siteLanguage,
         url: absoluteUrl("/"),
         description: siteConfig.description,
-        areaServed: "Latam",
+        areaServed: ["Argentina", "Latam"],
         serviceType: [
           "Desarrollo de software a medida",
           "Automatización de procesos",
@@ -267,6 +272,14 @@ export function getOrganizationSchema() {
           "@type": "BusinessAudience",
           audienceType: "Empresas y equipos con necesidades operativas específicas",
         },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: siteContent.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
       },
     ],
   }

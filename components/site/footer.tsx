@@ -49,7 +49,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-[rgba(34,30,24,0.12)] pt-5 text-sm font-medium text-[rgb(49,52,61)] md:flex-row md:items-center md:justify-between">
-          <p>ControlApps desarrolla software a medida para resolver operación real.</p>
+          <p>ControlApps (Control Apps): apps y software a medida para empresas en Argentina.</p>
           <p>© {new Date().getFullYear()} ControlApps</p>
         </div>
       </div>
