@@ -10,7 +10,7 @@ export const siteConfig = {
   locale: "es_AR",
   siteLanguage: "es",
   description:
-    "Empresa de software a medida dedicada a resolver problemas operativos, automatizar tareas repetitivas y diseñar herramientas digitales adaptadas a cada negocio.",
+    "Desarrollamos apps y software a medida para empresas en Argentina: automatizamos tareas repetitivas y creamos herramientas adaptadas a cada negocio.",
   defaultOgImage: "/og-image.jpg",
 }
 
@@ -25,6 +25,10 @@ export function absoluteUrl(path = "/") {
 export function getSiteKeywords() {
   return [
     "software a medida",
+    "apps a medida para empresas",
+    "aplicaciones a medida",
+    "desarrollo de software a medida en Argentina",
+    "ControlApps",
     "desarrollo de software para empresas",
     "automatizacion de procesos",
     "optimizacion operativa",
@@ -37,7 +41,7 @@ export function getSiteKeywords() {
 export function createHomeMetadata(): Metadata {
   return {
     title: {
-      absolute: "ControlApps | Software a medida para ordenar procesos y resolver operación real",
+      absolute: "ControlApps | Apps a medida para empresas en Argentina",
     },
     description: siteConfig.description,
     keywords: getSiteKeywords(),

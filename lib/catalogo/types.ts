@@ -13,6 +13,7 @@ export interface FichaPublica {
   tipoCobro: TipoCobro
   publicado: boolean
   paginaDetalle?: string
+  seo?: { title: string; description: string }
 }
 
 export interface Grupo {

@@ -21,6 +21,11 @@ export const SERVICIOS: FichaPublica[] = [
     precioDesde: null,
     tipoCobro: "recurrente",
     publicado: true,
+    seo: {
+      title: "ControlDoc: gestión documental | ControlApps",
+      description:
+        "Centralizá los documentos de personal, flota y contratistas con un semáforo de vencimientos y cumplimiento. Aprobaciones con historial. Pedí información.",
+    },
     paginaDetalle: "/control-doc",
   },
   {
@@ -41,6 +46,11 @@ export const SERVICIOS: FichaPublica[] = [
     precioDesde: null,
     tipoCobro: "mixto",
     publicado: true,
+    seo: {
+      title: "Panel de remitos online | ControlApps",
+      description:
+        "Panel web para cargar, buscar y controlar tus remitos, con aviso de remitos repetidos. Sin planillas ni papeles sueltos. Consultá con ControlApps.",
+    },
   },
   {
     slug: "conciliacion-bancaria",
@@ -99,6 +109,11 @@ export const SERVICIOS: FichaPublica[] = [
     precioDesde: null,
     tipoCobro: "unico",
     publicado: true,
+    seo: {
+      title: "Página web para empresas | ControlApps",
+      description:
+        "Diseñamos tu página web completa para que te encuentren en Google y te escriban. Hecha a medida para tu negocio, con puesta en marcha y soporte.",
+    },
   },
   {
     slug: "control-redes",
@@ -171,5 +186,10 @@ export const SERVICIOS: FichaPublica[] = [
     precioDesde: null,
     tipoCobro: "unico",
     publicado: true,
+    seo: {
+      title: "Apps y sistemas a medida para empresas | ControlApps",
+      description:
+        "Desarrollamos apps y sistemas a medida para empresas en Argentina: automatizamos tareas repetitivas y reemplazamos planillas y WhatsApp. Pedí tu propuesta.",
+    },
   },
 ]
