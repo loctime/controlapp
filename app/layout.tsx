@@ -92,8 +92,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="scroll-smooth overflow-x-clip">
-      <body className="antialiased overflow-x-clip min-w-0 w-full">
+    <html lang="es" className="scroll-smooth overflow-x-hidden">
+      <body className="antialiased overflow-x-hidden min-w-0 w-full relative">
         <StructuredData data={getJsonLdGraph()} />
         <RefCapture />
         <SiteHeader />

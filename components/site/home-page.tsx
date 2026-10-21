@@ -125,7 +125,7 @@ export function HomePage() {
       {/* =========================================================================
           CLIENTES QUE CONFÍAN EN CONTROLSAPPS (Maximia y VentaMat)
       ========================================================================= */}
-      <section id="clientes" className="relative border-b border-white/10 bg-slate-900/40 py-16 sm:py-20">
+      <section id="clientes" className="relative overflow-hidden border-b border-white/10 bg-slate-900/40 py-16 sm:py-20">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 lg:px-12">
           <div className="flex flex-col items-center text-center">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-cyan-400">Validación Real</span>
@@ -431,7 +431,7 @@ export function HomePage() {
       {/* =========================================================================
           NUESTROS PRODUCTOS ESTRELLA (ControlDoc + ControlAudit)
       ========================================================================= */}
-      <section id="productos" className="relative border-b border-white/10 py-16 sm:py-24">
+      <section id="productos" className="relative overflow-hidden border-b border-white/10 py-16 sm:py-24">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 lg:px-12">
           <div className="flex flex-col gap-4 lg:max-w-3xl">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-cyan-400">Sistemas Corporativos</span>
@@ -542,7 +542,7 @@ export function HomePage() {
       {/* =========================================================================
           PROBLEMAS QUE RESOLVEMOS
       ========================================================================= */}
-      <section id="problemas" className="relative border-b border-white/10 py-16 sm:py-20 bg-slate-900/30">
+      <section id="problemas" className="relative overflow-hidden border-b border-white/10 py-16 sm:py-20 bg-slate-900/30">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-start">
             <div>
@@ -579,7 +579,7 @@ export function HomePage() {
       {/* =========================================================================
           CONTACTO DIRECTO (WhatsApp + Formulario Comercial)
       ========================================================================= */}
-      <section id="contacto" className="relative py-16 sm:py-24">
+      <section id="contacto" className="relative overflow-hidden py-16 sm:py-24">
         {/* Glow ambient */}
         <div className="pointer-events-none absolute -top-40 right-10 -z-10 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-3xl" />
 
