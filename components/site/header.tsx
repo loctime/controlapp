@@ -5,7 +5,7 @@ import { siteContent } from "@/lib/site-content"
 
 export function SiteHeader() {
   const whatsappUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
-    "Hola Fernando! Vi la web de ControlApps y quiero hacerte una consulta."
+    "Hola ControlApps! Vi la web y quiero hacerles una consulta."
   )}`
 
   return (

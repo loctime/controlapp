@@ -9,7 +9,7 @@ export function FloatingWhatsApp() {
 
   const whatsappNumber = "5493364524758"
   const defaultMessage = encodeURIComponent(
-    "Hola Fernando! Vi la web de ControlApps y quiero hacerte una consulta."
+    "Hola ControlApps! Vi la web y quiero hacerles una consulta."
   )
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`
 
@@ -38,14 +38,14 @@ export function FloatingWhatsApp() {
               <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-slate-950 bg-emerald-400" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-white">Fernando Vidal</p>
-              <p className="text-xs text-emerald-400">ControlApps • En línea</p>
+              <p className="text-sm font-semibold text-white">ControlApps Oficial</p>
+              <p className="text-xs text-emerald-400">Atención comercial • En línea</p>
             </div>
           </div>
 
           <div className="my-4 space-y-2 text-xs text-slate-300">
             <p className="rounded-2xl rounded-tl-sm bg-slate-900/80 p-3 border border-white/5 leading-relaxed">
-              Hola! Consultá por <strong>habilitaciones para Vaca Muerta</strong> (YPF, AESA, SACDE), <strong>ControlDoc</strong> o probá la <strong>Agenda gratis</strong>. Escribime directo por acá.
+              Hola! Consultá por <strong>habilitaciones para Vaca Muerta</strong> (YPF, AESA, SACDE), <strong>ControlDoc</strong> o probá la <strong>Agenda gratis</strong>. Escribinos directo por acá.
             </p>
             <p className="font-mono text-[11px] text-slate-400 text-right">
               +54 9 336 452-4758
@@ -69,7 +69,7 @@ export function FloatingWhatsApp() {
         {!isOpen && !hasInteracted && (
           <div className="hidden sm:flex items-center rounded-full border border-emerald-500/40 bg-slate-950/90 px-3.5 py-1.5 text-xs font-medium text-slate-200 shadow-xl backdrop-blur-md animate-pulse">
             <span className="mr-1.5 inline-block size-2 rounded-full bg-emerald-400 animate-ping" />
-            Escribile a Fernando por WhatsApp
+            Chatear por WhatsApp (+54 9 336 452-4758)
           </div>
         )}
 
@@ -80,7 +80,7 @@ export function FloatingWhatsApp() {
             setHasInteracted(true)
           }}
           className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 text-white shadow-xl shadow-emerald-500/30 transition-transform hover:scale-105 active:scale-95"
-          aria-label="Abrir contacto directo de WhatsApp con Fernando"
+          aria-label="Abrir contacto directo de WhatsApp con ControlApps"
         >
           {/* Outer glow ring */}
           <span className="absolute -inset-1 rounded-full bg-emerald-400/30 blur-sm animate-pulse" />

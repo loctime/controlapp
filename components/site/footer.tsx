@@ -5,7 +5,7 @@ import { siteContent } from "@/lib/site-content"
 
 export function SiteFooter() {
   const whatsappUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
-    "Hola Fernando! Vi la web de ControlApps y quiero hacerte una consulta."
+    "Hola ControlApps! Vi la web y quiero hacerles una consulta."
   )}`
 
   return (
@@ -77,7 +77,7 @@ export function SiteFooter() {
                 className="inline-flex items-center gap-2 rounded-2xl border border-emerald-500/30 bg-emerald-950/30 px-4 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/40 hover:text-white transition-all"
               >
                 <MessageCircle className="size-4 text-emerald-400" />
-                <span>WhatsApp Fernando: {siteContent.contact.phone}</span>
+                <span>WhatsApp Comercial: {siteContent.contact.phone}</span>
                 <ArrowUpRight className="size-3.5 ml-auto" />
               </a>
 

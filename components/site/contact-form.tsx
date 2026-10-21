@@ -21,7 +21,7 @@ export function ContactForm({ email, whatsappNumber = "5493364524758" }: Contact
 
   function handleSendWhatsApp() {
     const text = [
-      "👋 Hola Fernando! Te contacto desde la web de ControlApps.",
+      "👋 Hola ControlApps! Les contacto desde la web.",
       `*Nombre:* ${name || "-"}`,
       `*Empresa:* ${company || "-"}`,
       `*Email:* ${emailAddress || "-"}`,
@@ -62,7 +62,7 @@ export function ContactForm({ email, whatsappNumber = "5493364524758" }: Contact
         <div>
           <span className="font-mono text-xs uppercase tracking-[0.28em] text-cyan-400">Canal directo</span>
           <h3 className="font-display mt-2 text-2xl sm:text-3xl font-semibold leading-tight text-white">
-            Escribile a Fernando o envianos tu necesidad
+            Escribinos por WhatsApp o envianos tu consulta
           </h3>
         </div>
         <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/50 px-3 py-1 text-[11px] font-mono text-emerald-300">

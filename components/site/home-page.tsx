@@ -23,8 +23,8 @@ import { controlDoc } from "@/lib/apps/control-doc"
 import { siteContent } from "@/lib/site-content"
 
 export function HomePage() {
-  const whatsappFernandoUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
-    "Hola Fernando! Vi la web de ControlApps y quiero consultar por la carga de habilitaciones para Vaca Muerta."
+  const whatsappComercialUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
+    "Hola ControlApps! Vi la web y quiero consultar por la carga de habilitaciones y soluciones para empresas."
   )}`
 
   const agendaBotUrl = `https://wa.me/5493407531127?text=${encodeURIComponent(
@@ -67,7 +67,7 @@ export function HomePage() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
               <a
-                href={whatsappFernandoUrl}
+                href={whatsappComercialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:opacity-95 active:scale-[0.98] sm:w-auto"
@@ -90,7 +90,7 @@ export function HomePage() {
 
             {/* Contact quick note */}
             <p className="mt-3 text-xs text-slate-400">
-              WhatsApp directo Fernando: <strong className="text-emerald-400">+54 9 336 452-4758</strong> • Carga y aprobación ágil para yacimiento
+              WhatsApp comercial directo: <strong className="text-emerald-400">+54 9 336 452-4758</strong> • Carga y aprobación ágil para yacimiento
             </p>
 
             {/* Stats row */}
@@ -305,7 +305,7 @@ export function HomePage() {
             </div>
           </div>
 
-          {/* Banner Direct CTA to Fernando WhatsApp */}
+          {/* Banner Direct CTA to WhatsApp Comercial */}
           <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/70 via-slate-950 to-teal-950/70 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
             <div className="max-w-xl">
               <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
@@ -315,12 +315,12 @@ export function HomePage() {
                 ¿Tenés que subir personal o camionetas a yacimiento esta semana?
               </h3>
               <p className="mt-2 text-sm text-slate-300">
-                Escribile a Fernando Vidal por WhatsApp. Te decimos exactamente qué documentación hace falta y nos encargamos de que tu equipo entre sin demoras.
+                Contactate con nosotros por WhatsApp. Te decimos exactamente qué documentación hace falta y nos encargamos de que tu equipo entre sin demoras.
               </p>
             </div>
 
             <a
-              href={whatsappFernandoUrl}
+              href={whatsappComercialUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:opacity-95 hover:scale-[1.02] active:scale-[0.98]"
@@ -575,7 +575,7 @@ export function HomePage() {
       </section>
 
       {/* =========================================================================
-          CONTACTO DIRECTO (Fernando Vidal + WhatsApp + Formulario)
+          CONTACTO DIRECTO (WhatsApp + Formulario Comercial)
       ========================================================================= */}
       <section id="contacto" className="relative py-16 sm:py-24">
         {/* Glow ambient */}
@@ -602,17 +602,17 @@ export function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white">Contacto Directo por WhatsApp</h3>
-                  <p className="text-xs text-emerald-400">Atención personalizada con Fernando Vidal</p>
+                  <p className="text-xs text-emerald-400">Atención personalizada y respuesta rápida</p>
                 </div>
               </div>
 
               <p className="mt-4 text-sm text-slate-300">
-                Escribile un mensaje directamente a su teléfono celular y coordinemos una llamada o demo sin compromiso:
+                Contactate directamente a nuestro WhatsApp y coordinemos una llamada o demo sin compromiso:
               </p>
 
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <a
-                  href={whatsappFernandoUrl}
+                  href={whatsappComercialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-md hover:bg-emerald-400 transition-all active:scale-[0.98]"
