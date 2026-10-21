@@ -74,8 +74,8 @@ export function SiteHeader() {
       </div>
 
       {/* Mobile navigation row */}
-      <div className="border-t border-white/5 md:hidden">
-        <nav className="mx-auto flex w-full max-w-7xl gap-2 overflow-x-auto px-5 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="border-t border-white/5 md:hidden w-full max-w-full min-w-0 overflow-hidden">
+        <nav className="flex w-full max-w-full min-w-0 gap-2 overflow-x-auto px-4 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {siteContent.navigation.map((item) => {
             const isAgenda = item.href.includes("agenda")
             const isHabilitaciones = item.href.includes("habilitaciones")

@@ -308,8 +308,8 @@ export function HomePage() {
           </div>
 
           {/* Banner Direct CTA to WhatsApp Comercial */}
-          <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/70 via-slate-950 to-teal-950/70 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-            <div className="max-w-xl">
+          <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/70 via-slate-950 to-teal-950/70 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
+            <div className="max-w-xl min-w-0">
               <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
                 Atención Directa & Rápida
               </span>
@@ -325,11 +325,11 @@ export function HomePage() {
               href={whatsappComercialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:opacity-95 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] text-center shrink-0"
             >
-              <MessageCircle className="size-5" />
+              <MessageCircle className="size-5 shrink-0" />
               <span>Enviar Documentos por WhatsApp</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 shrink-0" />
             </a>
           </div>
         </div>
@@ -401,8 +401,8 @@ export function HomePage() {
           </div>
 
           {/* Big Banner CTA */}
-          <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/60 via-slate-950 to-teal-950/60 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-            <div className="max-w-xl">
+          <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/60 via-slate-950 to-teal-950/60 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
+            <div className="max-w-xl min-w-0">
               <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
                 Probá el bot en 10 segundos
               </span>
@@ -418,11 +418,11 @@ export function HomePage() {
               href={agendaBotUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98] text-center shrink-0"
             >
-              <MessageCircle className="size-5" />
+              <MessageCircle className="size-5 shrink-0" />
               <span>Chatear con la Agenda Gratis</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 shrink-0" />
             </a>
           </div>
         </div>
@@ -617,9 +617,9 @@ export function HomePage() {
                   href={whatsappComercialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-md hover:bg-emerald-400 transition-all active:scale-[0.98]"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-xs sm:text-sm font-bold text-slate-950 shadow-md hover:bg-emerald-400 transition-all active:scale-[0.98] text-center"
                 >
-                  <MessageCircle className="size-4" />
+                  <MessageCircle className="size-4 shrink-0" />
                   <span>Chatear al +54 9 336 452-4758</span>
                 </a>
               </div>

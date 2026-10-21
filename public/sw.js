@@ -1,7 +1,7 @@
-const CACHE_NAME = "controlapp-v5"
-const STATIC_CACHE = "controlapp-static-v5"
-const DYNAMIC_CACHE = "controlapp-dynamic-v5"
-const IMAGE_CACHE = "controlapp-images-v5"
+const CACHE_NAME = "controlapp-v6"
+const STATIC_CACHE = "controlapp-static-v6"
+const DYNAMIC_CACHE = "controlapp-dynamic-v6"
+const IMAGE_CACHE = "controlapp-images-v6"
 
 const urlsToCache = [
   "/",

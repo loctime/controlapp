@@ -135,7 +135,17 @@ export function AgendaSimulator() {
 
   // 3D Parallax Tilt state (tracked via mouse movement)
   const [tilt, setTilt] = useState({ rx: 0, ry: 0, isHovered: false })
+  const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function checkMobile() {
+      setIsMobile(window.innerWidth < 640)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   // Current indices for cycling cases
   const [habIndex, setHabIndex] = useState(0)
@@ -223,13 +233,18 @@ export function AgendaSimulator() {
     setIsAutoPlaying(true)
   }
 
-  // Calculate dynamic 3D transform that pops forward out of the screen
+  // Calculate dynamic 3D transform that pops forward out of the screen ("sale de la pantalla")
   const currentBaseY = isFlipped ? 180 : 0
+  const zPop = isMobile ? 35 : 130
+  const zRest = isMobile ? 10 : 28
+  const zHover = isMobile ? 24 : 52
+  const scalePop = isMobile ? 1.02 : 1.07
+
   const transformStyle = isRotating
-    ? `rotateY(${currentBaseY}deg) translateZ(120px) scale(1.06) rotateX(4deg)`
+    ? `rotateY(${currentBaseY}deg) translateZ(${zPop}px) scale(${scalePop}) rotateX(3deg)`
     : tilt.isHovered
-    ? `rotateY(${currentBaseY + tilt.ry}deg) rotateX(${tilt.rx}deg) translateZ(45px)`
-    : `rotateY(${currentBaseY}deg) translateZ(25px)`
+    ? `rotateY(${currentBaseY + tilt.ry}deg) rotateX(${tilt.rx}deg) translateZ(${zHover}px)`
+    : `rotateY(${currentBaseY}deg) translateZ(${zRest}px)`
 
   return (
     <div
