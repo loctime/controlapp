@@ -44,8 +44,8 @@ export function FloatingWhatsApp() {
           </div>
 
           <div className="my-4 space-y-2 text-xs text-slate-300">
-            <p className="rounded-2xl rounded-tl-sm bg-slate-900/80 p-3 border border-white/5">
-              ¡Hola! ¿Querés consultar por <strong>ControlDoc</strong>, <strong>ControlAudit</strong> o probar la <strong>Agenda gratis</strong>? Escribime directo por acá.
+            <p className="rounded-2xl rounded-tl-sm bg-slate-900/80 p-3 border border-white/5 leading-relaxed">
+              Hola! Consultá por <strong>habilitaciones para Vaca Muerta</strong> (YPF, AESA, SACDE), <strong>ControlDoc</strong> o probá la <strong>Agenda gratis</strong>. Escribime directo por acá.
             </p>
             <p className="font-mono text-[11px] text-slate-400 text-right">
               +54 9 336 452-4758

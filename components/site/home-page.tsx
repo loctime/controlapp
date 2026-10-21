@@ -8,10 +8,12 @@ import {
   CheckCircle2,
   FileCheck,
   FolderOpen,
+  HardHat,
   MessageCircle,
   Mic,
   ShieldCheck,
   Sparkles,
+  Truck,
   Zap,
 } from "lucide-react"
 import { AgendaSimulator } from "@/components/site/agenda-simulator"
@@ -22,7 +24,7 @@ import { siteContent } from "@/lib/site-content"
 
 export function HomePage() {
   const whatsappFernandoUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
-    "Hola Fernando! Vi la web de ControlApps y quiero hacerte una consulta."
+    "Hola Fernando! Vi la web de ControlApps y quiero consultar por la carga de habilitaciones para Vaca Muerta."
   )}`
 
   const agendaBotUrl = `https://wa.me/5493407531127?text=${encodeURIComponent(
@@ -32,7 +34,7 @@ export function HomePage() {
   return (
     <main className="bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* =========================================================================
-          HERO SECTION (Futuristic Dark Theme + Agenda Simulator Hook)
+          HERO SECTION (Futuristic Dark Theme + 360 Interactive Simulator)
       ========================================================================= */}
       <section className="relative overflow-hidden border-b border-white/10 pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-28">
         {/* Glow ambient background elements */}
@@ -45,12 +47,12 @@ export function HomePage() {
             {/* Announcement Pill */}
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-950/40 px-3.5 py-1.5 text-xs font-mono text-emerald-300 backdrop-blur-md shadow-sm shadow-emerald-500/10">
               <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>Herramienta Gratuita • Agenda de WhatsApp con IA</span>
+              <span>Vaca Muerta & Soluciones Operativas • Habilitaciones WhatsApp & Agenda IA</span>
             </div>
 
             {/* Headline */}
             <h1 className="font-display mt-6 max-w-3xl text-[clamp(2.8rem,8vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-white">
-              Software inteligente para ordenar{" "}
+              Habilitaciones y software inteligente para la{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
                 operación real
               </span>{" "}
@@ -59,45 +61,44 @@ export function HomePage() {
 
             {/* Description */}
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
-              Diseñamos sistemas a medida, gestión documental (<strong>ControlDoc</strong>) e higiene y seguridad (<strong>ControlAudit</strong>).
-              Y para el día a día de todos: probá gratis nuestra <strong>Agenda de recordatorios por WhatsApp con IA</strong>.
+              Carga ágil de habilitaciones por WhatsApp para contratistas en <strong>Vaca Muerta</strong> (YPF, AESA, SACDE, Techint), gestión documental integral (<strong>ControlDoc</strong>) e higiene y seguridad (<strong>ControlAudit</strong>). Además, probá gratis nuestra <strong>Agenda con IA</strong>.
             </p>
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
               <a
-                href={agendaBotUrl}
+                href={whatsappFernandoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 px-6 py-4 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:opacity-95 active:scale-[0.98] sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:opacity-95 active:scale-[0.98] sm:w-auto"
               >
-                <Sparkles className="size-4" />
-                <span>Probar Agenda Gratis por WhatsApp</span>
+                <HardHat className="size-4" />
+                <span>Cargar Habilitaciones Vaca Muerta</span>
                 <ArrowRight className="size-4" />
               </a>
 
               <a
-                href={whatsappFernandoUrl}
+                href={agendaBotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-slate-900/80 px-6 py-4 text-sm font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-emerald-500/40 hover:text-white sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-slate-900/80 px-6 py-4 text-sm font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-cyan-500/40 hover:text-white sm:w-auto"
               >
-                <MessageCircle className="size-4 text-emerald-400" />
-                <span>Escribirle a Fernando</span>
+                <Sparkles className="size-4 text-cyan-400" />
+                <span>Probar Agenda IA Gratis</span>
               </a>
             </div>
 
             {/* Contact quick note */}
             <p className="mt-3 text-xs text-slate-400">
-              WhatsApp directo: <strong className="text-emerald-400">+54 9 336 452-4758</strong> • Atención rápida
+              WhatsApp directo Fernando: <strong className="text-emerald-400">+54 9 336 452-4758</strong> • Carga y aprobación ágil para yacimiento
             </p>
 
             {/* Stats row */}
             <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-wider text-cyan-400">Agenda IA</p>
-                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">100% Gratis</p>
-                <p className="text-xs text-slate-400">Por WhatsApp</p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Vaca Muerta</p>
+                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">Habilitaciones</p>
+                <p className="text-xs text-slate-400">YPF • AESA • SACDE</p>
               </div>
               <div className="border-l border-white/10 pl-4">
                 <p className="font-mono text-[10px] uppercase tracking-wider text-cyan-400">ControlDoc</p>
@@ -105,9 +106,9 @@ export function HomePage() {
                 <p className="text-xs text-slate-400">Empresarial</p>
               </div>
               <div className="border-l border-white/10 pl-4">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-cyan-400">ControlAudit</p>
-                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">HSE & HyS</p>
-                <p className="text-xs text-slate-400">PWA Offline</p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-teal-400">Agenda IA</p>
+                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">100% Gratis</p>
+                <p className="text-xs text-slate-400">WhatsApp 24/7</p>
               </div>
             </div>
           </div>
@@ -220,6 +221,114 @@ export function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          HABILITACIONES VACA MUERTA POR WHATSAPP (SOLUCIÓN OPERATIVA DIRECTA)
+      ========================================================================= */}
+      <section id="habilitaciones" className="relative border-b border-white/10 py-16 sm:py-24 overflow-hidden bg-slate-900/20">
+        <div className="pointer-events-none absolute -top-24 -left-24 -z-10 h-[450px] w-[450px] rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-[350px] w-[350px] rounded-full bg-amber-500/5 blur-3xl" />
+
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 lg:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">
+                Solución Especializada • Vaca Muerta
+              </span>
+              <h2 className="font-display mt-3 text-3xl sm:text-5xl font-bold tracking-tight text-white">
+                Carga de Habilitaciones Documentales por WhatsApp.
+              </h2>
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-300">
+                Para contratistas de transporte, obras civiles, servicios y logística en la cuenca neuquina. No pierdas horas frente a la computadora ni hagas rebotar a tus camionetas en la garita: mandás las fotos o PDFs por chat y nosotros gestionamos la subida y aprobación en los portales de las operadoras.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 rounded-2xl bg-emerald-950/50 border border-emerald-500/30 px-4 py-2.5 text-xs font-mono text-emerald-300">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>YPF • AESA • SACDE • TECHINT • VISTA</span>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400 mb-5 border border-emerald-500/20">
+                  <FileCheck className="size-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Nóminas de ART & No Repetición</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  Carga de certificados de cobertura vigentes, nómina de empleados y la cláusula obligatoria de no repetición a favor de la operadora y comitentes.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs text-emerald-400 font-mono flex items-center gap-1.5">
+                <CheckCircle2 className="size-3.5 shrink-0" />
+                <span>Pase verde para ingresar a Añelo</span>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-400 mb-5 border border-cyan-500/20">
+                  <ShieldCheck className="size-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">F.931 AFIP & Auditoría Laboral</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  Homologación mensual de cargas sociales, acuses de recibo y tickets de pago bancario para cumplir las auditorías y evitar retenciones en tus certificados de obra.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs text-cyan-400 font-mono flex items-center gap-1.5">
+                <CheckCircle2 className="size-3.5 shrink-0" />
+                <span>Cobro de certificados sin trabas</span>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400 mb-5 border border-amber-500/20">
+                  <Truck className="size-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Aptos Médicos & Manejo 4x4</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  Carga de exámenes periódicos de ley (Res. SRT 37/2010), credenciales de manejo defensivo y legajos de camionetas para circular habilitados en zona de pozos.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 text-xs text-amber-400 font-mono flex items-center gap-1.5">
+                <CheckCircle2 className="size-3.5 shrink-0" />
+                <span>Flota y choferes autorizados</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Banner Direct CTA to Fernando WhatsApp */}
+          <div className="mt-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/70 via-slate-950 to-teal-950/70 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div className="max-w-xl">
+              <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+                Atención Directa & Rápida
+              </span>
+              <h3 className="font-display mt-2 text-2xl sm:text-3xl font-bold text-white">
+                ¿Tenés que subir personal o camionetas a yacimiento esta semana?
+              </h3>
+              <p className="mt-2 text-sm text-slate-300">
+                Escribile a Fernando Vidal por WhatsApp. Te decimos exactamente qué documentación hace falta y nos encargamos de que tu equipo entre sin demoras.
+              </p>
+            </div>
+
+            <a
+              href={whatsappFernandoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:opacity-95 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <MessageCircle className="size-5" />
+              <span>Enviar Documentos por WhatsApp</span>
+              <ArrowRight className="size-4" />
+            </a>
           </div>
         </div>
       </section>

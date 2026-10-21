@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MessageCircle, Sparkles } from "lucide-react"
+import { HardHat, MessageCircle, Sparkles } from "lucide-react"
 import { siteContent } from "@/lib/site-content"
 
 export function SiteHeader() {
@@ -34,20 +34,24 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:gap-7 md:flex">
           {siteContent.navigation.map((item) => {
             const isAgenda = item.href.includes("agenda")
+            const isHabilitaciones = item.href.includes("habilitaciones")
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
-                  isAgenda
+                  isHabilitaciones
                     ? "flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold"
+                    : isAgenda
+                    ? "flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 font-semibold"
                     : "text-slate-300 hover:text-white"
                 }`}
               >
-                {isAgenda && <Sparkles className="size-3 text-emerald-400 animate-pulse" />}
+                {isHabilitaciones && <HardHat className="size-3.5 text-emerald-400" />}
+                {isAgenda && <Sparkles className="size-3 text-cyan-400 animate-pulse" />}
                 {item.label}
               </Link>
             )
@@ -74,16 +78,21 @@ export function SiteHeader() {
         <nav className="mx-auto flex w-full max-w-7xl gap-2 overflow-x-auto px-5 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {siteContent.navigation.map((item) => {
             const isAgenda = item.href.includes("agenda")
+            const isHabilitaciones = item.href.includes("habilitaciones")
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-[0.01em] transition-colors ${
-                  isAgenda
-                    ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                  isHabilitaciones
+                    ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1"
+                    : isAgenda
+                    ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 flex items-center gap-1"
                     : "border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white"
                 }`}
               >
+                {isHabilitaciones && <HardHat className="size-3" />}
+                {isAgenda && <Sparkles className="size-3" />}
                 {item.label}
               </Link>
             )
