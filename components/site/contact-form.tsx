@@ -2,27 +2,42 @@
 
 import type { FormEvent } from "react"
 import { useState } from "react"
-import { ArrowUpRight, CheckCircle2 } from "lucide-react"
+import { ArrowUpRight, CheckCircle2, MessageCircle, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 type ContactFormProps = {
   email: string
+  whatsappNumber?: string
 }
 
-export function ContactForm({ email }: ContactFormProps) {
+export function ContactForm({ email, whatsappNumber = "5493364524758" }: ContactFormProps) {
+  const [name, setName] = useState("")
+  const [company, setCompany] = useState("")
+  const [emailAddress, setEmailAddress] = useState("")
+  const [challenge, setChallenge] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const name = String(formData.get("name") || "").trim()
-    const company = String(formData.get("company") || "").trim()
-    const emailAddress = String(formData.get("email") || "").trim()
-    const challenge = String(formData.get("challenge") || "").trim()
+  function handleSendWhatsApp() {
+    const text = [
+      "👋 Hola Fernando! Te contacto desde la web de ControlApps.",
+      `*Nombre:* ${name || "-"}`,
+      `*Empresa:* ${company || "-"}`,
+      `*Email:* ${emailAddress || "-"}`,
+      "",
+      `*Consulta / Necesidad:*`,
+      challenge || "Quisiera información sobre las soluciones de ControlApps.",
+    ].join("\n")
 
-    const subject = encodeURIComponent(`Consulta desde la web - ${company || name || "ControlApps"}`)
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`
+    window.open(url, "_blank")
+    setIsSubmitted(true)
+  }
+
+  function handleSendEmail(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const subject = encodeURIComponent(`Consulta ControlApps - ${company || name || "Nuevo Contacto"}`)
     const body = encodeURIComponent(
       [
         `Nombre: ${name || "-"}`,
@@ -39,93 +54,124 @@ export function ContactForm({ email }: ContactFormProps) {
   }
 
   return (
-    <div className="rounded-[1.8rem] border border-[rgba(211,200,186,0.18)] bg-[linear-gradient(180deg,_rgba(22,31,47,0.98),_rgba(16,23,36,0.98))] p-5 text-white shadow-[0_28px_70px_rgba(8,12,20,0.3)] sm:p-6 md:rounded-[2rem] md:p-8">
-      <div className="mb-6 flex items-start justify-between gap-3 sm:gap-4">
+    <div className="relative rounded-3xl border border-white/10 bg-slate-950/80 p-6 text-white shadow-2xl backdrop-blur-2xl sm:p-8">
+      {/* Glow border corner */}
+      <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+
+      <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgba(207,188,165,0.78)]">Contacto</p>
-          <h3 className="font-display mt-3 text-[2rem] font-semibold leading-[0.95] tracking-[-0.04em] text-[rgb(249,247,242)] sm:text-[2.2rem] md:text-[2.4rem]">
-            Contanos qué parte del trabajo hoy te está frenando.
+          <span className="font-mono text-xs uppercase tracking-[0.28em] text-cyan-400">Canal directo</span>
+          <h3 className="font-display mt-2 text-2xl sm:text-3xl font-semibold leading-tight text-white">
+            Escribile a Fernando o envianos tu necesidad
           </h3>
         </div>
-        <div className="hidden rounded-full border border-[rgba(207,188,165,0.18)] bg-[rgba(255,255,255,0.04)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[rgba(229,220,208,0.76)] md:block">
-          Respuesta inicial
-        </div>
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/50 px-3 py-1 text-[11px] font-mono text-emerald-300">
+          <span className="size-2 rounded-full bg-emerald-400 animate-ping" />
+          Online
+        </span>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-2">
-            <label className="font-mono text-xs uppercase tracking-[0.24em] text-[rgba(207,188,165,0.78)]" htmlFor="name">
-              Nombre
-            </label>
-            <Input
-              id="name"
-              name="name"
-              required
-              className="h-12 rounded-2xl border-[rgba(207,188,165,0.18)] bg-[rgba(255,255,255,0.06)] px-4 text-[15px] font-semibold text-[rgb(248,246,241)] shadow-none placeholder:text-[rgba(229,220,208,0.48)]"
-              placeholder="Tu nombre"
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="font-mono text-xs uppercase tracking-[0.24em] text-[rgba(207,188,165,0.78)]" htmlFor="company">
-              Empresa
-            </label>
-            <Input
-              id="company"
-              name="company"
-              className="h-12 rounded-2xl border-[rgba(207,188,165,0.18)] bg-[rgba(255,255,255,0.06)] px-4 text-[15px] font-semibold text-[rgb(248,246,241)] shadow-none placeholder:text-[rgba(229,220,208,0.48)]"
-              placeholder="Nombre de la empresa"
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <label className="font-mono text-xs uppercase tracking-[0.24em] text-[rgba(207,188,165,0.78)]" htmlFor="email">
-            Email
-          </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="h-12 rounded-2xl border-[rgba(207,188,165,0.18)] bg-[rgba(255,255,255,0.06)] px-4 text-[15px] font-semibold text-[rgb(248,246,241)] shadow-none placeholder:text-[rgba(229,220,208,0.48)]"
-            placeholder="tu@email.com"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <label className="font-mono text-xs uppercase tracking-[0.24em] text-[rgba(207,188,165,0.78)]" htmlFor="challenge">
-            Problema o flujo a resolver
-          </label>
-          <Textarea
-            id="challenge"
-            name="challenge"
-            required
-            className="min-h-36 rounded-[1.5rem] border-[rgba(207,188,165,0.18)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[15px] font-semibold text-[rgb(248,246,241)] shadow-none placeholder:text-[rgba(229,220,208,0.48)]"
-            placeholder="Ejemplo: hoy coordinamos pedidos, aprobaciones y seguimiento entre WhatsApp, planillas y llamadas."
-          />
-        </div>
-
-        <div className="flex flex-col gap-4 border-t border-[rgba(207,188,165,0.12)] pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-md text-sm font-medium leading-6 text-[rgba(233,228,221,0.8)]">
-            El formulario prepara un correo con tu contexto para iniciar la conversación de forma directa.
-          </p>
-          <Button
-            type="submit"
-            className="h-12 w-full rounded-full border border-[rgba(207,188,165,0.2)] bg-[rgb(241,235,226)] px-6 text-sm font-semibold tracking-[0.02em] text-[rgb(20,29,46)] shadow-none hover:bg-[rgb(246,242,236)] sm:w-auto"
-          >
-            Iniciar conversación
-            <ArrowUpRight className="size-4" />
-          </Button>
-        </div>
-      </form>
-
       {isSubmitted ? (
-        <div className="mt-4 flex items-center gap-2 rounded-2xl border border-[rgba(112,149,124,0.26)] bg-[rgba(55,82,64,0.24)] px-4 py-3 text-sm text-[rgb(220,237,223)]">
-          <CheckCircle2 className="size-4" />
-          Se abrió tu cliente de correo con el mensaje preparado.
+        <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/30 p-6 text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 mb-3">
+            <CheckCircle2 className="size-6" />
+          </div>
+          <h4 className="text-lg font-semibold text-white">¡Mensaje preparado!</h4>
+          <p className="mt-2 text-sm text-slate-300">
+            Gracias por escribirnos. Te responderemos a la brevedad por WhatsApp o correo.
+          </p>
+          <button
+            type="button"
+            onClick={() => setIsSubmitted(false)}
+            className="mt-4 text-xs font-mono text-cyan-400 hover:underline"
+          >
+            Enviar otra consulta
+          </button>
         </div>
-      ) : null}
+      ) : (
+        <form onSubmit={handleSendEmail} className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <label className="font-mono text-xs uppercase tracking-wider text-slate-400" htmlFor="name">
+                Tu nombre
+              </label>
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="h-11 rounded-xl border-white/10 bg-slate-900/80 px-3.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400"
+                placeholder="Ej. Juan Pérez"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="font-mono text-xs uppercase tracking-wider text-slate-400" htmlFor="company">
+                Empresa
+              </label>
+              <Input
+                id="company"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                className="h-11 rounded-xl border-white/10 bg-slate-900/80 px-3.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400"
+                placeholder="Nombre de empresa"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="font-mono text-xs uppercase tracking-wider text-slate-400" htmlFor="email">
+              Correo electrónico
+            </label>
+            <Input
+              id="email"
+              type="email"
+              value={emailAddress}
+              onChange={(e) => setEmailAddress(e.target.value)}
+              className="h-11 rounded-xl border-white/10 bg-slate-900/80 px-3.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400"
+              placeholder="tu@empresa.com"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="font-mono text-xs uppercase tracking-wider text-slate-400" htmlFor="challenge">
+              ¿Qué proceso o sistema necesitás ordenar?
+            </label>
+            <Textarea
+              id="challenge"
+              value={challenge}
+              onChange={(e) => setChallenge(e.target.value)}
+              rows={3}
+              className="rounded-xl border-white/10 bg-slate-900/80 p-3.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400"
+              placeholder="Contanos brevemente qué circuito operativo querés resolver o qué te gustaría automatizar..."
+            />
+          </div>
+
+          {/* Dual Action Buttons: Instant WhatsApp or Email */}
+          <div className="pt-2 flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              onClick={handleSendWhatsApp}
+              className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 transition-all hover:opacity-95 active:scale-[0.99]"
+            >
+              <MessageCircle className="size-4" />
+              <span>Enviar directo por WhatsApp</span>
+            </button>
+
+            <Button
+              type="submit"
+              variant="outline"
+              className="rounded-xl border-white/15 bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white px-4 py-3 text-sm"
+            >
+              <Send className="size-4 mr-1.5 text-slate-400" />
+              <span>Enviar por Mail</span>
+            </Button>
+          </div>
+
+          <p className="text-center text-[11px] text-slate-400 pt-1">
+            Respuesta inmediata. También podés escribirnos al WhatsApp directo: <strong className="text-emerald-400">+54 9 336 452-4758</strong>
+          </p>
+        </form>
+      )}
     </div>
   )
 }

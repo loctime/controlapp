@@ -47,12 +47,11 @@ export const siteContent = {
       "No partimos de un producto cerrado. Partimos del problema. Diseñamos aplicaciones, automatizaciones y flujos adaptados a cada contexto para que el equipo gane claridad, control y capacidad de crecer sin sumar complejidad.",
   },
   navigation: [
+    { label: "Agenda Gratis", href: "/#agenda" },
     { label: "ControlDoc", href: "/control-doc" },
-    { label: "Servicios", href: "/servicios" },
-    { label: "Empresa", href: "/#empresa" },
-    { label: "Problemas", href: "/#problemas" },
-    { label: "Soluciones", href: "/#soluciones" },
-    { label: "Metodología", href: "/metodologia" },
+    { label: "ControlAudit", href: "/control-audit" },
+    { label: "Clientes", href: "/#clientes" },
+    { label: "Contacto", href: "/#contacto" },
   ] satisfies NavigationItem[],
   heroStats: [
     { value: "A medida", label: "Soluciones" },
@@ -217,14 +216,39 @@ export const siteContent = {
         "Sí. La lógica de trabajo está enfocada en procesos, fricción operativa y estructura de flujos, por eso puede aplicarse en distintos contextos.",
     },
   ] satisfies FaqItem[],
+  clients: [
+    {
+      name: "Maximia",
+      url: "https://maximia.com.ar/",
+      logo: "/logos/maximia.png",
+      tag: "Seguridad & Operaciones Industriales",
+      description:
+        "Líder en Seguridad y Salud en el Trabajo (ISO 45001), monitoreo de flotas y gestión de contratistas en minería y energía.",
+      result: "Control documental riguroso, trazabilidad de siniestralidad y cero fricción en auditorías.",
+    },
+    {
+      name: "VentaMat",
+      url: "https://ventamat.com/",
+      logo: "/logos/ventamat.png",
+      tag: "Distribución Mayorista & Logística",
+      description:
+        "Empresa de distribución masiva y logística comercial de materiales de construcción y abastecimiento.",
+      result: "Orden operativo en nóminas de distribución, logística de entregas y optimización de flujos.",
+    },
+  ],
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contacto@controldoc.app",
-    region: "Operación remota con foco en equipos y empresas de Latam.",
-    availability: "Primer contacto para diagnóstico y definición de alcance.",
+    phone: "+54 9 336 452-4758",
+    whatsapp: "5493364524758",
+    whatsappUrl: "https://wa.me/5493364524758?text=Hola%20Fernando!%20Vi%20la%20web%20de%20ControlApps%20y%20quiero%20hacerte%20una%20consulta",
+    agendaBotNumber: "+54 9 3407 53-1127",
+    agendaBotUrl: "https://wa.me/5493407531127?text=Hola!%20Quiero%20probar%20la%20agenda%20gratis",
+    region: "Buenos Aires, Argentina (Atención a todo el país y Latam)",
+    availability: "Atención directa de Fernando Vidal • Respuesta rápida por WhatsApp.",
   },
   contactHighlights: [
-    "Diagnóstico inicial sobre el flujo o problema que hoy está desordenado.",
-    "Conversación orientada a viabilidad, alcance y mejor forma de resolverlo.",
-    "Punto de partida concreto para definir una solución a medida.",
+    "Contacto directo por WhatsApp con Fernando Vidal.",
+    "Diagnóstico inicial sin cargo sobre tu operación actual.",
+    "Probá gratis la Agenda IA o coordinemos una demo de ControlDoc y ControlAudit.",
   ],
 }

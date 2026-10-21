@@ -1,64 +1,93 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { MessageCircle, Sparkles } from "lucide-react"
 import { siteContent } from "@/lib/site-content"
 
 export function SiteHeader() {
+  const whatsappUrl = `https://wa.me/${siteContent.contact.whatsapp}?text=${encodeURIComponent(
+    "Hola Fernando! Vi la web de ControlApps y quiero hacerte una consulta."
+  )}`
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(34,30,24,0.12)] bg-[rgba(247,243,237,0.88)] backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-10 md:py-4 lg:px-12">
-        <Link href="/" aria-label="ControlApps — Inicio" className="inline-flex min-w-0 items-center gap-3 text-[rgb(18,24,37)]">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(132,109,84,0.4)] bg-[rgba(255,255,255,0.86)] shadow-[0_1px_2px_rgba(20,29,46,0.06)] md:h-11 md:w-11">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-10 md:py-3.5 lg:px-12">
+        {/* Logo */}
+        <Link href="/" aria-label="ControlApps — Inicio" className="inline-flex min-w-0 items-center gap-3 group">
+          <span className="relative flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-slate-900/90 shadow-md transition-all group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/20 md:h-11 md:w-11">
             <Image
-              src="/brand/isotype-light.png"
+              src="/brand/isotype-dark.png"
               alt=""
               width={44}
               height={44}
               priority
-              className="h-[60%] w-[60%] object-contain"
+              className="h-[65%] w-[65%] object-contain"
             />
           </span>
           <span className="min-w-0">
-            <span className="font-display block text-[1.55rem] font-semibold leading-none tracking-[-0.04em] md:text-[1.85rem]">ControlApps</span>
-            <span className="mt-1 hidden font-mono text-[11px] uppercase tracking-[0.26em] text-[rgb(102,82,60)] sm:block">
-              Software a medida
+            <span className="font-display block text-[1.45rem] font-semibold leading-none tracking-[-0.03em] text-white md:text-[1.7rem]">
+              ControlApps
+            </span>
+            <span className="mt-1 hidden font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-400 sm:block">
+              Software & Automatización
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {siteContent.navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-semibold tracking-[0.01em] text-[rgb(38,43,55)] transition-colors hover:text-[rgb(120,95,68)]"
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+          {siteContent.navigation.map((item) => {
+            const isAgenda = item.href.includes("agenda")
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-medium transition-colors ${
+                  isAgenda
+                    ? "flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                {isAgenda && <Sparkles className="size-3 text-emerald-400 animate-pulse" />}
+                {item.label}
+              </Link>
+            )
+          })}
         </nav>
 
-        <Link
-          href="/#contacto"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[rgba(24,30,43,0.14)] bg-[rgb(20,29,46)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[rgb(28,38,58)] md:px-5 md:py-3"
-        >
-          <span className="sm:hidden">Hablar</span>
-          <span className="hidden sm:inline">Hablemos</span>
-          <ArrowUpRight className="size-4" />
-        </Link>
+        {/* Contact WhatsApp Button */}
+        <div className="flex items-center gap-3">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-600/15 px-4 py-2 text-xs font-semibold text-emerald-300 shadow-sm transition-all hover:bg-emerald-600/30 hover:border-emerald-400 hover:text-white md:px-5 md:py-2.5 md:text-sm"
+          >
+            <MessageCircle className="size-4 text-emerald-400" />
+            <span className="sm:hidden">WhatsApp</span>
+            <span className="hidden sm:inline">WhatsApp directo (+54 9 336 452-4758)</span>
+          </a>
+        </div>
       </div>
 
-      <div className="border-t border-[rgba(34,30,24,0.08)] md:hidden">
-        <nav className="mx-auto flex w-full max-w-7xl gap-2 overflow-x-auto px-5 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {siteContent.navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="shrink-0 rounded-full border border-[rgba(34,30,24,0.1)] bg-[rgba(255,255,255,0.56)] px-4 py-2 text-xs font-semibold tracking-[0.01em] text-[rgb(38,43,55)]"
-            >
-              {item.label}
-            </Link>
-          ))}
+      {/* Mobile navigation row */}
+      <div className="border-t border-white/5 md:hidden">
+        <nav className="mx-auto flex w-full max-w-7xl gap-2 overflow-x-auto px-5 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {siteContent.navigation.map((item) => {
+            const isAgenda = item.href.includes("agenda")
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-[0.01em] transition-colors ${
+                  isAgenda
+                    ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                    : "border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
         </nav>
       </div>
     </header>

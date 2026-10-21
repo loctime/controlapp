@@ -1,29 +1,12 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Cormorant_Garamond, IBM_Plex_Mono, Manrope } from "next/font/google"
+import { FloatingWhatsApp } from "@/components/site/floating-whatsapp"
 import { RefCapture } from "@/components/catalogo/ref-capture"
 import { SiteFooter } from "@/components/site/footer"
 import { SiteHeader } from "@/components/site/header"
 import { StructuredData } from "@/components/structured-data"
 import { getJsonLdGraph, siteConfig } from "@/lib/seo"
 import "./globals.css"
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-})
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
-})
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-cormorant",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -110,12 +93,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${manrope.variable} ${plexMono.variable} ${cormorant.variable} antialiased`}>
+      <body className="antialiased">
         <StructuredData data={getJsonLdGraph()} />
         <RefCapture />
         <SiteHeader />
         {children}
         <SiteFooter />
+        <FloatingWhatsApp />
       </body>
     </html>
   )
