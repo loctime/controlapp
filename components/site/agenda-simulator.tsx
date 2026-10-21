@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   ArrowRight,
   Bot,
@@ -124,7 +124,7 @@ const AGENDA_PRESETS: AgendaPreset[] = [
 ]
 
 /* =========================================================================
-   COMPONENT: AgendaSimulator (Interactive 3D Dual Switcher con rotación automática cada 10s)
+   COMPONENT: AgendaSimulator (Interactive 3D Pop-Out Simulator)
 ========================================================================= */
 
 export function AgendaSimulator() {
@@ -132,6 +132,10 @@ export function AgendaSimulator() {
   const [isRotating, setIsRotating] = useState(false)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [progress, setProgress] = useState(0) // 0 to 100%
+
+  // 3D Parallax Tilt state (tracked via mouse movement)
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0, isHovered: false })
+  const containerRef = useRef<HTMLDivElement>(null)
 
   // Current indices for cycling cases
   const [habIndex, setHabIndex] = useState(0)
@@ -177,7 +181,7 @@ export function AgendaSimulator() {
     setProgress(0)
     setTimeout(() => {
       setIsRotating(false)
-    }, 850)
+    }, 900)
   }
 
   function handleSelectHabilitacion(index: number) {
@@ -198,30 +202,62 @@ export function AgendaSimulator() {
     }, 280)
   }
 
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setTilt({
+      rx: -y * 14,
+      ry: x * 14,
+      isHovered: true,
+    })
+  }
+
+  function handleMouseEnter() {
+    setIsAutoPlaying(false)
+  }
+
+  function handleMouseLeave() {
+    setTilt({ rx: 0, ry: 0, isHovered: false })
+    setIsAutoPlaying(true)
+  }
+
+  // Calculate dynamic 3D transform that pops forward out of the screen
+  const currentBaseY = isFlipped ? 180 : 0
+  const transformStyle = isRotating
+    ? `rotateY(${currentBaseY}deg) translateZ(120px) scale(1.06) rotateX(4deg)`
+    : tilt.isHovered
+    ? `rotateY(${currentBaseY + tilt.ry}deg) rotateX(${tilt.rx}deg) translateZ(45px)`
+    : `rotateY(${currentBaseY}deg) translateZ(25px)`
+
   return (
     <div
-      className="relative mx-auto w-full max-w-lg select-none"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
+      ref={containerRef}
+      className="relative mx-auto w-full max-w-full sm:max-w-lg select-none px-0.5"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* 3D Controls & Automatic 10s Timer Banner */}
-      <div className="mb-3 flex flex-col gap-2 px-1">
-        <div className="flex items-center justify-between gap-2">
-          {/* Mode Selector Tabs */}
+      <div className="mb-3 flex flex-col gap-2">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+          {/* Mode Selector Tabs (Responsive labels for narrow screens) */}
           <div className="inline-flex rounded-2xl bg-slate-900/90 p-1 border border-white/10 shadow-lg backdrop-blur-xl">
             <button
               type="button"
               onClick={() => {
                 if (isFlipped) trigger360Flip()
               }}
-              className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1 sm:gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-semibold transition-all ${
                 !isFlipped
                   ? "bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-md shadow-emerald-500/25"
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              <HardHat className="size-3.5" />
-              <span>Habilitaciones Vaca Muerta</span>
+              <HardHat className="size-3.5 shrink-0" />
+              <span className="sm:hidden">Habilitaciones</span>
+              <span className="hidden sm:inline">Habilitaciones Vaca Muerta</span>
             </button>
 
             <button
@@ -229,46 +265,51 @@ export function AgendaSimulator() {
               onClick={() => {
                 if (!isFlipped) trigger360Flip()
               }}
-              className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1 sm:gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-semibold transition-all ${
                 isFlipped
                   ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 shadow-md shadow-cyan-500/25"
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              <Bot className="size-3.5" />
-              <span>Agenda IA 24/7</span>
+              <Bot className="size-3.5 shrink-0" />
+              <span className="sm:hidden">Agenda IA</span>
+              <span className="hidden sm:inline">Agenda IA 24/7</span>
             </button>
           </div>
 
           {/* 3D Action & Play/Pause Button */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             <button
               type="button"
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               title={isAutoPlaying ? "Pausar rotación automática" : "Reanudar rotación automática"}
-              className="flex items-center justify-center size-8 rounded-xl border border-white/10 bg-slate-900/80 text-slate-300 hover:text-white hover:border-white/20 transition-all"
+              className="flex items-center justify-center size-7 sm:size-8 rounded-xl border border-white/10 bg-slate-900/80 text-slate-300 hover:text-white hover:border-white/20 transition-all shrink-0"
             >
-              {isAutoPlaying ? <Pause className="size-3.5 text-cyan-400" /> : <Play className="size-3.5 text-emerald-400" />}
+              {isAutoPlaying ? (
+                <Pause className="size-3 sm:size-3.5 text-cyan-400" />
+              ) : (
+                <Play className="size-3 sm:size-3.5 text-emerald-400" />
+              )}
             </button>
 
             <button
               type="button"
               onClick={trigger360Flip}
-              title="Girar 360° para ver la otra solución"
-              className="group flex items-center gap-1.5 rounded-xl border border-cyan-500/40 bg-slate-900/90 px-3 py-1.5 text-xs font-medium text-cyan-300 shadow-lg backdrop-blur-xl transition-all hover:border-cyan-400 hover:bg-cyan-950/50 hover:text-cyan-100 active:scale-95"
+              title="Girar en 3D para proyectar la otra solución"
+              className="group flex items-center gap-1 sm:gap-1.5 rounded-xl border border-cyan-500/40 bg-slate-900/90 px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-medium text-cyan-300 shadow-lg backdrop-blur-xl transition-all hover:border-cyan-400 hover:bg-cyan-950/50 hover:text-cyan-100 active:scale-95 shrink-0"
             >
               <RotateCw
-                className={`size-3.5 transition-transform duration-700 ${
+                className={`size-3 sm:size-3.5 transition-transform duration-700 ${
                   isRotating ? "rotate-[360deg]" : "group-hover:rotate-180"
                 }`}
               />
-              <span className="hidden sm:inline font-mono">Girar 3D</span>
+              <span className="font-mono">3D</span>
             </button>
           </div>
         </div>
 
         {/* 10-Second Progress Indicator Bar */}
-        <div className="flex items-center gap-2 px-1">
+        <div className="flex items-center gap-2 px-0.5">
           <div className="flex-1 h-1.5 rounded-full bg-slate-900/80 border border-white/10 overflow-hidden relative">
             <div
               className={`h-full transition-all duration-100 ease-linear rounded-full ${
@@ -279,109 +320,159 @@ export function AgendaSimulator() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider shrink-0 flex items-center gap-1">
+          <span className="font-mono text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wider shrink-0 flex items-center gap-1">
             <span className="inline-block size-1.5 rounded-full bg-cyan-400 animate-ping" />
-            {isAutoPlaying ? "Rotación 3D en 10s" : "Pausado (hover)"}
+            {isAutoPlaying ? "Giro 3D en 10s" : "Pausado (hover)"}
           </span>
         </div>
       </div>
 
-      {/* 3D Perspective Flip Container */}
+      {/* 3D Perspective Stage Container ("Sale de la pantalla") */}
       <div
         className="relative w-full"
         style={{
-          perspective: "1600px",
+          perspective: "1100px",
+          perspectiveOrigin: "center center",
         }}
       >
+        {/* Holographic 3D Floating Floor Shadow underneath */}
+        <div
+          className="pointer-events-none absolute -bottom-7 left-1/2 h-14 w-[85%] -translate-x-1/2 rounded-full transition-all duration-700 -z-10"
+          style={{
+            transform: "rotateX(75deg) translateZ(-50px)",
+            background: !isFlipped
+              ? "radial-gradient(ellipse at center, rgba(16, 185, 129, 0.45) 0%, rgba(6, 182, 212, 0.2) 40%, transparent 75%)"
+              : "radial-gradient(ellipse at center, rgba(6, 182, 212, 0.45) 0%, rgba(59, 130, 246, 0.2) 40%, transparent 75%)",
+            filter: isRotating ? "blur(22px) scale(1.25)" : "blur(14px) scale(1)",
+          }}
+        />
+
         {/* Dynamic Glow aura behind the active card */}
         <div
-          className={`absolute -inset-1.5 rounded-3xl blur-2xl opacity-75 transition-all duration-700 pointer-events-none ${
+          className={`absolute -inset-2 rounded-3xl blur-2xl transition-all duration-700 pointer-events-none ${
+            isRotating ? "opacity-95 scale-105" : "opacity-70 scale-100"
+          } ${
             !isFlipped
               ? "bg-gradient-to-r from-emerald-500/40 via-teal-500/30 to-cyan-500/30"
               : "bg-gradient-to-r from-cyan-500/40 via-blue-600/30 to-purple-600/30"
           }`}
         />
 
-        {/* 3D Flipper element */}
+        {/* Floating Top Holographic Pill Badge */}
         <div
-          className="relative w-full transition-transform duration-800"
+          className="pointer-events-none absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 transition-all duration-500 hidden sm:block"
+          style={{ transform: "translateZ(85px)" }}
+        >
+          <span className="flex items-center gap-1.5 rounded-full border border-cyan-400/50 bg-slate-950/95 px-3 py-0.5 text-[9px] font-mono tracking-widest text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.4)] backdrop-blur-md uppercase">
+            <span className="size-1.5 rounded-full bg-cyan-400 animate-ping" />
+            ✦ Holograma 3D Interactivo ✦
+          </span>
+        </div>
+
+        {/* 3D Flipper element with forward pop-out translation */}
+        <div
+          className="relative w-full transition-transform duration-700"
           style={{
             transformStyle: "preserve-3d",
-            transform: isFlipped ? "rotateY(180deg) translateZ(8px)" : "rotateY(0deg) translateZ(8px)",
-            transitionTimingFunction: "cubic-bezier(0.34, 1.45, 0.64, 1)",
+            transform: transformStyle,
+            transitionTimingFunction: "cubic-bezier(0.25, 1.4, 0.45, 1)",
           }}
         >
           {/* =========================================================================
               CARA A: Habilitaciones Vaca Muerta por WhatsApp (Front Face)
           ========================================================================= */}
           <div
-            className={`w-full rounded-3xl border border-white/10 bg-slate-950/95 p-4 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col justify-between min-h-[570px] ${
+            className={`w-full rounded-3xl border border-white/10 bg-slate-950/95 p-4 sm:p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl flex flex-col justify-between min-h-[510px] sm:min-h-[560px] ${
               isFlipped ? "pointer-events-none" : ""
             }`}
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
+              transformStyle: "preserve-3d",
             }}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/20">
-                    <Truck className="size-6" />
+            {/* Hologram Corner HUD Brackets for 3D Pop effect */}
+            <div
+              className="pointer-events-none absolute inset-2.5 z-20 transition-all"
+              style={{ transform: "translateZ(80px)" }}
+            >
+              <div className="absolute top-0 left-0 size-3 border-t-2 border-l-2 border-emerald-400/70 rounded-tl-sm" />
+              <div className="absolute top-0 right-0 size-3 border-t-2 border-r-2 border-emerald-400/70 rounded-tr-sm" />
+              <div className="absolute bottom-0 left-0 size-3 border-b-2 border-l-2 border-emerald-400/70 rounded-bl-sm" />
+              <div className="absolute bottom-0 right-0 size-3 border-b-2 border-r-2 border-emerald-400/70 rounded-br-sm" />
+            </div>
+
+            {/* Header (Layered at translateZ: 30px) */}
+            <div
+              className="flex items-center justify-between border-b border-white/10 pb-3 sm:pb-4 transition-transform"
+              style={{ transform: "translateZ(30px)" }}
+            >
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="relative shrink-0">
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/20">
+                    <Truck className="size-5 sm:size-6" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-slate-950 bg-emerald-400 animate-ping" />
-                  <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-slate-950 bg-emerald-400" />
+                  <span className="absolute -bottom-0.5 -right-0.5 size-2.5 sm:size-3 rounded-full border-2 border-slate-950 bg-emerald-400 animate-ping" />
+                  <span className="absolute -bottom-0.5 -right-0.5 size-2.5 sm:size-3 rounded-full border-2 border-slate-950 bg-emerald-400" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <h3 className="font-semibold text-white text-sm sm:text-base">
+                    <h3 className="font-semibold text-white text-xs sm:text-base truncate">
                       Habilitaciones Vaca Muerta
                     </h3>
-                    <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-medium text-emerald-300 border border-emerald-500/30">
+                    <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-emerald-300 border border-emerald-500/30 shrink-0">
                       WhatsApp Express
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
-                    <ShieldCheck className="size-3 text-emerald-400" />
-                    YPF • AESA • SACDE • TECHINT
+                  <p className="text-[11px] sm:text-xs text-slate-400 flex items-center gap-1 mt-0.5 truncate">
+                    <ShieldCheck className="size-3 text-emerald-400 shrink-0" />
+                    <span className="truncate">YPF • AESA • SACDE • TECHINT</span>
                   </p>
                 </div>
               </div>
 
-              <div className="hidden sm:flex flex-col items-end">
-                <span className="text-[10px] uppercase font-mono tracking-wider text-emerald-400/90 bg-emerald-950/60 border border-emerald-700/40 px-2.5 py-1 rounded-full">
+              <div
+                className="hidden xs:flex flex-col items-end shrink-0"
+                style={{ transform: "translateZ(75px)" }}
+              >
+                <span className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/50 px-2.5 py-1 rounded-full shadow-[0_0_12px_rgba(16,185,129,0.3)]">
                   Pase Verde
                 </span>
               </div>
             </div>
 
             {/* Chat Simulation Area */}
-            <div className="mt-4 space-y-3 min-h-[220px]">
-              {/* User message */}
-              <div className="flex justify-end">
-                <div className="max-w-[90%] rounded-2xl rounded-tr-sm bg-emerald-700/25 border border-emerald-500/35 p-3.5 text-white shadow-md">
-                  <div className="flex items-center gap-1.5 mb-1 text-[11px] text-emerald-300 font-mono">
-                    <FileText className="size-3 text-emerald-400" />
+            <div className="mt-3 sm:mt-4 space-y-3 min-h-[190px] sm:min-h-[220px]">
+              {/* User message (Layered at translateZ: 45px) */}
+              <div
+                className="flex justify-end transition-transform"
+                style={{ transform: "translateZ(45px)" }}
+              >
+                <div className="max-w-[95%] sm:max-w-[88%] rounded-2xl rounded-tr-sm bg-emerald-700/25 border border-emerald-500/35 p-3 sm:p-3.5 text-white shadow-xl backdrop-blur-md">
+                  <div className="flex items-center gap-1.5 mb-1 text-[10px] sm:text-[11px] text-emerald-300 font-mono">
+                    <FileText className="size-3 text-emerald-400 shrink-0" />
                     <span>Contratista en base / yacimiento</span>
                   </div>
-                  <p className="text-sm font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm font-medium leading-relaxed">
                     &ldquo;{selectedHabilitacion.userText}&rdquo;
                   </p>
-                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-emerald-950/70 border border-emerald-600/30 px-2 py-1 text-[11px] text-emerald-200 font-mono">
-                    <FileCheck2 className="size-3 text-emerald-400" />
-                    <span>{selectedHabilitacion.fileChip}</span>
+                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-emerald-950/80 border border-emerald-600/40 px-2 py-1 text-[10px] sm:text-[11px] text-emerald-200 font-mono max-w-full overflow-hidden">
+                    <FileCheck2 className="size-3 text-emerald-400 shrink-0" />
+                    <span className="truncate">{selectedHabilitacion.fileChip}</span>
                   </div>
-                  <div className="mt-1.5 flex items-center justify-end gap-1 text-[10px] text-emerald-300/70">
+                  <div className="mt-1 flex items-center justify-end gap-1 text-[10px] text-emerald-300/70">
                     <span>10:42</span>
                     <CheckCheck className="size-3 text-emerald-400" />
                   </div>
                 </div>
               </div>
 
-              {/* Assistant Response */}
-              <div className="flex justify-start">
-                <div className="max-w-[95%] rounded-2xl rounded-tl-sm bg-slate-900/90 border border-emerald-500/30 p-3.5 text-slate-100 shadow-xl">
+              {/* Assistant Response (Layered at translateZ: 60px) */}
+              <div
+                className="flex justify-start transition-transform"
+                style={{ transform: "translateZ(60px)" }}
+              >
+                <div className="max-w-[98%] sm:max-w-[92%] rounded-2xl rounded-tl-sm bg-slate-900/95 border border-emerald-500/35 p-3 sm:p-3.5 text-slate-100 shadow-2xl backdrop-blur-md">
                   {isProcessingHab ? (
                     <div className="flex items-center gap-2 py-3 px-2 text-emerald-400 text-xs font-mono">
                       <Zap className="size-4 animate-spin text-emerald-400" />
@@ -397,14 +488,14 @@ export function AgendaSimulator() {
                           <span>Habilitación cargada en sistema</span>
                         </div>
                         <span
-                          className={`rounded-full border px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider ${selectedHabilitacion.badgeColor}`}
+                          className={`rounded-full border px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider shrink-0 ${selectedHabilitacion.badgeColor}`}
                         >
                           {selectedHabilitacion.badge}
                         </span>
                       </div>
 
-                      <div className="space-y-1.5 rounded-xl bg-slate-950/70 p-2.5 border border-white/5 text-xs">
-                        <p className="font-semibold text-white text-[11px]">
+                      <div className="space-y-1.5 rounded-xl bg-slate-950/70 p-2 sm:p-2.5 border border-white/5 text-[11px] sm:text-xs">
+                        <p className="font-semibold text-white text-[10px] sm:text-[11px]">
                           {selectedHabilitacion.detailTitle}
                         </p>
                         <ul className="space-y-1 text-slate-300">
@@ -417,13 +508,13 @@ export function AgendaSimulator() {
                         </ul>
                       </div>
 
-                      <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400">
-                        <span className="text-emerald-300/90 font-mono flex items-center gap-1">
-                          <Zap className="size-3 text-emerald-400" />
-                          {selectedHabilitacion.saving}
+                      <div className="mt-2 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400">
+                        <span className="text-emerald-300/90 font-mono flex items-center gap-1 truncate mr-2">
+                          <Zap className="size-3 text-emerald-400 shrink-0" />
+                          <span className="truncate">{selectedHabilitacion.saving}</span>
                         </span>
-                        <span className="font-mono text-[10px] text-slate-500">
-                          10:43 • Listo para ingresar
+                        <span className="font-mono text-[9px] sm:text-[10px] text-slate-500 shrink-0">
+                          10:43 • Listo
                         </span>
                       </div>
                     </>
@@ -432,12 +523,15 @@ export function AgendaSimulator() {
               </div>
             </div>
 
-            {/* Presets Selector Pills */}
-            <div className="mt-4 pt-3 border-t border-white/10">
-              <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
+            {/* Presets Selector Pills (Layered at translateZ: 35px) */}
+            <div
+              className="mt-3 pt-2.5 border-t border-white/10 transition-transform"
+              style={{ transform: "translateZ(35px)" }}
+            >
+              <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">
                 Probá el flujo con este tipo de trámite:
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {HABILITACIONES_PRESETS.map((preset, idx) => {
                   const active = idx === habIndex
                   return (
@@ -445,7 +539,7 @@ export function AgendaSimulator() {
                       key={preset.id}
                       type="button"
                       onClick={() => handleSelectHabilitacion(idx)}
-                      className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                      className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium transition-all ${
                         active
                           ? "bg-emerald-500/25 text-emerald-200 border border-emerald-400/60 shadow-sm shadow-emerald-500/30"
                           : "bg-slate-900 text-slate-300 border border-white/10 hover:border-white/20 hover:text-white"
@@ -458,18 +552,22 @@ export function AgendaSimulator() {
               </div>
             </div>
 
-            {/* CTA Button directly to WhatsApp */}
-            <div className="mt-5">
+            {/* CTA Button directly to WhatsApp (Layered at translateZ: 75px) */}
+            <div
+              className="mt-4 transition-transform"
+              style={{ transform: "translateZ(75px)" }}
+            >
               <a
                 href="https://wa.me/5493364524758?text=Hola%20ControlApps,%20vi%20la%20web%20y%20quiero%20consultar%20por%20la%20carga%20de%20habilitaciones%20para%20Vaca%20Muerta"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-5 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:opacity-95 hover:shadow-lg hover:shadow-emerald-500/25 active:scale-[0.99]"
+                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slate-950 transition-all hover:opacity-95 hover:shadow-[0_15px_30px_rgba(16,185,129,0.35)] active:scale-[0.99] text-center"
               >
-                <span>Mandar Documentos por WhatsApp (+54 9 336 452-4758)</span>
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                <span className="sm:hidden">Mandar por WhatsApp (+54 9 336 452-4758)</span>
+                <span className="hidden sm:inline">Mandar Documentos por WhatsApp (+54 9 336 452-4758)</span>
+                <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="mt-2 text-center text-[11px] text-slate-400">
+              <p className="mt-1.5 text-center text-[10px] sm:text-[11px] text-slate-400">
                 Atención comercial ControlApps • Respuesta inmediata para contratistas.
               </p>
             </div>
@@ -479,58 +577,79 @@ export function AgendaSimulator() {
               CARA B: ControlApps Agenda IA 24/7 (Back Face, rotated 180deg)
           ========================================================================= */}
           <div
-            className={`w-full rounded-3xl border border-white/10 bg-slate-950/95 p-4 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col justify-between min-h-[570px] absolute inset-0 ${
+            className={`w-full rounded-3xl border border-white/10 bg-slate-950/95 p-4 sm:p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl flex flex-col justify-between min-h-[510px] sm:min-h-[560px] absolute inset-0 ${
               !isFlipped ? "pointer-events-none" : ""
             }`}
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
+              transformStyle: "preserve-3d",
             }}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-cyan-600 to-teal-400 text-white shadow-lg shadow-cyan-500/20">
-                    <Bot className="size-6" />
+            {/* Hologram Corner HUD Brackets for 3D Pop effect */}
+            <div
+              className="pointer-events-none absolute inset-2.5 z-20 transition-all"
+              style={{ transform: "translateZ(80px)" }}
+            >
+              <div className="absolute top-0 left-0 size-3 border-t-2 border-l-2 border-cyan-400/70 rounded-tl-sm" />
+              <div className="absolute top-0 right-0 size-3 border-t-2 border-r-2 border-cyan-400/70 rounded-tr-sm" />
+              <div className="absolute bottom-0 left-0 size-3 border-b-2 border-l-2 border-cyan-400/70 rounded-bl-sm" />
+              <div className="absolute bottom-0 right-0 size-3 border-b-2 border-r-2 border-cyan-400/70 rounded-br-sm" />
+            </div>
+
+            {/* Header (Layered at translateZ: 30px) */}
+            <div
+              className="flex items-center justify-between border-b border-white/10 pb-3 sm:pb-4 transition-transform"
+              style={{ transform: "translateZ(30px)" }}
+            >
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="relative shrink-0">
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-cyan-600 to-teal-400 text-white shadow-lg shadow-cyan-500/20">
+                    <Bot className="size-5 sm:size-6" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-slate-950 bg-cyan-400 animate-ping" />
-                  <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-slate-950 bg-cyan-400" />
+                  <span className="absolute -bottom-0.5 -right-0.5 size-2.5 sm:size-3 rounded-full border-2 border-slate-950 bg-cyan-400 animate-ping" />
+                  <span className="absolute -bottom-0.5 -right-0.5 size-2.5 sm:size-3 rounded-full border-2 border-slate-950 bg-cyan-400" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <h3 className="font-semibold text-white text-sm sm:text-base">
+                    <h3 className="font-semibold text-white text-xs sm:text-base truncate">
                       ControlApps Agenda
                     </h3>
-                    <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-medium text-cyan-300 border border-cyan-500/30">
+                    <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-cyan-300 border border-cyan-500/30 shrink-0">
                       Bot IA 24/7
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
-                    <Sparkles className="size-3 text-cyan-400" />
-                    Voz & Texto con Groq Whisper
+                  <p className="text-[11px] sm:text-xs text-slate-400 flex items-center gap-1 mt-0.5 truncate">
+                    <Sparkles className="size-3 text-cyan-400 shrink-0" />
+                    <span className="truncate">Voz & Texto con Groq Whisper</span>
                   </p>
                 </div>
               </div>
 
-              <div className="hidden sm:flex flex-col items-end">
-                <span className="text-[10px] uppercase font-mono tracking-wider text-cyan-400/90 bg-cyan-950/60 border border-cyan-700/40 px-2.5 py-1 rounded-full">
+              <div
+                className="hidden xs:flex flex-col items-end shrink-0"
+                style={{ transform: "translateZ(75px)" }}
+              >
+                <span className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-cyan-400 bg-cyan-950/80 border border-cyan-500/50 px-2.5 py-1 rounded-full shadow-[0_0_12px_rgba(6,182,212,0.3)]">
                   100% Gratis
                 </span>
               </div>
             </div>
 
             {/* Chat Area */}
-            <div className="mt-4 space-y-3 min-h-[220px]">
-              {/* User message */}
-              <div className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-cyan-600/25 border border-cyan-500/30 p-3.5 text-white shadow-md">
-                  <div className="flex items-center gap-2 mb-1 text-[11px] text-cyan-300 font-mono">
-                    <Mic className="size-3 text-cyan-400" />
+            <div className="mt-3 sm:mt-4 space-y-3 min-h-[190px] sm:min-h-[220px]">
+              {/* User message (Layered at translateZ: 45px) */}
+              <div
+                className="flex justify-end transition-transform"
+                style={{ transform: "translateZ(45px)" }}
+              >
+                <div className="max-w-[95%] sm:max-w-[88%] rounded-2xl rounded-tr-sm bg-cyan-600/25 border border-cyan-500/35 p-3 sm:p-3.5 text-white shadow-xl backdrop-blur-md">
+                  <div className="flex items-center gap-1.5 mb-1 text-[10px] sm:text-[11px] text-cyan-300 font-mono">
+                    <Mic className="size-3 text-cyan-400 shrink-0" />
                     <span>Audio / Texto recibido</span>
                   </div>
-                  <p className="text-sm font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm font-medium leading-relaxed">
                     &ldquo;{selectedAgenda.prompt}&rdquo;
                   </p>
                   <div className="mt-1 flex items-center justify-end gap-1 text-[10px] text-cyan-300/70">
@@ -540,9 +659,12 @@ export function AgendaSimulator() {
                 </div>
               </div>
 
-              {/* Bot response */}
-              <div className="flex justify-start">
-                <div className="max-w-[90%] rounded-2xl rounded-tl-sm bg-slate-900/90 border border-cyan-500/25 p-3.5 text-slate-100 shadow-xl">
+              {/* Bot response (Layered at translateZ: 60px) */}
+              <div
+                className="flex justify-start transition-transform"
+                style={{ transform: "translateZ(60px)" }}
+              >
+                <div className="max-w-[98%] sm:max-w-[92%] rounded-2xl rounded-tl-sm bg-slate-900/95 border border-cyan-500/35 p-3 sm:p-3.5 text-slate-100 shadow-2xl backdrop-blur-md">
                   {isProcessingAgenda ? (
                     <div className="flex items-center gap-2 py-3 px-2 text-cyan-400 text-xs font-mono">
                       <Zap className="size-4 animate-spin text-cyan-400" />
@@ -557,7 +679,7 @@ export function AgendaSimulator() {
                         <span>Anotado en tu Agenda de ControlApps</span>
                       </div>
 
-                      <div className="space-y-1.5 rounded-xl bg-slate-950/60 p-2.5 border border-white/5 text-xs">
+                      <div className="space-y-1.5 rounded-xl bg-slate-950/70 p-2 sm:p-2.5 border border-white/5 text-[11px] sm:text-xs">
                         <div className="flex items-start gap-2">
                           <Clock className="size-3.5 text-cyan-400 mt-0.5 shrink-0" />
                           <div>
@@ -576,10 +698,10 @@ export function AgendaSimulator() {
                         </div>
                       </div>
 
-                      <p className="mt-2 text-[11px] text-slate-400 leading-snug">
+                      <p className="mt-2 text-[10px] sm:text-[11px] text-slate-400 leading-snug">
                         🔔 Te llegará la alerta puntual con el resumen de ControlApps directamente a tu WhatsApp.
                       </p>
-                      <div className="mt-1.5 text-right text-[10px] text-slate-500 font-mono">
+                      <div className="mt-1 text-right text-[9px] sm:text-[10px] text-slate-500 font-mono">
                         10:42 • 0.3s respuesta
                       </div>
                     </>
@@ -588,12 +710,15 @@ export function AgendaSimulator() {
               </div>
             </div>
 
-            {/* Preset Selector Pills */}
-            <div className="mt-4 pt-3 border-t border-white/10">
-              <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
+            {/* Preset Selector Pills (Layered at translateZ: 35px) */}
+            <div
+              className="mt-3 pt-2.5 border-t border-white/10 transition-transform"
+              style={{ transform: "translateZ(35px)" }}
+            >
+              <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">
                 Probá con estos ejemplos:
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {AGENDA_PRESETS.map((preset, idx) => {
                   const active = idx === agendaIndex
                   return (
@@ -601,7 +726,7 @@ export function AgendaSimulator() {
                       key={preset.id}
                       type="button"
                       onClick={() => handleSelectAgenda(idx)}
-                      className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                      className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium transition-all ${
                         active
                           ? "bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-sm shadow-cyan-500/30"
                           : "bg-slate-900 text-slate-300 border border-white/10 hover:border-white/20 hover:text-white"
@@ -614,18 +739,21 @@ export function AgendaSimulator() {
               </div>
             </div>
 
-            {/* Live CTA Button */}
-            <div className="mt-5">
+            {/* Live CTA Button (Layered at translateZ: 75px) */}
+            <div
+              className="mt-4 transition-transform"
+              style={{ transform: "translateZ(75px)" }}
+            >
               <a
                 href="https://wa.me/5493407531127?text=Hola!%20Quiero%20probar%20la%20agenda%20gratis"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 px-5 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:opacity-95 hover:shadow-lg hover:shadow-cyan-500/25 active:scale-[0.99]"
+                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slate-950 transition-all hover:opacity-95 hover:shadow-[0_15px_30px_rgba(6,182,212,0.35)] active:scale-[0.99] text-center"
               >
                 <span>Probar la Agenda con tu WhatsApp (Gratis)</span>
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="mt-2 text-center text-[11px] text-slate-400">
+              <p className="mt-1.5 text-center text-[10px] sm:text-[11px] text-slate-400">
                 Sin suscripción, sin tarjeta y sin instalar nada.
               </p>
             </div>

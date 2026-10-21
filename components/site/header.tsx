@@ -10,7 +10,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-10 md:py-3.5 lg:px-12">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 md:px-10 py-2.5 sm:py-3.5">
         {/* Logo */}
         <Link href="/" aria-label="ControlApps — Inicio" className="inline-flex min-w-0 items-center gap-3 group">
           <span className="relative flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-slate-900/90 shadow-md transition-all group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/20 md:h-11 md:w-11">

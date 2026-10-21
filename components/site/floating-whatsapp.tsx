@@ -17,7 +17,7 @@ export function FloatingWhatsApp() {
     <aside aria-label="Contacto por WhatsApp" className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {/* Popover / Chat Card */}
       {isOpen && (
-        <div className="relative w-[320px] rounded-3xl border border-emerald-500/30 bg-slate-950/95 p-5 text-slate-100 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="relative w-[calc(100vw-2.5rem)] max-w-[320px] rounded-3xl border border-emerald-500/30 bg-slate-950/95 p-5 text-slate-100 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-200">
           <button
             type="button"
             onClick={() => {

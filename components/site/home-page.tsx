@@ -32,26 +32,28 @@ export function HomePage() {
   )}`
 
   return (
-    <main className="bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <main className="bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-clip min-w-0 w-full">
       {/* =========================================================================
           HERO SECTION (Futuristic Dark Theme + 360 Interactive Simulator)
       ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-28">
+      <section className="relative overflow-hidden border-b border-white/10 pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
         {/* Glow ambient background elements */}
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(14,165,233,0.18),rgba(255,255,255,0))]" />
         <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-cyan-600/10 via-emerald-600/10 to-transparent blur-3xl" />
 
-        <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-6 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-12 items-center">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 sm:gap-10 px-4 sm:px-6 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-12 items-center">
           {/* Hero Left Column */}
-          <div>
+          <div className="min-w-0 w-full">
             {/* Announcement Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-950/40 px-3.5 py-1.5 text-xs font-mono text-emerald-300 backdrop-blur-md shadow-sm shadow-emerald-500/10">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>Vaca Muerta & Soluciones Operativas • Habilitaciones WhatsApp & Agenda IA</span>
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-950/40 px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-mono text-emerald-300 backdrop-blur-md shadow-sm shadow-emerald-500/10">
+              <span className="flex h-2 w-2 shrink-0 rounded-full bg-emerald-400 animate-ping" />
+              <span className="truncate max-w-[270px] xs:max-w-[340px] sm:max-w-none">
+                Vaca Muerta & Soluciones • Habilitaciones WhatsApp & Agenda IA
+              </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display mt-6 max-w-3xl text-[clamp(2.8rem,8vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-white">
+            <h1 className="font-display mt-4 sm:mt-6 text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] sm:leading-[1.02] tracking-tight text-white break-words">
               Habilitaciones y software inteligente para la{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
                 operación real
@@ -60,61 +62,61 @@ export function HomePage() {
             </h1>
 
             {/* Description */}
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+            <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-300">
               Carga ágil de habilitaciones por WhatsApp para contratistas en <strong>Vaca Muerta</strong> (YPF, AESA, SACDE, Techint), gestión documental integral (<strong>ControlDoc</strong>) e higiene y seguridad (<strong>ControlAudit</strong>). Además, probá gratis nuestra <strong>Agenda con IA</strong>.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+            <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href={whatsappComercialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 px-6 py-4 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:opacity-95 active:scale-[0.98] sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:opacity-95 active:scale-[0.98] sm:w-auto text-center"
               >
-                <HardHat className="size-4" />
+                <HardHat className="size-4 shrink-0" />
                 <span>Cargar Habilitaciones Vaca Muerta</span>
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 shrink-0" />
               </a>
 
               <a
                 href={agendaBotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-slate-900/80 px-6 py-4 text-sm font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-cyan-500/40 hover:text-white sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-slate-900/80 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-cyan-500/40 hover:text-white sm:w-auto text-center"
               >
-                <Sparkles className="size-4 text-cyan-400" />
+                <Sparkles className="size-4 text-cyan-400 shrink-0" />
                 <span>Probar Agenda IA Gratis</span>
               </a>
             </div>
 
             {/* Contact quick note */}
-            <p className="mt-3 text-xs text-slate-400">
+            <p className="mt-3 text-[11px] sm:text-xs text-slate-400">
               WhatsApp comercial directo: <strong className="text-emerald-400">+54 9 336 452-4758</strong> • Carga y aprobación ágil para yacimiento
             </p>
 
             {/* Stats row */}
-            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Vaca Muerta</p>
-                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">Habilitaciones</p>
-                <p className="text-xs text-slate-400">YPF • AESA • SACDE</p>
+            <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-2 sm:gap-4 border-t border-white/10 pt-4 sm:pt-6">
+              <div className="min-w-0">
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-emerald-400 truncate">Vaca Muerta</p>
+                <p className="mt-1 text-sm sm:text-xl md:text-2xl font-bold text-white truncate">Habilitaciones</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 truncate">YPF • AESA • SACDE</p>
               </div>
-              <div className="border-l border-white/10 pl-4">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-cyan-400">ControlDoc</p>
-                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">Gestión Doc</p>
-                <p className="text-xs text-slate-400">Empresarial</p>
+              <div className="border-l border-white/10 pl-2 sm:pl-4 min-w-0">
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-cyan-400 truncate">ControlDoc</p>
+                <p className="mt-1 text-sm sm:text-xl md:text-2xl font-bold text-white truncate">Gestión Doc</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 truncate">Empresarial</p>
               </div>
-              <div className="border-l border-white/10 pl-4">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-teal-400">Agenda IA</p>
-                <p className="mt-1 text-xl font-bold text-white sm:text-2xl">100% Gratis</p>
-                <p className="text-xs text-slate-400">WhatsApp 24/7</p>
+              <div className="border-l border-white/10 pl-2 sm:pl-4 min-w-0">
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-teal-400 truncate">Agenda IA</p>
+                <p className="mt-1 text-sm sm:text-xl md:text-2xl font-bold text-white truncate">100% Gratis</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 truncate">WhatsApp 24/7</p>
               </div>
             </div>
           </div>
 
           {/* Hero Right Column: Interactive WhatsApp AI Simulator */}
-          <div className="relative lg:pl-4">
+          <div className="relative min-w-0 w-full lg:pl-4">
             <AgendaSimulator />
           </div>
         </div>
@@ -138,9 +140,9 @@ export function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {/* Card Maximia */}
             <div className="relative rounded-3xl border border-white/10 bg-slate-950/70 p-6 sm:p-8 backdrop-blur-xl transition-all hover:border-red-500/30 hover:shadow-xl hover:shadow-red-500/5">
-              <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-36 items-center justify-center rounded-2xl bg-white p-2 shadow-inner">
+              <div className="flex items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-5">
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                  <div className="flex h-14 w-28 sm:h-16 sm:w-36 shrink-0 items-center justify-center rounded-2xl bg-white p-2 shadow-inner">
                     <Image
                       src="/logos/maximia.png"
                       alt="Logo de Maximia"
@@ -149,16 +151,16 @@ export function HomePage() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white">Maximia SA</h3>
-                    <p className="text-xs text-red-400 font-mono">maximia.com.ar</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg font-bold text-white truncate">Maximia SA</h3>
+                    <p className="text-xs text-red-400 font-mono truncate">maximia.com.ar</p>
                   </div>
                 </div>
                 <a
                   href="https://maximia.com.ar/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/10 p-2 text-slate-400 hover:border-white/30 hover:text-white"
+                  className="rounded-full border border-white/10 p-2 text-slate-400 hover:border-white/30 hover:text-white shrink-0"
                   aria-label="Sitio web de Maximia"
                 >
                   <ArrowUpRight className="size-4" />
@@ -181,9 +183,9 @@ export function HomePage() {
 
             {/* Card VentaMat */}
             <div className="relative rounded-3xl border border-white/10 bg-slate-950/70 p-6 sm:p-8 backdrop-blur-xl transition-all hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5">
-              <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-36 items-center justify-center rounded-2xl bg-white p-2 shadow-inner">
+              <div className="flex items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-5">
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                  <div className="flex h-14 w-28 sm:h-16 sm:w-36 shrink-0 items-center justify-center rounded-2xl bg-white p-2 shadow-inner">
                     <Image
                       src="/logos/ventamat.png"
                       alt="Logo de VentaMat"
@@ -192,16 +194,16 @@ export function HomePage() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white">VentaMat</h3>
-                    <p className="text-xs text-cyan-400 font-mono">ventamat.com</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg font-bold text-white truncate">VentaMat</h3>
+                    <p className="text-xs text-cyan-400 font-mono truncate">ventamat.com</p>
                   </div>
                 </div>
                 <a
                   href="https://ventamat.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/10 p-2 text-slate-400 hover:border-white/30 hover:text-white"
+                  className="rounded-full border border-white/10 p-2 text-slate-400 hover:border-white/30 hover:text-white shrink-0"
                   aria-label="Sitio web de VentaMat"
                 >
                   <ArrowUpRight className="size-4" />
