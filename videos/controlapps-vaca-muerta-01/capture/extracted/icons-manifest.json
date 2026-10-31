@@ -1,0 +1,42 @@
+{
+  "schema": "hyperframes.capture.icons.v1",
+  "headline": {
+    "file": "assets/favicon.png",
+    "source": "assets/icon-icon-512x512.png",
+    "rank": 0,
+    "shape": "badge",
+    "reason": "no bare-mark candidate among 3 icon(s); used the best-ranked badge"
+  },
+  "icons": [
+    {
+      "file": "assets/icon-icon-512x512.png",
+      "url": "https://www.controlapps.ar/icon-512.png",
+      "rel": "icon",
+      "sizes": "512x512",
+      "type": "image/png",
+      "rank": 0,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    },
+    {
+      "file": "assets/icon-icon-192x192.png",
+      "url": "https://www.controlapps.ar/icon-192.png",
+      "rel": "icon",
+      "sizes": "192x192",
+      "type": "image/png",
+      "rank": 1,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    },
+    {
+      "file": "assets/icon-apple-touch-icon-180x180.png",
+      "url": "https://www.controlapps.ar/apple-icon.png",
+      "rel": "apple-touch-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "rank": 2,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    }
+  ]
+}
