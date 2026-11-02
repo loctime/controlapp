@@ -1,0 +1,15 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;background:#f7f3ed;color:#121825;font-family:Arial,sans-serif}.safe{position:absolute;top:192px;right:108px;bottom:280px;left:108px}.top{font:700 26px monospace;letter-spacing:.08em;display:flex;justify-content:space-between}.headline{font-size:78px;font-weight:900;letter-spacing:-.06em;line-height:.94;margin:138px 0 54px;text-transform:uppercase}.stack{position:relative;height:690px}.paper{position:absolute;width:80%;height:230px;box-sizing:border-box;border:4px solid #121825;padding:30px;background:#fff;font:700 29px monospace;letter-spacing:.03em}.paper:nth-child(1){top:0;left:0;background:#e1d5c7}.paper:nth-child(2){top:160px;left:104px;background:#fff}.paper:nth-child(3){top:320px;left:28px;background:#cfbca5}.reject{float:right;color:#bf3c3c;font-size:26px}.cost{position:absolute;bottom:0;left:0;right:0;background:#121825;color:#fff;padding:38px;border:4px solid #121825;font-size:58px;font-weight:900;line-height:.94;text-transform:uppercase}
+  </style>
+  <div id="root" data-composition-id="scene-rechazos" data-width="1080" data-height="1920"><div class="safe"><div class="top" id="top"><span>DOCUMENTACIÓN DISPERSA</span><span>02 · 04</span></div><h1 class="headline" id="headline">UN PAPEL<br>RECHAZADO<br>NO ES SOLO<br>UN PAPEL.</h1><section class="stack"><div class="paper">ART 2026 <b class="reject">REBOTADO</b></div><div class="paper">SEGURO VEHICULAR <b class="reject">REVISAR</b></div><div class="paper">F.931 <b class="reject">REBOTADO</b></div></section><div class="cost" id="cost">DÍAS SIN<br>FACTURAR.</div></div></div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo('#top',{y:22,opacity:0},{y:0,opacity:1,duration:.36,ease:'power3.out'},0)
+      .fromTo('#headline',{y:54,opacity:0},{y:0,opacity:1,duration:.52,ease:'power4.out'},.18)
+      .fromTo('.paper',{y:80,scale:.94,opacity:0},{y:0,scale:1,opacity:1,duration:.46,stagger:.25,ease:'back.out(1.4)'},.76)
+      .fromTo('.reject',{x:18,opacity:0},{x:0,opacity:1,duration:.25,stagger:.25,ease:'power2.out'},1.14)
+      .fromTo('#cost',{y:46,scale:.96,opacity:0},{y:0,scale:1,opacity:1,duration:.5,ease:'back.out(1.15)'},2.65);
+    window.__timelines['scene-rechazos']=tl;
+  </script>
+</template>

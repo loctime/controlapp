@@ -1,0 +1,15 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;background:#121825;color:#fff;font-family:Arial,sans-serif}.safe{position:absolute;top:192px;right:108px;bottom:280px;left:108px}.top{color:#d4cdc4;font:700 26px monospace;letter-spacing:.08em;display:flex;justify-content:space-between}.headline{font-size:70px;font-weight:900;line-height:.93;letter-spacing:-.06em;text-transform:uppercase;margin:112px 0 60px}.steps{display:grid;gap:20px}.step{min-height:204px;box-sizing:border-box;padding:28px;border:4px solid #cfbca5;background:#1c222f;display:grid;grid-template-columns:130px 1fr;align-items:center}.num{color:#cfbca5;font-size:82px;font-weight:900;letter-spacing:-.08em}.label{font-size:46px;font-weight:900;line-height:.93;text-transform:uppercase}.note{font:600 26px monospace;color:#d4cdc4;margin-top:14px;letter-spacing:-.03em}.arrow{height:28px;margin-left:52px;border-left:4px solid #cfbca5;transform-origin:top}.bottom{margin:48px 0 0;font-size:31px;line-height:1.25;color:#d4cdc4}.em{color:#cfbca5;font-weight:800}
+  </style>
+  <div id="root" data-composition-id="scene-circuito" data-width="1080" data-height="1920"><div class="safe"><div class="top" id="top"><span>UN CIRCUITO MÁS CLARO</span><span>03 · 04</span></div><h1 class="headline" id="headline">ANTES DE QUE<br>EL PROBLEMA<br>LLEGUE A LA<br>TRANQUERA.</h1><section class="steps"><div class="step"><div class="num">01</div><div><div class="label">Recibí</div><div class="note">WhatsApp · Email · PDF</div></div></div><div class="arrow"></div><div class="step"><div class="num">02</div><div><div class="label">Ordená y revisá</div><div class="note">Datos · vigencias · requisitos</div></div></div><div class="arrow"></div><div class="step"><div class="num">03</div><div><div class="label">Prepará la carga</div><div class="note">Para tu circuito y plataforma</div></div></div></section><p class="bottom" id="bottom">Menos carga manual. <span class="em">Más control sobre lo que está por vencer o rebotar.</span></p></div></div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo('#top',{y:22,opacity:0},{y:0,opacity:1,duration:.36,ease:'power3.out'},0)
+      .fromTo('#headline',{y:54,opacity:0},{y:0,opacity:1,duration:.55,ease:'power4.out'},.18)
+      .fromTo('.step',{x:-68,opacity:0},{x:0,opacity:1,duration:.48,stagger:.72,ease:'power3.out'},.8)
+      .fromTo('.arrow',{scaleY:0,opacity:0},{scaleY:1,opacity:1,duration:.24,stagger:.72,ease:'power2.out'},1.37)
+      .fromTo('#bottom',{y:28,opacity:0},{y:0,opacity:1,duration:.48,ease:'power3.out'},3.05);
+    window.__timelines['scene-circuito']=tl;
+  </script>
+</template>
