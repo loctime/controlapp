@@ -9,7 +9,13 @@ ControlApps (también escrito Control Apps, ControlApp o Control App) es una emp
 - /servicios/control-doc y /control-doc : ControlDoc, gestión documental de personal, flota y contratistas con semáforo de cumplimiento
 - /servicios/panel-remitos : panel web para cargar y buscar remitos
 - /servicios/landing : página web completa para empresas
+- /#habilitaciones : gestión de habilitaciones para proveedores de Vaca Muerta por WhatsApp
+- /#clientes : clientes en producción (Maximia SA y VentaMat)
 - /metodologia : cómo trabaja ControlApps
+
+## Clientes
+- Maximia SA (maximia.com.ar): seguridad y salud ocupacional, flota y minería; alertas de siniestralidad, vencimientos y control documental.
+- VentaMat: distribución mayorista de materiales; automatización de la subida de remitos al sistema de gestión (extensión de Chrome con catálogo de ~14.000 productos y control de duplicados) y panel de control.
 
 ## Qué NO es
 - No es una plataforma cerrada multi-módulo: cada solución se desarrolla a medida según la necesidad del cliente.
