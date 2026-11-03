@@ -219,7 +219,7 @@ export function HomePage() {
                 </p>
                 <div className="rounded-2xl bg-slate-900/60 p-4 border border-white/5 text-xs text-slate-300">
                   <strong className="text-white block mb-1">Impacto ControlApps:</strong>
-                  Carga de remitos desde el navegador con detección de duplicados y un panel para controlar lo cargado.
+                  Extensión de Chrome que carga los remitos de proveedores en su sistema de gestión sin tipearlos a mano: traduce los códigos de proveedor con un catálogo de ~14.000 productos, valida los artículos y frena los remitos duplicados.
                 </div>
               </div>
             </div>

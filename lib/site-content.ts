@@ -234,7 +234,7 @@ export const siteContent = {
       tag: "Distribución Mayorista & Materiales",
       description:
         "Distribución mayorista de materiales, con operación diaria de remitos entre sucursales.",
-      result: "Carga de remitos desde el navegador con detección de duplicados y un panel para controlar lo cargado.",
+      result: "Extensión de Chrome que carga los remitos de proveedores en su sistema de gestión sin tipearlos a mano: traduce los códigos de proveedor con un catálogo de ~14.000 productos, valida los artículos y frena los remitos duplicados.",
     },
   ],
   contact: {
