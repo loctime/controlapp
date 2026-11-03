@@ -185,7 +185,7 @@ export function HomePage() {
             <div className="relative rounded-3xl border border-white/10 bg-slate-950/70 p-6 sm:p-8 backdrop-blur-xl transition-all hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5">
               <div className="flex items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-5">
                 <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-                  <div className="flex h-14 w-28 sm:h-16 sm:w-36 shrink-0 items-center justify-center rounded-2xl bg-white p-2 shadow-inner">
+                  <div className="flex h-14 w-28 sm:h-16 sm:w-36 shrink-0 items-center justify-center rounded-2xl bg-slate-800 p-2 shadow-inner">
                     <Image
                       src="/logos/ventamat.png"
                       alt="Logo de VentaMat"
@@ -212,14 +212,14 @@ export function HomePage() {
 
               <div className="mt-5 space-y-3">
                 <span className="inline-block rounded-full bg-cyan-950/40 border border-cyan-800/40 px-3 py-1 text-xs font-mono text-cyan-300">
-                  Distribución Mayorista • Logística & Materiales
+                  Distribución Mayorista • Materiales
                 </span>
                 <p className="text-sm leading-relaxed text-slate-300">
-                  Cadena de comercialización y distribución masiva de materiales con complejas rutas y dotaciones comerciales.
+                  Distribución mayorista de materiales, con operación diaria de remitos entre sucursales.
                 </p>
                 <div className="rounded-2xl bg-slate-900/60 p-4 border border-white/5 text-xs text-slate-300">
                   <strong className="text-white block mb-1">Impacto ControlApps:</strong>
-                  Sistematización de nóminas y rutas de distribución, erradicando hojas dispersas y agilizando la coordinación entre depósitos y entregas.
+                  Carga de remitos desde el navegador con detección de duplicados y un panel para controlar lo cargado.
                 </div>
               </div>
             </div>

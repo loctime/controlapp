@@ -231,10 +231,10 @@ export const siteContent = {
       name: "VentaMat",
       url: "https://ventamat.com/",
       logo: "/logos/ventamat.png",
-      tag: "Distribución Mayorista & Logística",
+      tag: "Distribución Mayorista & Materiales",
       description:
-        "Empresa de distribución masiva y logística comercial de materiales de construcción y abastecimiento.",
-      result: "Orden operativo en nóminas de distribución, logística de entregas y optimización de flujos.",
+        "Distribución mayorista de materiales, con operación diaria de remitos entre sucursales.",
+      result: "Carga de remitos desde el navegador con detección de duplicados y un panel para controlar lo cargado.",
     },
   ],
   contact: {
