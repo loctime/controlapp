@@ -215,11 +215,11 @@ export function HomePage() {
                   Distribución Mayorista • Materiales
                 </span>
                 <p className="text-sm leading-relaxed text-slate-300">
-                  Distribución mayorista de materiales, con operación diaria de remitos entre sucursales.
+                  Distribución mayorista de materiales con alto volumen diario de remitos de proveedores.
                 </p>
                 <div className="rounded-2xl bg-slate-900/60 p-4 border border-white/5 text-xs text-slate-300">
                   <strong className="text-white block mb-1">Impacto ControlApps:</strong>
-                  Extensión de Chrome que carga los remitos de proveedores en su sistema de gestión sin tipearlos a mano: traduce los códigos de proveedor con un catálogo de ~14.000 productos, valida los artículos y frena los remitos duplicados.
+                  Automatización de la subida de remitos al sistema de gestión y panel de control para revisar y seguir lo cargado. La extensión traduce códigos de proveedor con un catálogo de ~14.000 productos, valida artículos y frena duplicados.
                 </div>
               </div>
             </div>
