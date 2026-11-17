@@ -1,0 +1,23 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;background:#121825;color:#fff;font-family:Arial,sans-serif}
+    .photo{position:absolute;inset:-45px;background:linear-gradient(180deg,rgba(9,14,25,.18),rgba(9,14,25,.84)),url("../../assets/images/vaca-muerta-tranquera.png") center/cover;transform-origin:center}
+    .safe{position:absolute;top:192px;right:108px;bottom:280px;left:108px}
+    .chrome{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;font:700 26px monospace;letter-spacing:.08em;color:#f7f3ed}
+    .tag{border:2px solid #cfbca5;border-radius:99px;padding:16px 22px;color:#cfbca5;background:rgba(18,24,37,.78)}
+    .copy{position:absolute;top:300px;left:0;right:0}.eyebrow{color:#cfbca5;font:700 28px monospace;letter-spacing:.08em;margin:0 0 30px}.headline{margin:0;font-size:92px;font-weight:900;line-height:.93;letter-spacing:-.06em;text-transform:uppercase}.headline-line{display:block}.highlight{color:#cfbca5}.foot{position:absolute;left:0;bottom:0;margin:0;font:700 26px monospace;letter-spacing:.08em;color:#d4cdc4}
+  </style>
+  <div id="root" data-composition-id="scene-tranquera" data-width="1080" data-height="1920">
+    <div class="photo" id="photo" data-layout-allow-overflow></div>
+    <div class="safe"><div class="chrome" id="chrome"><span class="tag">NEUQUÉN · VACA MUERTA</span><span>CONTROL DOCUMENTAL</span></div><main class="copy"><p class="eyebrow" id="eyebrow">⚠ PROBLEMAS DE INGRESO</p><h1 class="headline"><span class="headline-line">TU GENTE</span><span class="headline-line">Y TUS</span><span class="headline-line highlight">CAMIONETAS</span><span class="headline-line">FRENADAS?</span></h1></main><p class="foot" id="foot">01 · EL COSTO DE UN RECHAZO</p></div>
+  </div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo('#photo',{scale:1.12},{scale:1.02,duration:3.7,ease:'none'},0)
+      .fromTo('#chrome',{y:34,opacity:0},{y:0,opacity:1,duration:.42,ease:'power3.out'},.05)
+      .fromTo('#eyebrow',{y:24,opacity:0},{y:0,opacity:1,duration:.36,ease:'power3.out'},.35)
+      .fromTo('.headline-line',{y:86,opacity:0},{y:0,opacity:1,duration:.5,stagger:.18,ease:'power4.out'},.54)
+      .fromTo('#foot',{y:22,opacity:0},{y:0,opacity:1,duration:.35,ease:'power3.out'},2.35);
+    window.__timelines['scene-tranquera']=tl;
+  </script>
+</template>

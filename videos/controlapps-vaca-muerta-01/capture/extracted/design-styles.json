@@ -1,0 +1,222 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "107.2px",
+      "fontWeight": "600",
+      "lineHeight": "92.192px",
+      "letterSpacing": "-6.432px",
+      "color": "#121825",
+      "sampleText": "Software a medida para ordenar operación real con más criter"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "70.4px",
+      "fontWeight": "600",
+      "lineHeight": "66.176px",
+      "letterSpacing": "-3.52px",
+      "color": "#121825",
+      "sampleText": "Una firma de software enfocada en resolver trabajo operativo"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "67.2px",
+      "fontWeight": "600",
+      "lineHeight": "63.168px",
+      "letterSpacing": "-3.36px",
+      "color": "#121825",
+      "sampleText": "Cuando la operación vive de excepciones, el sistema dejó de "
+    },
+    {
+      "role": "body",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "40px",
+      "fontWeight": "600",
+      "lineHeight": "40px",
+      "letterSpacing": "-1.6px",
+      "color": "#F8F6F1",
+      "sampleText": "Menos parche.Más sistema."
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "37.6px",
+      "fontWeight": "600",
+      "lineHeight": "37.6px",
+      "letterSpacing": "-1.504px",
+      "color": "#121825",
+      "sampleText": "Aplicaciones internas a medida"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "lineHeight": "28px",
+      "letterSpacing": "-0.6px",
+      "color": "#121825",
+      "sampleText": "Procesos sostenidos por planillas, mensajes y memoria operat"
+    },
+    {
+      "role": "link",
+      "fontFamily": "ui-sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#121825",
+      "sampleText": "ControlAppsSoftware a medida"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      8,
+      12,
+      14,
+      16,
+      20,
+      24,
+      28,
+      32,
+      40,
+      48,
+      56,
+      64,
+      80
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "16px",
+    "9999px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(20, 24, 31, 0.06) 0px 18px 40px 0px",
+      "count": 4
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(8, 12, 20, 0.24) 0px 28px 70px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(8, 12, 20, 0.3) 0px 28px 70px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Iniciar conversación",
+      "background": "#F1EBE2",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#141D2E",
+      "padding": "8px 24px",
+      "borderRadius": "9999px",
+      "border": "1px solid rgba(207, 188, 165, 0.2)",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "48px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#121825",
+      "padding": "28px",
+      "borderRadius": "30.4px",
+      "border": "1px solid rgba(34, 30, 24, 0.12)",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(20, 24, 31, 0.06) 0px 18px 40px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "390.188px"
+    },
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#121825",
+      "padding": "28px",
+      "borderRadius": "28.8px",
+      "border": "1px solid rgba(34, 30, 24, 0.12)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "343.609px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#F7F3ED",
+    "backgroundImage": "",
+    "backdropFilter": "blur(24px)",
+    "color": "#121825",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "83.0938px"
+  },
+  "chips": [
+    {
+      "label": "Diagnóstico + build",
+      "background": "transparent",
+      "color": "#E6DDD1",
+      "padding": "8px 16px",
+      "borderRadius": "9999px",
+      "border": "1px solid rgba(213, 202, 190, 0.16)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "400",
+      "height": "34.5px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "radial-gradient(circle at 0% 0%, rgba(172, 149, 114, 0.1), rgba(0, 0, 0, 0) 28%), linear-gradient(rgb(249, 246, 240), rgb(243, 239, 232))",
+      "area": 16523370
+    },
+    {
+      "value": "radial-gradient(circle at 0% 0%, rgba(165, 141, 111, 0.12), rgba(0, 0, 0, 0) 28%), linear-gradient(rgba(249, 246, 240, 0.96), rgb(243, 239, 232))",
+      "area": 2512320
+    },
+    {
+      "value": "linear-gradient(rgb(22, 31, 47), rgb(16, 23, 36))",
+      "area": 2104296
+    },
+    {
+      "value": "linear-gradient(rgba(22, 31, 47, 0.98), rgba(16, 23, 36, 0.98))",
+      "area": 478519
+    },
+    {
+      "value": "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02))",
+      "area": 379476
+    }
+  ],
+  "glass": [
+    {
+      "backdropFilter": "blur(24px)",
+      "background": "rgba(247, 243, 237, 0.88)",
+      "border": "",
+      "borderRadius": "0px",
+      "boxShadow": "",
+      "area": 159540
+    }
+  ]
+}

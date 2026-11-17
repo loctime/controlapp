@@ -1,0 +1,156 @@
+[span] ControlApps
+[span] Software a medida
+[a] ControlDoc
+[a] Servicios
+[a] Problemas
+[a] Soluciones
+[a] Metodología
+[span] Hablemos
+[a] ControlDoc
+[a] Servicios
+[a] Problemas
+[a] Soluciones
+[a] Metodología
+[p] ControlApps
+[h1] Software a medida para ordenar operación real con más criterio y menos fricción.
+[p] Diseñamos aplicaciones internas, automatizaciones y sistemas de seguimiento para equipos que necesitan una forma más clara de trabajar, decidir y escalar.
+[a] Contanos tu necesidad
+[a] Ver metodología
+[p] Soluciones
+[p] A medida
+[p] Punto de partida
+[p] Operación real
+[p] Resultado esperado
+[p] Menos fricción
+[p] Arquitectura operativa
+[p] Menos parche.
+[p] Más sistema.
+[div] Diagnóstico + build
+[p] Diagnóstico operativo
+[p] Leemos cuellos de botella, repeticiones y puntos ciegos antes de definir la solución.
+[p] Diseño funcional
+[p] Ordenamos el flujo objetivo con criterios claros de uso, control y trazabilidad.
+[p] Construcción sobria
+[p] Implementamos sistemas que sostienen el trabajo diario sin ruido adicional.
+[p] Entrada
+[p] Procesos manuales, circuitos dispersos, controles débiles
+[p] Diseño
+[p] Aplicaciones internas, automatización y visibilidad operativa
+[p] Salida
+[p] Trabajo más claro, medible y sostenible
+[p] Qué es ControlApps
+[h2] Una firma de software enfocada en resolver trabajo operativo que hoy se sostiene con esfuerzo excesivo.
+[p] ControlApps es una empresa de software a medida enfocada en resolver problemas reales de operación. Analizamos cómo circula el trabajo, dónde aparecen repeticiones, demoras o errores, y convertimos esas fricciones en herramientas digitales útiles.
+[p] No partimos de un producto cerrado. Partimos del problema. Diseñamos aplicaciones, automatizaciones y flujos adaptados a cada contexto para que el equipo gane claridad, control y capacidad de crecer sin sumar complejidad.
+[p] Problemas que resolvemos
+[h2] Cuando la operación vive de excepciones, el sistema dejó de acompañar al negocio.
+[h3] Procesos sostenidos por planillas, mensajes y memoria operativa
+[p] Cuando la información está repartida y el seguimiento depende de personas puntuales, el proceso pierde consistencia y escala mal.
+[h3] Tareas repetitivas que consumen tiempo y generan errores evitables
+[p] Carga manual, estados que no se actualizan solos, controles duplicados y pasos innecesarios afectan productividad y precisión.
+[h3] Herramientas genéricas que obligan a trabajar alrededor del sistema
+[p] Si el equipo tiene que adaptarse al software en vez de que el software acompañe la operación, aparece fricción todos los días.
+[h3] Falta de trazabilidad, control y visibilidad sobre lo que está pasando
+[p] Sin una herramienta correcta, es difícil saber qué está pendiente, dónde se frenó un flujo o qué riesgo se está acumulando.
+[p] Qué desarrollamos
+[h2] Sistemas hechos para la lógica real de cada organización.
+[p] Aplicaciones internas, automatizaciones, paneles de seguimiento, circuitos de aprobación y herramientas de control que reemplazan trabajo manual y decisiones improvisadas.
+[div] Sistema específico
+[h3] Aplicaciones internas a medida
+[p] Herramientas específicas para tareas, áreas o circuitos que hoy no están bien resueltos por software estándar.
+[span] Gestión operativa
+[span] Seguimiento de tareas
+[span] Aprobaciones
+[span] Tableros de control
+[div] Sistema específico
+[h3] Automatización de flujos repetitivos
+[p] Procesos que dejan de depender de pasos manuales y empiezan a ejecutar reglas, avisos y cambios de estado con lógica definida.
+[span] Notificaciones
+[span] Asignaciones
+[span] Estados automáticos
+[span] Validaciones
+[div] Sistema específico
+[h3] Centralización de información y trazabilidad
+[p] Datos, archivos, responsables y eventos reunidos en un sistema claro para trabajar con contexto y control.
+[span] Documentación
+[span] Historial
+[span] Permisos
+[span] Visibilidad transversal
+[div] Sistema específico
+[h3] Software para operación comercial y administrativa
+[p] Soluciones para circuitos de ventas, gastos, documentación, coordinación interna y otras áreas clave del negocio.
+[span] Operación comercial
+[span] Administración
+[span] Backoffice
+[span] Coordinación interna
+[p] Producto propio
+[h2] ControlDoc, nuestra plataforma de gestión documental.
+[p] Plataforma SaaS para la gestión integral de documentación y contratistas. Auditoría asistida por OCR, trazabilidad total y semáforo de cumplimiento en tiempo real.
+[a] Conocer ControlDoc
+[p] Cómo trabajamos
+[h2] Entendemos la operación antes de tocar una línea de software.
+[p] El objetivo no es sumar otra herramienta al problema. El objetivo es diseñar una herramienta que simplifique el trabajo, dé visibilidad y sostenga el crecimiento.
+[h3] Levantamiento del proceso actual
+[p] Entendemos cómo se trabaja hoy, qué herramientas intervienen y dónde se genera fricción.
+[h3] Definición del flujo objetivo
+[p] Ordenamos el circuito ideal, priorizamos lo crítico y bajamos el alcance a algo útil y ejecutable.
+[h3] Construcción del sistema
+[p] Desarrollamos la solución a medida y la ajustamos sobre el uso real para que acompañe la operación.
+[h3] Evolución y mejora continua
+[p] Una vez que el flujo está vivo, refinamos lo necesario para sostener crecimiento y control.
+[a] Ver metodología completa
+[h3] Partimos del problema, no del catálogo
+[p] Cada solución nace de la operación real y no de intentar encajar a la empresa dentro de una herramienta genérica.
+[h3] Pensamos en uso diario, no en promesas abstractas
+[p] La prioridad es que el software sirva en la práctica, reduzca carga operativa y mejore la toma de decisiones.
+[h3] Amplia cobertura funcional
+[p] Podemos abordar distintos tipos de procesos siempre que el foco sea ordenar, automatizar y ganar control.
+[p] Cobertura
+[h2] Amplia cobertura funcional, siempre con foco en resolver fricción operativa.
+[div] Documentación y trazabilidad
+[div] Circuitos de aprobación
+[div] Operación comercial
+[div] Backoffice y administración
+[div] Seguimiento de tareas y estados
+[div] Reportes y visibilidad operativa
+[div] Coordinación interna y equipos
+[div] Automatización de acciones repetitivas
+[p] Preguntas frecuentes
+[h2] Lo importante es entender el problema y construir la herramienta correcta.
+[h3] ¿Trabajan sobre una plataforma ya cerrada?
+[p] No. ControlApps desarrolla software a medida. Podemos reutilizar criterios, experiencia o componentes, pero cada solución se plantea según la necesidad concreta del cliente.
+[h3] ¿Qué tipo de problemas tiene sentido resolver con ustedes?
+[p] Procesos repetitivos, tareas manuales, falta de trazabilidad, información dispersa, controles débiles y operaciones que hoy dependen demasiado de planillas, mensajes o memoria operativa.
+[h3] ¿Solo hacen sistemas grandes?
+[p] No necesariamente. Muchas veces el mayor impacto viene de resolver bien un flujo específico y luego ampliar sobre esa base.
+[h3] ¿Pueden intervenir en distintos sectores o tipos de empresa?
+[p] Sí. La lógica de trabajo está enfocada en procesos, fricción operativa y estructura de flujos, por eso puede aplicarse en distintos contextos.
+[p] Siguiente paso
+[h2] Si tu operación ya no debería depender de improvisación, empecemos por ahí.
+[p] Podemos revisar el flujo actual, detectar dónde se pierde tiempo o control, y definir si conviene automatizar, centralizar información o construir una aplicación a medida.
+[span] Diagnóstico inicial sobre el flujo o problema que hoy está desordenado.
+[span] Conversación orientada a viabilidad, alcance y mejor forma de resolverlo.
+[span] Punto de partida concreto para definir una solución a medida.
+[p] Contacto
+[h3] Contanos qué parte del trabajo hoy te está frenando.
+[div] Respuesta inicial
+[label] Nombre
+[label] Empresa
+[label] Email
+[label] Problema o flujo a resolver
+[p] El formulario prepara un correo con tu contexto para iniciar la conversación de forma directa.
+[button] Iniciar conversación
+[span] ControlApps
+[p] Empresa de software a medida dedicada a resolver fricción operativa, automatizar tareas repetitivas y transformar procesos dispersos en sistemas claros.
+[p] Navegación
+[a] ControlDoc
+[a] Servicios
+[a] Problemas
+[a] Soluciones
+[a] Metodología
+[p] Contacto
+[a] contacto@controldoc.app
+[span] Operación remota con foco en equipos y empresas de Latam.
+[span] Primer contacto para diagnóstico y definición de alcance.
+[p] ControlApps desarrolla software a medida para resolver operación real.
+[p] ControlApps

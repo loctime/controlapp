@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "instagram-reels",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:31:12.861Z"
+    },
+    "aspect": {
+      "value": "1080x1920",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:31:12.915Z"
+    },
+    "language": {
+      "value": "es",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:31:12.969Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:31:13.022Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:31:13.076Z"
+    },
+    "style_preset.product-launch-video": {
+      "value": "creative-mode",
+      "confirmed_in": [
+        "controlapps-vaca-muerta-01"
+      ],
+      "updated_at": "2026-10-15T00:32:13.411Z"
+    }
+  },
+  "sightings": {}
+}

@@ -1,0 +1,18 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;background:#6e573b;color:#fff;font-family:Arial,sans-serif}.safe{position:absolute;top:192px;right:108px;bottom:280px;left:108px}.top{font:700 26px monospace;letter-spacing:.08em;display:flex;justify-content:space-between;color:#f7f3ed}.brand{margin-top:244px;font-size:40px;font-weight:800;letter-spacing:.09em}.headline{font-size:86px;font-weight:900;line-height:.9;letter-spacing:-.065em;text-transform:uppercase;margin:38px 0 0}.headline-line{display:block}.sub{font-size:34px;line-height:1.25;margin:48px 0 0;max-width:840px}.cta{position:absolute;left:0;right:0;bottom:58px;background:#cfbca5;border:4px solid #121825;color:#121825;padding:34px;text-align:center;font-size:35px;font-weight:900;text-transform:uppercase;letter-spacing:.02em;transform-origin:center}.small{position:absolute;bottom:0;margin:0;font:700 26px monospace;letter-spacing:.06em;color:#f7f3ed}
+  </style>
+  <div id="root" data-composition-id="scene-cta" data-width="1080" data-height="1920"><div class="safe"><div class="top" id="top"><span>CONTROLAPPS</span><span>04 · 04</span></div><div class="brand" id="brand">SOFTWARE PARA OPERACIÓN REAL</div><h1 class="headline"><span class="headline-line">QUE LA</span><span class="headline-line">DOCUMENTACIÓN</span><span class="headline-line">NO TE FRENE.</span></h1><p class="sub" id="sub">Revisamos el flujo que hoy depende de mensajes, planillas y carga manual.</p><div class="cta" id="cta">CONSULTÁ POR WHATSAPP</div><p class="small" id="small">CONTROLAPPS.AR · VACA MUERTA</p></div></div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo('#top',{y:22,opacity:0},{y:0,opacity:1,duration:.36,ease:'power3.out'},0)
+      .fromTo('#brand',{y:34,opacity:0},{y:0,opacity:1,duration:.42,ease:'power3.out'},.3)
+      .fromTo('.headline-line',{y:68,opacity:0},{y:0,opacity:1,duration:.46,stagger:.2,ease:'power4.out'},.7)
+      .fromTo('#sub',{y:24,opacity:0},{y:0,opacity:1,duration:.42,ease:'power3.out'},1.55)
+      .fromTo('#cta',{y:36,scale:.92,opacity:0},{y:0,scale:1,opacity:1,duration:.46,ease:'back.out(1.5)'},2.18)
+      .to('#cta',{scale:1.035,duration:.16,ease:'power2.out'},2.82)
+      .to('#cta',{scale:1,duration:.22,ease:'power2.inOut'},2.98)
+      .fromTo('#small',{y:18,opacity:0},{y:0,opacity:1,duration:.32,ease:'power3.out'},2.72);
+    window.__timelines['scene-cta']=tl;
+  </script>
+</template>
